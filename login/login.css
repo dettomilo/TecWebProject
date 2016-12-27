@@ -8,6 +8,13 @@ body {
 
 .form-control {
     border-radius: 20px;
+    transition-duration: 0.5s;
+}
+
+.form-control:focus {
+    border-radius: 25px;
+    border-color: #bb2e29;
+    box-shadow: 5px 5px 20px #6b0808;
 }
 
 .btn {
@@ -22,8 +29,18 @@ body {
     color: #FFFFFF;
     border-radius: 25px;
     width: 50%;
+    box-shadow: 5px 5px 20px #6b0808;
 }
 
-.modal-dialog {
+.modal-content  {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
 
+.modal-header {
+
+
+  color: #333;
+  text-shadow: 5px 5px 70px #444;
 }

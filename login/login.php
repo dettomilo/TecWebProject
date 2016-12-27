@@ -18,6 +18,7 @@
 
     <script type="text/javascript" src="sha512.js"></script>
     <script type="text/javascript" src="forms.js"></script>
+    <!-- bootstrap CSS override -->
     <link rel="stylesheet" type="text/css" href="login.css" media="screen" />
   </head>
 
