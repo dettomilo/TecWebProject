@@ -18,6 +18,7 @@
 
     <script type="text/javascript" src="sha512.js"></script>
     <script type="text/javascript" src="forms.js"></script>
+    <link rel="stylesheet" type="text/css" href="login.css" media="screen" />
   </head>
 
   <body>
@@ -68,17 +69,17 @@
             <div class="modal-body">
 
               <div class="form-group">
+                <label for="email">Email</label>
                 <input type="email" name="email" id="email" autocomplete="on" placeholder="email istituzionale" class="form-control input-lg"/><br/>
-                <label for="email" class="sr-only">Email</label>
               </div>
 
               <div class="form-group">
+                  <label for="password">Password</label>
                 <input type="password" name="password" id="password" autocomplete="off" placeholder="password" class="form-control input-lg"/><br/>
-                <label for="password" class="sr-only">Password</label>
               </div>
 
               <div class="form-group">
-                <input type="button" value="Login" onclick="formhash(this.form, this.form.password);" class="btn btn-block btn-lg btn-danger"/>
+                <input type="button" value="Login" onclick="formhash(this.form, this.form.password);" class="btn btn-block btn-lg"/>
               </div>
 
             </div>

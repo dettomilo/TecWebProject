@@ -1,0 +1,29 @@
+body {
+     background: url("loginBack.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.form-control {
+    border-radius: 20px;
+}
+
+.btn {
+    background-color: #bb2e29;
+    color: #EEEEEE;
+    border-radius: 20px;
+    transition-duration: 0.5s;
+}
+
+.btn:hover {
+    background-color: #6b0808;
+    color: #FFFFFF;
+    border-radius: 25px;
+    width: 50%;
+}
+
+.modal-dialog {
+
+}
