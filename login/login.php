@@ -18,6 +18,7 @@
 
     <script type="text/javascript" src="sha512.js"></script>
     <script type="text/javascript" src="forms.js"></script>
+
     <!-- bootstrap CSS override -->
     <link rel="stylesheet" type="text/css" href="login.css" media="screen" />
   </head>
@@ -29,7 +30,7 @@
         <?php
         //Includo il file esterno relativo le funzioni di login.
         require("functions.php");
-
+        $varMsg = "";
         //Avvio una sessione php sicura.
         sec_session_start();
 
@@ -38,9 +39,7 @@
         if (isset($_POST['email'], $_POST['pw'])) {
           //Controllo che i valori non siano nulli
           if($_POST['email'] == NULL || $_POST['pw'] == NULL) {
-            echo "
-            <p class='text-center'>I valori non possono essere nulli</p>
-            ";
+            $varMsg =  "<p class='text-center response'>Inserisci le tue credenziali</p>";
           } else {
             //Includo il file esterno relativo la connessione al database.
             require("db_connect.php");
@@ -50,16 +49,16 @@
             //Eseguo un tentativo di login.
             if (login($email, $password, $mysqli) == true) {
               //Login eseguito.
-              echo "<p class='text-center'>Success: You have been logged in</p>";
+              $varMsg =  "<p class='text-center response'>Login completato</p>";
             } else {
               //Login fallito.
-              echo "<p class='text-center'>Login failed</p>";
+              $varMsg =  "<p class='text-center response'>Login fallito</p>";
             }
           }
         }
         ?>
 
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-transparent">
           <div class="modal-content">
 
             <div class="modal-header">
@@ -80,6 +79,9 @@
               </div>
 
               <div class="form-group">
+                <?php
+                  echo $varMsg;
+                 ?>
                 <input type="button" value="Login" onclick="formhash(this.form, this.form.password);" class="btn btn-block btn-lg"/>
               </div>
 
