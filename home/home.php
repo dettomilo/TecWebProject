@@ -26,9 +26,15 @@
 	  			<header class="header">
 	  				<div>
 	  					<a href="#">
-	            			<img src="alma-mater-studiorum.png" alt="Alma Mater Studiorum A.D. 1088">
-	            			<img class="unibo" src="universita-di-bologna.png" alt="Università di Bologna">
-            			</a>
+								<div class="row">
+									<div class="col-md-6">
+										<img class="img-responsive pull-right" src="alma-mater-studiorum.png" alt="Alma Mater Studiorum A.D. 1088">
+									</div>
+									<div class="col-md-6">
+	          				<img class="img-responsive" src="universita-di-bologna.png" alt="Università di Bologna">
+									</div>
+								</div>
+      				</a>
 	  				</div>
 	  			</header>
 
