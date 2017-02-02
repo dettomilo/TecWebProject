@@ -51,13 +51,61 @@
 				            </div>
 				    	</div>
 				    </div>
-				</nav>
+					</nav>
 
-				<div class="container">
-					<h1>Benvenuto su Smart Unibo!</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					<p><a class="btn btn-primary btn-lg" href="#" role="button">Clicca qui!</a></p>
-			    </div>
+				<div class="jumbotron">
+					<div class="container">
+						<!-- NEWS ATENEO -->
+						<h1 class="display-1">News Ateneo</h1>
+						<div class="row">
+
+			        <div class="col-sm-3">
+						    <div class="thumbnail">
+						      <img src="http://www.fortyfort.org/images/news.jpg" alt="Immagine della Notizia">
+						      <div class="caption">
+						        <h3>Titolo Notizia</h3>
+						        <p>Lorem ipsum dolor sit amet, consectetur adipiscia elit, sed eiusmod.</p>
+						        <p><a href="#" class="btn btn-primary" role="button">Leggi articolo</a></p>
+						      </div>
+						    </div>
+							</div>
+
+							<div class="col-sm-3">
+						    <div class="thumbnail">
+						      <img src="http://www.fortyfort.org/images/news.jpg" alt="Immagine della Notizia">
+						      <div class="caption">
+						        <h3>Titolo Notizia</h3>
+						        <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor.</p>
+						        <p><a href="#" class="btn btn-primary" role="button">Leggi articolo</a></p>
+						      </div>
+						    </div>
+							</div>
+
+							<div class="col-sm-3">
+						    <div class="thumbnail">
+						      <img src="http://www.fortyfort.org/images/news.jpg" alt="Immagine della Notizia">
+						      <div class="caption">
+						        <h3>Titolo Notizia</h3>
+						        <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor.</p>
+						        <p><a href="#" class="btn btn-primary" role="button">Leggi articolo</a></p>
+						      </div>
+						    </div>
+							</div>
+
+							<div class="col-sm-3">
+						    <div class="thumbnail">
+						      <img src="http://www.fortyfort.org/images/news.jpg" alt="Immagine della Notizia">
+						      <div class="caption">
+						        <h3>Titolo Notizia</h3>
+						        <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor.</p>
+						        <p><a href="#" class="btn btn-primary" role="button">Leggi di più</a></p>
+						      </div>
+						    </div>
+							</div>
+
+			      </div>
+					</div>
+				</div>
   			</section>
   		</main>
   	</body>
