@@ -106,6 +106,13 @@
 			      </div>
 					</div>
 				</div>
+
+				<hr>
+
+				<footer>
+	        <p>© Smart Unibo - 2017</p>
+	      </footer>
+
   			</section>
   		</main>
   	</body>
