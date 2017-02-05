@@ -42,14 +42,15 @@
             $varMsg =  "<p class='text-center response'>Inserisci le tue credenziali</p>";
           } else {
             //Includo il file esterno relativo la connessione al database.
-            require("db_connect.php");
+            require($_SERVER['DOCUMENT_ROOT'] . "/smartunibo/database/db_connect.php");
             //Ottengo l'email inserita e la password criptata.
             $email = $_POST['email'];
             $password = $_POST['pw'];
             //Eseguo un tentativo di login.
             if (login($email, $password, $mysqli) == true) {
               //Login eseguito.
-              $varMsg =  "<p class='text-center response'>Login completato</p>";
+              header("Location: http://localhost/smartunibo/home/home.php");
+              exit;
             } else {
               //Login fallito.
               $varMsg =  "<p class='text-center response'>Login fallito</p>";

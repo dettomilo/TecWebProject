@@ -14,7 +14,7 @@ function sec_session_start() {
   session_set_cookie_params($cookieParams["lifetime"], $cookieParams["path"], $cookieParams["domain"], $secure, $httponly);
   session_name($session_name); //Imposto il nome di sessione.
   session_start(); //Avvio la sessione php.
-  session_regenerate_id(); //Rigenero la sessione e cancello quella creata in precendeza.
+  session_regenerate_id(); //Rigenero la sessione e cancello quella creata in precedenza.
 }
 
 
@@ -33,7 +33,7 @@ function login($email, $password, $mysqli) {
     $stmt->bind_result($matricola, $nome, $cognome, $db_password, $salt); //Recupero il risultato della query e lo memorizzo nelle variabili.
     $stmt->fetch();
     $password = hash('sha512', $password.$salt); //Codifico la password usando una chiave univoca.
-    
+
     //Se l'utente esiste...
     if ($stmt->num_rows == 1) {
       //Verifico che non sia disabilitato in seguito all'esecuzione di troppi tentativi di accesso errati.
