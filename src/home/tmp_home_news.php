@@ -8,7 +8,7 @@
     <main>
       <?php
         //Includo il file esterno relativo la connessione al database.
-        require($_SERVER['DOCUMENT_ROOT'] . "/smartunibo/database/db_connect.php");
+        require($_SERVER['DOCUMENT_ROOT'] . "/smartunibo/src/database/db_connect.php");
 
         //Includo il file esterno relativo le funzioni per l'ottenimento delle notizie.
         require("news/news_functions.php");
