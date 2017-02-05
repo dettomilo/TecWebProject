@@ -1,8 +1,9 @@
 <!-- php code to use stylesheet in php-created html -->
 <?php
 
-	header("Content-type: text/css");
+	header("Content-type: text/css; charset: UTF-8");
 	$paragraphSize = '85%';
+	$imageSize = "80%";
 ?>
 
 .mm-margin{
@@ -36,5 +37,5 @@
 }
 
 .jumbotron img {
-		width: 80%;
+		width: <?=$imageSize?>;
 }
