@@ -1,3 +1,10 @@
+<!-- php code to use stylesheet in php-created html -->
+<?php
+
+	header("Content-type: text/css");
+	$paragraphSize = '85%';
+?>
+
 .mm-margin{
 	margin: 0;
 }
@@ -25,7 +32,7 @@
 }
 
 .jumbotron p {
-		font-size: 100%;
+		font-size: <?=$paragraphSize?>;
 }
 
 .jumbotron img {

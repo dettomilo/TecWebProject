@@ -17,7 +17,7 @@
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 	    <!-- bootstrap CSS override -->
-	    <link rel="stylesheet" type="text/css" href="home.css" media="screen"/>
+	    <link rel="stylesheet" type="text/css" href="homeStyle.php" media="screen"/>
   	</head>
 
   	<body>
@@ -58,50 +58,38 @@
 						<!-- NEWS ATENEO -->
 						<h1 class="display-1">News Ateneo</h1>
 						<div class="row">
+						<?php
+			        //Includo il file esterno relativo la connessione al database.
+			        require($_SERVER['DOCUMENT_ROOT'] . "/smartunibo/src/database/db_connect.php");
 
-			        <div class="col-sm-3">
-						    <div class="thumbnail">
-						      <img src="http://www.fortyfort.org/images/news.jpg" alt="Immagine della Notizia">
-						      <div class="caption">
-						        <h3>Titolo Notizia</h3>
-						        <p>Lorem ipsum dolor sit amet, consectetur adipiscia elit, sed eiusmod.</p>
-						        <p><a href="#" class="btn btn-primary" role="button">Leggi articolo</a></p>
-						      </div>
-						    </div>
-							</div>
+			        //Includo il file esterno relativo le funzioni per l'ottenimento delle notizie.
+			        require("news/news_functions.php");
 
-							<div class="col-sm-3">
-						    <div class="thumbnail">
-						      <img src="http://www.fortyfort.org/images/news.jpg" alt="Immagine della Notizia">
-						      <div class="caption">
-						        <h3>Titolo Notizia</h3>
-						        <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor.</p>
-						        <p><a href="#" class="btn btn-primary" role="button">Leggi articolo</a></p>
-						      </div>
-						    </div>
-							</div>
+			        //Stampo le 4 notizie di Ateneo più recenti.
+			        $ateneoNews = getNews(0, 4, $mysqli);
+			        foreach ($ateneoNews as $n) {
 
-							<div class="col-sm-3">
-						    <div class="thumbnail">
-						      <img src="http://www.fortyfort.org/images/news.jpg" alt="Immagine della Notizia">
-						      <div class="caption">
-						        <h3>Titolo Notizia</h3>
-						        <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor.</p>
-						        <p><a href="#" class="btn btn-primary" role="button">Leggi articolo</a></p>
-						      </div>
-						    </div>
-							</div>
+								echo '<div class="col-sm-3">
+										    <div class="thumbnail">';
 
-							<div class="col-sm-3">
-						    <div class="thumbnail">
-						      <img src="http://www.fortyfort.org/images/news.jpg" alt="Immagine della Notizia">
-						      <div class="caption">
-						        <h3>Titolo Notizia</h3>
-						        <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor.</p>
-						        <p><a href="#" class="btn btn-primary" role="button">Leggi di più</a></p>
-						      </div>
-						    </div>
-							</div>
+								if (!is_null($n["Immagine"])) {
+			            echo "<img src=".$n["Immagine"]." height=\"150\" width=\"200\"><br>";
+			          }
+
+								echo '<div class="caption">
+										  <h4>'.$n["Titolo"].'</h4>';
+
+								if (!is_null($n["Sommario"])) {
+			            echo "<p>" .$n["Sommario"] ."</p>";
+			          }
+
+							  echo '<p><a href="#" class="btn btn-primary" role="button">Leggi articolo</a></p>
+										  </div>
+										  </div>
+											</div>';
+								}
+
+			      ?>
 
 			      </div>
 					</div>
