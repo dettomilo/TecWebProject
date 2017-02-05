@@ -16,6 +16,8 @@
 	    <!-- Latest compiled JavaScript -->
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+			<script src="openNewsBox.js"></script>
+
 	    <!-- bootstrap CSS override -->
 	    <link rel="stylesheet" type="text/css" href="homeStyle.php" media="screen"/>
   	</head>
@@ -67,9 +69,10 @@
 
 			        //Stampo le 4 notizie di Ateneo più recenti.
 			        $ateneoNews = getNews(0, 4, $mysqli);
+							$currentNewsId = 0;
 			        foreach ($ateneoNews as $n) {
 
-								echo '<div class="col-sm-3">
+								echo '<div class="col-md-3">
 										    <div class="thumbnail">';
 
 								if (!is_null($n["Immagine"])) {
@@ -79,15 +82,37 @@
 								echo '<div class="caption">
 										  <h4>'.$n["Titolo"].'</h4>';
 
+								echo '<p><em>' .$n["Data"] .'</em></p>';
+
 								if (!is_null($n["Sommario"])) {
 			            echo "<p>" .$n["Sommario"] ."</p>";
 			          }
 
-							  echo '<p><a href="#" class="btn btn-primary" role="button">Leggi articolo</a></p>
+							  echo '<p><button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#'.$currentNewsId.'">Leggi</button></p>
 										  </div>
 										  </div>
 											</div>';
-								}
+
+								echo '<div class="modal fade" id="'.$currentNewsId.'" role="dialog">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal">&times;</button>
+																<h3 class="modal-title">'.$n["Titolo"].'</h3>
+														</div>
+														<div class="modal-body">
+															<p><em>' .$n["Data"] .'</em></p>
+															<p>'.$n["Testo"].'</p>
+														</div>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
+														</div>
+													</div>
+												</div>
+											</div>';
+
+								$currentNewsId++;
+							}
 
 			      ?>
 

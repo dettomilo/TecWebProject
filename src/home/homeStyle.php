@@ -3,7 +3,7 @@
 
 	header("Content-type: text/css; charset: UTF-8");
 	$paragraphSize = '85%';
-	$imageSize = "80%";
+	$imageSize = "100%";
 ?>
 
 .mm-margin{
