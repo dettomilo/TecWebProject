@@ -50,6 +50,14 @@
 		width: <?=$imageSize?>;
 }
 
+.glyphicon {
+		color: #EEEEEE;
+}
+
+.glyphicon.glyphicon-chevron-up {
+		color: #bb2e29;
+}
+
 .navbar-default {
   background-color: #bb2e29;
   border-color: #6b0808;

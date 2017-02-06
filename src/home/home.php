@@ -43,20 +43,19 @@
 	  			</header>
 
 			<!-- NAV BAR -->
-			<nav class="navbar navbar-default">
-        <div class="container">
+		<nav class="navbar navbar-default">
+      <div class="container">
 
-					<div class="row">
-								<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-12">
 
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Apri o Chiudi navigazione</span>
+              <span class="sr-only">Apri o Chiudi Navigazione</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Smart Unibo</a>
           </div>
 
           <div id="navbar" role="navigation" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
@@ -64,32 +63,43 @@
 							<li class="active"><a href="#">News</a></li>
               <li><a href="#">Servizi</a></li>
               <li><a href="#">Carriera</a></li>
-<!--
+						</ul>
+
+            <ul class="nav navbar-nav navbar-right">
+							<li><a href="#" class="glyphicon glyphicon-calendar" role="button" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#calendar"></a></li>
+							<li><a href="#" class="glyphicon glyphicon-bell" role="button" aria-haspopup="true" aria-expanded="false"></a></li>
 							<li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <a href="#" class="glyphicon glyphicon-user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
+                  <li><a href="/smartunibo/src/login/logout.php">Logout</a></li>
                 </ul>
               </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li>
-              <li><a href="../navbar-static-top/">Static top</a></li>
-              <li><a href="../navbar-fixed-top/">Fixed top</a></li>
-            </ul>
-					-->
 
-          </div><!--/.nav-collapse -->
+      		</div><!--/.nav-collapse -->
 				</div>
+
+			</div>
+    </div><!--/.container-fluid -->
+  </nav>
+
+				<!-- CALENDAR BOX -->
+				<div class="modal fade" id="calendar" role="dialog">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h3 class="modal-title">Calendario</h3>
+							</div>
+							<div class="modal-body">
+
+							</div>
+							<div class="modal-footer">
+								<a class="glyphicon glyphicon-chevron-up" role="button" data-dismiss="modal"></a>
+							</div>
+						</div>
+					</div>
 				</div>
-        </div><!--/.container-fluid -->
-      </nav>
 
 				<div class="jumbotron">
 					<div class="container">
@@ -124,7 +134,7 @@
 			            echo "<p>" .$n["Sommario"] ."</p>";
 			          }
 
-							  echo '<p><button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#'.$currentNewsId.'">Leggi</button></p>
+							  echo '<p><em class="readMore">Leggi tutto »</em></p>
 										  </div>
 										  </div>
 											</div>';

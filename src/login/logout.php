@@ -22,5 +22,5 @@ setcookie(session_name(), '', time() - 42000, $params["path"], $params["domain"]
 session_destroy();
 
 //Eseguo il reindirizzamento.
-header('Location: ./');
+header('Location: ./login.php');
 ?>
