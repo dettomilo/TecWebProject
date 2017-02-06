@@ -24,6 +24,12 @@
     box-shadow: 5px 5px 20px #6b0808;
 }
 
+.btn:focus {
+    border-radius: 10px;
+    background-color: #bb2e29;
+    color: #EEEEEE;
+    transition-duration: 0.5s;
+}
 .header {
 		padding: 10px;
 }

@@ -44,7 +44,11 @@
 
 			<!-- NAV BAR -->
 			<nav class="navbar navbar-default">
-        <div class="container-fluid">
+        <div class="container">
+
+					<div class="row">
+								<div class="col-md-12">
+
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
               <span class="sr-only">Apri o Chiudi navigazione</span>
@@ -54,9 +58,9 @@
             </button>
             <a class="navbar-brand" href="#">Smart Unibo</a>
           </div>
+
           <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
             <ul class="nav navbar-nav">
-
 							<li class="active"><a href="#">News</a></li>
               <li><a href="#">Servizi</a></li>
               <li><a href="#">Carriera</a></li>
@@ -80,7 +84,10 @@
               <li><a href="../navbar-fixed-top/">Fixed top</a></li>
             </ul>
 					-->
+
           </div><!--/.nav-collapse -->
+				</div>
+				</div>
         </div><!--/.container-fluid -->
       </nav>
 
@@ -101,7 +108,7 @@
 							$currentNewsId = 0;
 			        foreach ($ateneoNews as $n) {
 
-								echo '<div class="col-md-3">
+								echo '<div class="col-md-3 col-sm-6 col-xs-12" role="button" data-toggle="modal" data-target="#'.$currentNewsId.'">
 										    <div class="thumbnail">';
 
 								if (!is_null($n["Immagine"])) {
@@ -117,7 +124,7 @@
 			            echo "<p>" .$n["Sommario"] ."</p>";
 			          }
 
-							  echo '<p><button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#'.$currentNewsId.'">Leggi</button></p>
+							  echo '<p><button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#'.$currentNewsId.'">Leggi</button></p>
 										  </div>
 										  </div>
 											</div>';
@@ -166,7 +173,7 @@
 								                    <div class="text-center">
 								                        <div class="row">
 								                            <div class="col-sm-9">
-								                                <h3 class="pull-left">'.$n["Titolo"].'</h3>
+								                                <h3 class="pull-left" role="button" data-toggle="modal" data-target="#'.$currentNewsId.'">'.$n["Titolo"].'</h3>
 								                            </div>
 								                            <div class="col-sm-3">
 								                                <h4 class="pull-right">
@@ -182,7 +189,7 @@
 																	if (!is_null($n["Sommario"])) {
 																		echo $n["Sommario"];
 																	} else {
-																		echo '<small><em>Nessun sommario</em></small>';
+																		echo '';
 																	}
 															echo '
 																	<br/>
