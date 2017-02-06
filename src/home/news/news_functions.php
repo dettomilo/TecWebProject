@@ -9,7 +9,7 @@
 * - http://php.net/manual/it/mysqli-result.fetch-array.php
 */
 function getNews($isCorso, $numNews, $mysqli) {
-  if ($stmt = $mysqli->prepare("SELECT IdNotizia, t.Tipo, DATE(DataOra) as Data, Titolo, Sommario, Testo, Immagine
+  if ($stmt = $mysqli->prepare("SELECT IdNotizia, t.Tipo, DATE_FORMAT(DATE(DataOra), '%d/%m/%Y') as Data, Titolo, Sommario, Testo, Immagine
   FROM notizie AS n INNER JOIN tipi_notizie AS t ON n.Tipo = t.IdTipo
   WHERE IsCorso = ? ORDER BY DataOra DESC LIMIT ?")) {
     $stmt->bind_param('ii', $isCorso, $numNews); //Eseguo il binding dei parametri.
