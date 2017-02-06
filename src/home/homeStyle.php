@@ -10,6 +10,10 @@
 	margin: 0;
 }
 
+.readMore {
+	color: #bb2e29;
+}
+
 .btn {
     border-radius: 10px;
     background-color: #bb2e29;
@@ -45,7 +49,6 @@
 .jumbotron img {
 		width: <?=$imageSize?>;
 }
-
 
 .navbar-default {
   background-color: #bb2e29;

@@ -59,7 +59,7 @@
             <a class="navbar-brand" href="#">Smart Unibo</a>
           </div>
 
-          <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+          <div id="navbar" role="navigation" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
             <ul class="nav navbar-nav">
 							<li class="active"><a href="#">News</a></li>
               <li><a href="#">Servizi</a></li>
@@ -112,7 +112,7 @@
 										    <div class="thumbnail">';
 
 								if (!is_null($n["Immagine"])) {
-			            echo "<img src=".$n["Immagine"]." height=\"150\" width=\"200\"><br>";
+			            echo '<img src="'.$n["Immagine"].'" height=\"150\" width=\"200\">';
 			          }
 
 								echo '<div class="caption">
@@ -197,7 +197,7 @@
 								            </div>
 
 								            <div class="panel-footer">
-								                <span class="label label-default">'.$n["Tipo"].'</span> <span class="label label-default">'.$n["Data"].'</span>
+								                <span class="label label-default">'.$n["Tipo"].'</span>
 								            </div>
 								        </div>
 
