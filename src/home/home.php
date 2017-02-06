@@ -15,15 +15,27 @@
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	    <!-- Latest compiled JavaScript -->
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+			<!-- CALENDAR -->
+			<link href='/smartunibo/lib/fullcalendar-3.1.0/fullcalendar.min.css' rel='stylesheet' />
+			<link href='/smartunibo/lib/fullcalendar-3.1.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+			<script src='/smartunibo/lib/fullcalendar-3.1.0/lib/moment.min.js'></script>
+			<script src='/smartunibo/lib/fullcalendar-3.1.0/fullcalendar.min.js'></script>
 
-			<script src="openNewsBox.js"></script>
+			<style>
+				#calendar {
+					max-width: 900px;
+					margin: 0 auto;
+				}
+			</style>
 
 	    <!-- bootstrap CSS override -->
 	    <link rel="stylesheet" type="text/css" href="homeStyle.php" media="screen"/>
   	</head>
+
 		<?php
 			$noImageSource = "/smartunibo/src/home/news/noImage.png";
 		 ?>
+
   	<body>
   		<main>
   			<section id=content class="container-fluid">
@@ -66,11 +78,13 @@
 						</ul>
 
             <ul class="nav navbar-nav navbar-right">
-							<li><a href="#" class="glyphicon glyphicon-calendar" role="button" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#calendar"></a></li>
+							<li><a href="#" class="glyphicon glyphicon-calendar" role="button" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#calendarBox"></a></li>
 							<li><a href="#" class="glyphicon glyphicon-bell" role="button" aria-haspopup="true" aria-expanded="false"></a></li>
 							<li class="dropdown">
                 <a href="#" class="glyphicon glyphicon-user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                 <ul class="dropdown-menu">
+									<li><a href="#">Impostazioni</a></li>
+									<li role="separator" class="divider"></li>
                   <li><a href="/smartunibo/src/login/logout.php">Logout</a></li>
                 </ul>
               </li>
@@ -82,10 +96,9 @@
 			</div>
     </div><!--/.container-fluid -->
   </nav>
-
-				<!-- CALENDAR BOX -->
-				<div class="modal fade" id="calendar" role="dialog">
-					<div class="modal-dialog">
+			<!-- CALENDAR BOX -->
+				<div class="modal fade" id="calendarBox" role="dialog">
+					<div class="modal-dialog modal-lg">
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -93,6 +106,91 @@
 							</div>
 							<div class="modal-body">
 
+								<script>
+
+									$(document).ready(function() {
+
+										$('#calendar').fullCalendar({
+											header: {
+												left: 'prev,next today',
+												center: '',
+												right: 'title'
+											},
+
+											// customize the button names,
+											// otherwise they'd all just say "list"
+											/*views: {
+												listDay: { buttonText: 'list day' },
+												listWeek: { buttonText: 'list week' }
+											},*/
+
+											defaultView: 'listWeek',
+											defaultDate: '2016-12-12',
+											navLinks: true, // can click day/week names to navigate views
+											editable: false,
+											eventLimit: true, // allow "more" link when too many events
+											events: [
+												{
+													title: 'All Day Event',
+													start: '2016-12-01'
+												},
+												{
+													title: 'Long Event',
+													start: '2016-12-07',
+													end: '2016-12-10'
+												},
+												{
+													id: 999,
+													title: 'Repeating Event',
+													start: '2016-12-09T16:00:00'
+												},
+												{
+													id: 999,
+													title: 'Repeating Event',
+													start: '2016-12-16T16:00:00'
+												},
+												{
+													title: 'Conference',
+													start: '2016-12-11',
+													end: '2016-12-13'
+												},
+												{
+													title: 'Meeting',
+													start: '2016-12-12T10:30:00',
+													end: '2016-12-12T12:30:00'
+												},
+												{
+													title: 'Lunch',
+													start: '2016-12-12T12:00:00'
+												},
+												{
+													title: 'Meeting',
+													start: '2016-12-12T14:30:00'
+												},
+												{
+													title: 'Happy Hour',
+													start: '2016-12-12T17:30:00'
+												},
+												{
+													title: 'Dinner',
+													start: '2016-12-12T20:00:00'
+												},
+												{
+													title: 'Birthday Party',
+													start: '2016-12-13T07:00:00'
+												},
+												{
+													title: 'Click for Google',
+													url: 'http://google.com/',
+													start: '2016-12-28'
+												}
+											]
+										});
+
+									});
+								</script>
+
+								<div id='calendar'></div>
 							</div>
 							<div class="modal-footer">
 								<a class="glyphicon glyphicon-chevron-up" role="button" data-dismiss="modal"></a>
@@ -123,7 +221,9 @@
 
 								if (!is_null($n["Immagine"])) {
 			            echo '<img src="'.$n["Immagine"].'" height=\"150\" width=\"200\">';
-			          }
+			          } else {
+									echo '<img src="'.$noImageSource.'" height=\"150\" width=\"200\">';
+								}
 
 								echo '<div class="caption">
 										  <h4>'.$n["Titolo"].'</h4>';
@@ -203,7 +303,7 @@
 																	}
 															echo '
 																	<br/>
-																	<button type="button" class="btn btn-info btn-sm pull-left" data-toggle="modal" data-target="#'.$currentNewsId.'">Leggi</button>
+																	<button type="button" class="btn btn-info btn-md pull-left" data-toggle="modal" data-target="#'.$currentNewsId.'">Leggi</button>
 								            </div>
 
 								            <div class="panel-footer">
