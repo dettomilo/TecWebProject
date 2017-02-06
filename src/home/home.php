@@ -21,7 +21,9 @@
 	    <!-- bootstrap CSS override -->
 	    <link rel="stylesheet" type="text/css" href="homeStyle.php" media="screen"/>
   	</head>
-
+		<?php
+			$noImageSource = "/smartunibo/src/home/news/noImage.png";
+		 ?>
   	<body>
   		<main>
   			<section id=content class="container-fluid">
@@ -119,7 +121,83 @@
 			      </div>
 					</div>
 				</div>
+				<!-- end of NEWS ATENEO -->
 
+				<!-- start of NEWS -->
+				<?php
+					$corsoNews = getNews(1, 10, $mysqli);
+
+	        foreach ($corsoNews as $n) {
+					echo '
+								<div class="container">
+								<div class="row">
+							    <div class="col-md-1"></div>
+									<div class="col-md-10">
+										<div id="postlist">
+											<div class="panel">
+								                <div class="panel-heading">
+								                    <div class="text-center">
+								                        <div class="row">
+								                            <div class="col-sm-9">
+								                                <h3 class="pull-left">'.$n["Titolo"].'</h3>
+								                            </div>
+								                            <div class="col-sm-3">
+								                                <h4 class="pull-right">
+								                                <small><em>'.$n["Data"].'</em></small>
+								                                </h4>
+								                            </div>
+								                        </div>
+								                    </div>
+								                </div>
+
+								            <div class="panel-body">
+								                	';
+																	if (!is_null($n["Sommario"])) {
+																		echo $n["Sommario"];
+																	} else {
+																		echo '<small><em>Nessun sommario</em></small>';
+																	}
+															echo '
+																	<br/>
+																	<button type="button" class="btn btn-info btn-sm pull-left" data-toggle="modal" data-target="#'.$currentNewsId.'">Leggi</button>
+								            </div>
+
+								            <div class="panel-footer">
+								                <span class="label label-default">'.$n["Tipo"].'</span> <span class="label label-default">'.$n["Data"].'</span>
+								            </div>
+								        </div>
+
+
+								    </div>
+								</div>
+									<div class="col-md-1"></div>
+									</div>
+								</div>
+							';
+
+					echo '<div class="modal fade" id="'.$currentNewsId.'" role="dialog">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+													<h3 class="modal-title">'.$n["Titolo"].'</h3>
+											</div>
+											<div class="modal-body">
+												<p><em>' .$n["Data"] .'</em></p>
+												<p>'.$n["Testo"].'</p>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
+											</div>
+										</div>
+									</div>
+								</div>';
+
+								$currentNewsId++;
+	        }
+				?>
+
+				<!-- spacing line to footer -->
 				<hr>
 
 				<footer>
