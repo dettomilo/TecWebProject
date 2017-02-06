@@ -43,11 +43,8 @@
 	  				<div>
 	  					<a href="#">
 								<div class="row">
-									<div class="col-md-6">
-										<img class="img-responsive pull-right" src="alma-mater-studiorum.png" alt="Alma Mater Studiorum A.D. 1088">
-									</div>
-									<div class="col-md-6">
-	          				<img class="img-responsive" src="universita-di-bologna.png" alt="Università di Bologna">
+									<div class="col-md-12">
+										<img class="img-responsive center-block" src="SmartUniboBanner.png" alt="Logo Smart Unibo">
 									</div>
 								</div>
       				</a>
