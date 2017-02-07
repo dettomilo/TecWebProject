@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Feb 07, 2017 alle 21:00
+-- Creato il: Feb 07, 2017 alle 21:34
 -- Versione del server: 5.7.14
 -- Versione PHP: 5.6.25
 
@@ -132,6 +132,31 @@ INSERT INTO `docenti_materie` (`IdDocente`, `NomeMateria`, `IdRuolo`) VALUES
 (6, 'Ingegneria del software', 1),
 (7, 'Programmazione di reti', 2),
 (8, 'Tecnologie Web', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `eventi`
+--
+
+CREATE TABLE `eventi` (
+  `IdEvento` int(4) UNSIGNED NOT NULL,
+  `Titolo` varchar(300) NOT NULL,
+  `DataOraInizio` datetime NOT NULL,
+  `DataOraFine` datetime NOT NULL,
+  `GiornoIntero` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `eventi_studenti`
+--
+
+CREATE TABLE `eventi_studenti` (
+  `IdEvento` int(4) UNSIGNED NOT NULL,
+  `Matricola` int(6) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -408,6 +433,20 @@ ALTER TABLE `docenti_materie`
   ADD KEY `IdRuolo` (`IdRuolo`);
 
 --
+-- Indici per le tabelle `eventi`
+--
+ALTER TABLE `eventi`
+  ADD PRIMARY KEY (`IdEvento`);
+
+--
+-- Indici per le tabelle `eventi_studenti`
+--
+ALTER TABLE `eventi_studenti`
+  ADD PRIMARY KEY (`IdEvento`,`Matricola`),
+  ADD KEY `IdEvento` (`IdEvento`),
+  ADD KEY `Matricola` (`Matricola`);
+
+--
 -- Indici per le tabelle `lezioni`
 --
 ALTER TABLE `lezioni`
@@ -489,6 +528,11 @@ ALTER TABLE `tipi_notizie`
 ALTER TABLE `docenti`
   MODIFY `IdDocente` int(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
+-- AUTO_INCREMENT per la tabella `eventi`
+--
+ALTER TABLE `eventi`
+  MODIFY `IdEvento` int(4) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT per la tabella `lezioni`
 --
 ALTER TABLE `lezioni`
@@ -547,6 +591,13 @@ ALTER TABLE `docenti_materie`
   ADD CONSTRAINT `docenti_materie_ibfk_1` FOREIGN KEY (`IdDocente`) REFERENCES `docenti` (`IdDocente`),
   ADD CONSTRAINT `docenti_materie_ibfk_2` FOREIGN KEY (`NomeMateria`) REFERENCES `materie` (`Nome`),
   ADD CONSTRAINT `docenti_materie_ibfk_3` FOREIGN KEY (`IdRuolo`) REFERENCES `ruoli` (`IdRuolo`);
+
+--
+-- Limiti per la tabella `eventi_studenti`
+--
+ALTER TABLE `eventi_studenti`
+  ADD CONSTRAINT `eventi_studenti_ibfk_1` FOREIGN KEY (`IdEvento`) REFERENCES `eventi` (`IdEvento`),
+  ADD CONSTRAINT `eventi_studenti_ibfk_2` FOREIGN KEY (`Matricola`) REFERENCES `studenti` (`Matricola`);
 
 --
 -- Limiti per la tabella `lezioni`
