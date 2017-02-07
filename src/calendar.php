@@ -31,15 +31,36 @@
 			navLinks: true, // can click day/week names to navigate views
 			editable: false,
 			eventLimit: true, // allow "more" link when too many events
-			events: {
-            url: 'json-events-feed.php',
-            type: 'POST', // Send post data
-            error: function() {
-                alert('There was an error while fetching events.');
-            }
-        }
+
+	    	eventSources: [
+		        {
+		            //url: 'http://localhost/smartunibo/src/json-events-feed.php',
+		            url: 'url/json-events-feed.php',
+		            type: 'POST', // Send post data
+		            //dataType: 'jsonp',
+		            /*data: {
+		                custom_param1: 'description'
+		            },*/
+		            error: function() {
+		                alert('there was an error while fetching events!');
+		            },
+		            color: 'yellow',   // a non-ajax option
+		            textColor: 'black' // a non-ajax option
+		        }
+	    	]
+
+	    	/*events: {
+				url: 'http://localhost/smartunibo/src/json-events-feed.php',
+
+				error: function() {
+					$('#script-warning').show();
+					alert('there was an error while fetching events!');
+				}
+			},
+			loading: function(bool) {
+				$('#loading').toggle(bool);
+			}*/
 		});
-		
 	});
 
 </script>

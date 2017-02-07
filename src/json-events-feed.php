@@ -2,7 +2,8 @@
 try {
 
     // Connect to database
-    $connection = new PDO($url, $username, $password);
+    // $connection = new PDO($url, $username, $password);
+    $connection = new PDO('mysql:host=localhost;dbname=events;charset=utf8_general_ci', 'root', '');
 
     // Prepare and execute query
     $query = "SELECT * FROM events";
@@ -16,8 +17,8 @@ try {
     while ($row = $sth->fetch(PDO::FETCH_ASSOC) {
 
         $e = array();
-        $e['id'] = $row['id'];
-        $e['title'] = "Lorem Ipsum";
+        $e['title'] = $row['title'];
+        //$e['description'] = $row['description'];
         $e['start'] = $row['start'];
         $e['end'] = $row['end'];
         $e['allDay'] = false;
@@ -31,7 +32,7 @@ try {
     echo json_encode($events);
     exit();
 
-} catch (PDOException $e){
+} catch (PDOException $e) {
     echo $e->getMessage();
 }
 
