@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Feb 05, 2017 alle 21:33
+-- Creato il: Feb 07, 2017 alle 21:00
 -- Versione del server: 5.7.14
 -- Versione PHP: 5.6.25
 
@@ -19,6 +19,178 @@ SET time_zone = "+00:00";
 --
 -- Database: `smartunibo`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `aule`
+--
+
+CREATE TABLE `aule` (
+  `Sede` int(4) UNSIGNED NOT NULL,
+  `Nome` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dump dei dati per la tabella `aule`
+--
+
+INSERT INTO `aule` (`Sede`, `Nome`) VALUES
+(1, 'Aula A'),
+(1, 'Aula B'),
+(1, 'Aula magna'),
+(1, 'Lab. 2'),
+(1, 'Lab. 3');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `corsi`
+--
+
+CREATE TABLE `corsi` (
+  `Nome` varchar(100) NOT NULL,
+  `Sede` int(4) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dump dei dati per la tabella `corsi`
+--
+
+INSERT INTO `corsi` (`Nome`, `Sede`) VALUES
+('Ingegneria e scienze informatiche', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `corsi_anni`
+--
+
+CREATE TABLE `corsi_anni` (
+  `NomeCorso` varchar(100) NOT NULL,
+  `Sede` int(4) UNSIGNED NOT NULL,
+  `Anno` int(1) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dump dei dati per la tabella `corsi_anni`
+--
+
+INSERT INTO `corsi_anni` (`NomeCorso`, `Sede`, `Anno`) VALUES
+('Ingegneria e scienze informatiche', 1, 1),
+('Ingegneria e scienze informatiche', 1, 2),
+('Ingegneria e scienze informatiche', 1, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `docenti`
+--
+
+CREATE TABLE `docenti` (
+  `IdDocente` int(4) UNSIGNED NOT NULL,
+  `Nome` varchar(100) NOT NULL,
+  `Cognome` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dump dei dati per la tabella `docenti`
+--
+
+INSERT INTO `docenti` (`IdDocente`, `Nome`, `Cognome`) VALUES
+(1, 'Paola', 'Salomoni'),
+(2, 'Catia', 'Prandi'),
+(3, 'Claudia', 'Cevenini'),
+(4, 'Franco', 'Callegati'),
+(5, 'Damiana', 'Lazzaro'),
+(6, 'Stefano', 'Rizzi'),
+(7, 'Aldo', 'Campi'),
+(8, 'Giovanni', 'Delnevo');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `docenti_materie`
+--
+
+CREATE TABLE `docenti_materie` (
+  `IdDocente` int(4) UNSIGNED NOT NULL,
+  `NomeMateria` varchar(200) NOT NULL,
+  `IdRuolo` int(4) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dump dei dati per la tabella `docenti_materie`
+--
+
+INSERT INTO `docenti_materie` (`IdDocente`, `NomeMateria`, `IdRuolo`) VALUES
+(1, 'Tecnologie Web', 1),
+(2, 'Tecnologie Web', 2),
+(3, 'Informatica e diritto', 1),
+(4, 'Programmazione di reti', 1),
+(5, 'Computer Graphics', 1),
+(6, 'Ingegneria del software', 1),
+(7, 'Programmazione di reti', 2),
+(8, 'Tecnologie Web', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `lezioni`
+--
+
+CREATE TABLE `lezioni` (
+  `IdLezione` int(4) UNSIGNED NOT NULL,
+  `NomeMateria` varchar(200) NOT NULL,
+  `Aula` varchar(100) NOT NULL,
+  `Sede` int(4) UNSIGNED NOT NULL,
+  `Data` date NOT NULL,
+  `OraInizio` time NOT NULL,
+  `OraFine` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dump dei dati per la tabella `lezioni`
+--
+
+INSERT INTO `lezioni` (`IdLezione`, `NomeMateria`, `Aula`, `Sede`, `Data`, `OraInizio`, `OraFine`) VALUES
+(1, 'Programmazione di reti', 'Aula magna', 1, '2017-02-21', '09:00:00', '11:00:00'),
+(2, 'Ingegneria del software', 'Aula magna', 1, '2017-02-21', '11:00:00', '13:00:00'),
+(3, 'Tecnologie Web', 'Lab. 2', 1, '2017-02-21', '14:00:00', '16:00:00'),
+(4, 'Programmazione di reti', 'Lab. 2', 1, '2017-02-21', '16:00:00', '18:00:00'),
+(5, 'Computer Graphics', 'Lab. 3', 1, '2017-02-22', '09:00:00', '11:00:00'),
+(6, 'Informatica e diritto', 'Aula A', 1, '2017-02-22', '11:00:00', '13:00:00'),
+(7, 'Informatica e diritto', 'Aula A', 1, '2017-02-23', '09:00:00', '12:00:00'),
+(8, 'Computer Graphics', 'Aula A', 1, '2017-02-23', '13:00:00', '15:00:00'),
+(9, 'Tecnologie Web', 'Aula magna', 1, '2017-02-24', '09:00:00', '12:00:00'),
+(10, 'Ingegneria del software', 'Aula magna', 1, '2017-02-24', '13:00:00', '16:00:00'),
+(11, 'Computer Graphics', 'Lab. 3', 1, '2017-02-27', '09:00:00', '11:00:00'),
+(12, 'Programmazione di reti', 'Aula magna', 1, '2017-02-27', '11:00:00', '13:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `materie`
+--
+
+CREATE TABLE `materie` (
+  `Nome` varchar(200) NOT NULL,
+  `Cfu` int(2) UNSIGNED NOT NULL,
+  `NomeCorso` varchar(100) NOT NULL,
+  `Sede` int(4) UNSIGNED NOT NULL,
+  `AnnoCorso` int(1) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dump dei dati per la tabella `materie`
+--
+
+INSERT INTO `materie` (`Nome`, `Cfu`, `NomeCorso`, `Sede`, `AnnoCorso`) VALUES
+('Computer Graphics', 6, 'Ingegneria e scienze informatiche', 1, 3),
+('Informatica e diritto', 6, 'Ingegneria e scienze informatiche', 1, 3),
+('Ingegneria del software', 6, 'Ingegneria e scienze informatiche', 1, 3),
+('Programmazione di reti', 6, 'Ingegneria e scienze informatiche', 1, 3),
+('Tecnologie Web', 6, 'Ingegneria e scienze informatiche', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -76,6 +248,43 @@ INSERT INTO `notizie` (`IdNotizia`, `Tipo`, `DataOra`, `Titolo`, `Sommario`, `Te
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `ruoli`
+--
+
+CREATE TABLE `ruoli` (
+  `IdRuolo` int(4) UNSIGNED NOT NULL,
+  `Descrizione` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dump dei dati per la tabella `ruoli`
+--
+
+INSERT INTO `ruoli` (`IdRuolo`, `Descrizione`) VALUES
+(1, 'Docente di teoria'),
+(2, 'Docente di laboratorio');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `sedi`
+--
+
+CREATE TABLE `sedi` (
+  `IdSede` int(4) UNSIGNED NOT NULL,
+  `Nome` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dump dei dati per la tabella `sedi`
+--
+
+INSERT INTO `sedi` (`IdSede`, `Nome`) VALUES
+(1, 'Cesena');
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `studenti`
 --
 
@@ -101,16 +310,19 @@ CREATE TABLE `studenti` (
   `CAP` int(5) UNSIGNED NOT NULL,
   `Frazione` varchar(30) DEFAULT NULL,
   `TelefonoResidenza` varchar(15) DEFAULT NULL,
-  `CodiceCorsoDiStudio` int(6) UNSIGNED DEFAULT NULL
+  `CodiceCorsoDiStudio` int(6) UNSIGNED DEFAULT NULL,
+  `NomeCorso` varchar(100) NOT NULL,
+  `Sede` int(4) UNSIGNED NOT NULL,
+  `AnnoCorso` int(1) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dump dei dati per la tabella `studenti`
 --
 
-INSERT INTO `studenti` (`Matricola`, `Nome`, `Cognome`, `CF`, `Sesso`, `DataNascita`, `ComuneNascita`, `NazioneNascita`, `Cittadinanza`, `EmailIstituzionale`, `Pw`, `Salt`, `EmailPrivata`, `Cellulare`, `Nazione`, `Provincia`, `Comune`, `Indirizzo`, `CAP`, `Frazione`, `TelefonoResidenza`, `CodiceCorsoDiStudio`) VALUES
-(123456, 'Mario', 'Rossi', 'RSSMRA95A01C573K', 'M', '1995-01-01', 'Cesena', 1, 1, 'mario.rossi@studio.unibo.it', '105b8591e887023e91b393535fb9446e98f7fa1db69da6f578247f6ed269cde1e68d68971dbb58a1d6edb537e5474a2464914ee2c49e10eb41ef9a4fa08deae7', 'f9aab579fc1b41ed0c44fe4ecdbfcdb4cb99b9023abb241a6db833288f4eea3c02f76e0d35204a8695077dcf81932aa59006423976224be0390395bae152d4ef', 'mario.rossi@gmail.com', NULL, 1, 'FC', 'Cesena', 'Via Sacchi 3', 47521, NULL, NULL, 8615),
-(234567, 'Luigi', 'Verdi', 'VRDLGU95A01H294H', 'M', '1994-01-01', 'Rimini', 1, 1, 'luigi.verdi@studio.unibo.it', 'f21fced8b711044cf87ff9115f4ea81a143df25ebe18913b11b67e1bc5f64168e4b15fa926c1e92119a4736e97219728aa7645b6c05ae4748b675c0b7875eb46', '00807432eae173f652f2064bdca1b61b290b52d40e429a7d295d76a71084aa96c0233b82f1feac45529e0726559645acaed6f3ae58a286b9f075916ebf66cacc', 'luigi.verdi@gmail.com', NULL, 1, 'RN', 'Rimini', 'Via Pirandello 8', 47921, NULL, NULL, 8615);
+INSERT INTO `studenti` (`Matricola`, `Nome`, `Cognome`, `CF`, `Sesso`, `DataNascita`, `ComuneNascita`, `NazioneNascita`, `Cittadinanza`, `EmailIstituzionale`, `Pw`, `Salt`, `EmailPrivata`, `Cellulare`, `Nazione`, `Provincia`, `Comune`, `Indirizzo`, `CAP`, `Frazione`, `TelefonoResidenza`, `CodiceCorsoDiStudio`, `NomeCorso`, `Sede`, `AnnoCorso`) VALUES
+(123456, 'Mario', 'Rossi', 'RSSMRA95A01C573K', 'M', '1995-01-01', 'Cesena', 1, 1, 'mario.rossi@studio.unibo.it', '105b8591e887023e91b393535fb9446e98f7fa1db69da6f578247f6ed269cde1e68d68971dbb58a1d6edb537e5474a2464914ee2c49e10eb41ef9a4fa08deae7', 'f9aab579fc1b41ed0c44fe4ecdbfcdb4cb99b9023abb241a6db833288f4eea3c02f76e0d35204a8695077dcf81932aa59006423976224be0390395bae152d4ef', 'mario.rossi@gmail.com', NULL, 1, 'FC', 'Cesena', 'Via Sacchi 3', 47521, NULL, NULL, 8615, 'Ingegneria e scienze informatiche', 1, 3),
+(234567, 'Luigi', 'Verdi', 'VRDLGU95A01H294H', 'M', '1994-01-01', 'Rimini', 1, 1, 'luigi.verdi@studio.unibo.it', 'f21fced8b711044cf87ff9115f4ea81a143df25ebe18913b11b67e1bc5f64168e4b15fa926c1e92119a4736e97219728aa7645b6c05ae4748b675c0b7875eb46', '00807432eae173f652f2064bdca1b61b290b52d40e429a7d295d76a71084aa96c0233b82f1feac45529e0726559645acaed6f3ae58a286b9f075916ebf66cacc', 'luigi.verdi@gmail.com', NULL, 1, 'RN', 'Rimini', 'Via Pirandello 8', 47921, NULL, NULL, 8615, 'Ingegneria e scienze informatiche', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -121,7 +333,7 @@ INSERT INTO `studenti` (`Matricola`, `Nome`, `Cognome`, `CF`, `Sesso`, `DataNasc
 CREATE TABLE `tentativi_login` (
   `Matricola` int(6) UNSIGNED NOT NULL,
   `Ora` varchar(30) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dump dei dati per la tabella `tentativi_login`
@@ -129,6 +341,7 @@ CREATE TABLE `tentativi_login` (
 
 INSERT INTO `tentativi_login` (`Matricola`, `Ora`) VALUES
 (123456, '1486306649'),
+(123456, '1486417867'),
 (234567, '1482359198');
 
 -- --------------------------------------------------------
@@ -158,6 +371,63 @@ INSERT INTO `tipi_notizie` (`IdTipo`, `Tipo`) VALUES
 --
 
 --
+-- Indici per le tabelle `aule`
+--
+ALTER TABLE `aule`
+  ADD PRIMARY KEY (`Sede`,`Nome`),
+  ADD KEY `Sede` (`Sede`);
+
+--
+-- Indici per le tabelle `corsi`
+--
+ALTER TABLE `corsi`
+  ADD PRIMARY KEY (`Nome`,`Sede`),
+  ADD KEY `Sede` (`Sede`);
+
+--
+-- Indici per le tabelle `corsi_anni`
+--
+ALTER TABLE `corsi_anni`
+  ADD PRIMARY KEY (`NomeCorso`,`Sede`,`Anno`),
+  ADD KEY `NomeCorso` (`NomeCorso`),
+  ADD KEY `Sede` (`Sede`);
+
+--
+-- Indici per le tabelle `docenti`
+--
+ALTER TABLE `docenti`
+  ADD PRIMARY KEY (`IdDocente`);
+
+--
+-- Indici per le tabelle `docenti_materie`
+--
+ALTER TABLE `docenti_materie`
+  ADD PRIMARY KEY (`IdDocente`,`NomeMateria`,`IdRuolo`),
+  ADD KEY `IdDocente` (`IdDocente`),
+  ADD KEY `NomeMateria` (`NomeMateria`),
+  ADD KEY `IdRuolo` (`IdRuolo`);
+
+--
+-- Indici per le tabelle `lezioni`
+--
+ALTER TABLE `lezioni`
+  ADD PRIMARY KEY (`IdLezione`),
+  ADD KEY `NomeMateria` (`NomeMateria`),
+  ADD KEY `Sede` (`Sede`),
+  ADD KEY `Aula` (`Aula`),
+  ADD KEY `lezioni_ibfk_2` (`Sede`,`Aula`);
+
+--
+-- Indici per le tabelle `materie`
+--
+ALTER TABLE `materie`
+  ADD PRIMARY KEY (`Nome`),
+  ADD KEY `NomeCorso` (`NomeCorso`),
+  ADD KEY `Sede` (`Sede`),
+  ADD KEY `Anno` (`AnnoCorso`),
+  ADD KEY `NomeCorso_2` (`NomeCorso`,`Sede`,`AnnoCorso`);
+
+--
 -- Indici per le tabelle `nazioni`
 --
 ALTER TABLE `nazioni`
@@ -171,6 +441,18 @@ ALTER TABLE `notizie`
   ADD KEY `Tipo` (`Tipo`);
 
 --
+-- Indici per le tabelle `ruoli`
+--
+ALTER TABLE `ruoli`
+  ADD PRIMARY KEY (`IdRuolo`);
+
+--
+-- Indici per le tabelle `sedi`
+--
+ALTER TABLE `sedi`
+  ADD PRIMARY KEY (`IdSede`);
+
+--
 -- Indici per le tabelle `studenti`
 --
 ALTER TABLE `studenti`
@@ -179,7 +461,11 @@ ALTER TABLE `studenti`
   ADD UNIQUE KEY `EmaiIstituzionale` (`EmailIstituzionale`),
   ADD KEY `Nazione` (`Nazione`),
   ADD KEY `NazioneNascita` (`NazioneNascita`),
-  ADD KEY `Cittadinanza` (`Cittadinanza`);
+  ADD KEY `Cittadinanza` (`Cittadinanza`),
+  ADD KEY `NomeCorso` (`NomeCorso`),
+  ADD KEY `Sede` (`Sede`),
+  ADD KEY `Anno` (`AnnoCorso`),
+  ADD KEY `NomeCorso_2` (`NomeCorso`,`Sede`,`AnnoCorso`);
 
 --
 -- Indici per le tabelle `tentativi_login`
@@ -198,6 +484,16 @@ ALTER TABLE `tipi_notizie`
 --
 
 --
+-- AUTO_INCREMENT per la tabella `docenti`
+--
+ALTER TABLE `docenti`
+  MODIFY `IdDocente` int(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT per la tabella `lezioni`
+--
+ALTER TABLE `lezioni`
+  MODIFY `IdLezione` int(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
 -- AUTO_INCREMENT per la tabella `nazioni`
 --
 ALTER TABLE `nazioni`
@@ -208,6 +504,16 @@ ALTER TABLE `nazioni`
 ALTER TABLE `notizie`
   MODIFY `IdNotizia` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
+-- AUTO_INCREMENT per la tabella `ruoli`
+--
+ALTER TABLE `ruoli`
+  MODIFY `IdRuolo` int(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT per la tabella `sedi`
+--
+ALTER TABLE `sedi`
+  MODIFY `IdSede` int(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT per la tabella `tipi_notizie`
 --
 ALTER TABLE `tipi_notizie`
@@ -215,6 +521,45 @@ ALTER TABLE `tipi_notizie`
 --
 -- Limiti per le tabelle scaricate
 --
+
+--
+-- Limiti per la tabella `aule`
+--
+ALTER TABLE `aule`
+  ADD CONSTRAINT `aule_ibfk_1` FOREIGN KEY (`Sede`) REFERENCES `sedi` (`IdSede`);
+
+--
+-- Limiti per la tabella `corsi`
+--
+ALTER TABLE `corsi`
+  ADD CONSTRAINT `corsi_ibfk_1` FOREIGN KEY (`Sede`) REFERENCES `sedi` (`IdSede`);
+
+--
+-- Limiti per la tabella `corsi_anni`
+--
+ALTER TABLE `corsi_anni`
+  ADD CONSTRAINT `corsi_anni_ibfk_1` FOREIGN KEY (`NomeCorso`,`Sede`) REFERENCES `corsi` (`Nome`, `Sede`);
+
+--
+-- Limiti per la tabella `docenti_materie`
+--
+ALTER TABLE `docenti_materie`
+  ADD CONSTRAINT `docenti_materie_ibfk_1` FOREIGN KEY (`IdDocente`) REFERENCES `docenti` (`IdDocente`),
+  ADD CONSTRAINT `docenti_materie_ibfk_2` FOREIGN KEY (`NomeMateria`) REFERENCES `materie` (`Nome`),
+  ADD CONSTRAINT `docenti_materie_ibfk_3` FOREIGN KEY (`IdRuolo`) REFERENCES `ruoli` (`IdRuolo`);
+
+--
+-- Limiti per la tabella `lezioni`
+--
+ALTER TABLE `lezioni`
+  ADD CONSTRAINT `lezioni_ibfk_1` FOREIGN KEY (`NomeMateria`) REFERENCES `materie` (`Nome`),
+  ADD CONSTRAINT `lezioni_ibfk_2` FOREIGN KEY (`Sede`,`Aula`) REFERENCES `aule` (`Sede`, `Nome`);
+
+--
+-- Limiti per la tabella `materie`
+--
+ALTER TABLE `materie`
+  ADD CONSTRAINT `materie_ibfk_1` FOREIGN KEY (`NomeCorso`,`Sede`,`AnnoCorso`) REFERENCES `corsi_anni` (`NomeCorso`, `Sede`, `Anno`);
 
 --
 -- Limiti per la tabella `notizie`
@@ -228,7 +573,8 @@ ALTER TABLE `notizie`
 ALTER TABLE `studenti`
   ADD CONSTRAINT `studenti_ibfk_1` FOREIGN KEY (`Cittadinanza`) REFERENCES `nazioni` (`IdNazione`),
   ADD CONSTRAINT `studenti_ibfk_2` FOREIGN KEY (`Nazione`) REFERENCES `nazioni` (`IdNazione`),
-  ADD CONSTRAINT `studenti_ibfk_3` FOREIGN KEY (`NazioneNascita`) REFERENCES `nazioni` (`IdNazione`);
+  ADD CONSTRAINT `studenti_ibfk_3` FOREIGN KEY (`NazioneNascita`) REFERENCES `nazioni` (`IdNazione`),
+  ADD CONSTRAINT `studenti_ibfk_4` FOREIGN KEY (`NomeCorso`,`Sede`,`AnnoCorso`) REFERENCES `corsi_anni` (`NomeCorso`, `Sede`, `Anno`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
