@@ -13,7 +13,7 @@
 
 		$('#calendar').fullCalendar({
 			header: {
-				left: 'prev,next today',
+				left: 'prev,next Oggi',
 				center: '',
 				right: 'title'
 			},
