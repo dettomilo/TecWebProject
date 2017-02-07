@@ -27,7 +27,7 @@
 			},*/
 
 			defaultView: 'listWeek',
-			defaultDate: '2016-12-12', // this line should be deleted to use current day
+			//defaultDate: '2016-12-12', // this line should be deleted to use current day
 			navLinks: true, // can click day/week names to navigate views
 			editable: false,
 			eventLimit: true, // allow "more" link when too many events
