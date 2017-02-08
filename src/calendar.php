@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset='utf-8' />
+<meta charset='utf-8'/>
 <link href='../lib/fullcalendar-3.1.0/fullcalendar.min.css' rel='stylesheet' />
 <link href='../lib/fullcalendar-3.1.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
 <script src='../lib/fullcalendar-3.1.0/lib/moment.min.js'></script>
@@ -11,13 +11,22 @@
 <script>
 
 	$(document).ready(function() {
-		
+
+		// Vars
+		var date = new Date();
+		var d = date.getDate();
+		var m = date.getMonth();
+		var y = date.getFullYear();
+
 		$('#calendar').fullCalendar({
 			header: {
 				left: 'prev,next today',
 				center: '',
 				right: 'title'
 			},
+
+			events: "http://localhost/smartunibo/src/events.php",
+			//events: 'http://localhost/smartunibo/src/json-events-feed.php',
 
 			// customize the button names,
 			// otherwise they'd all just say "list"
@@ -31,64 +40,36 @@
 			navLinks: true, // can click day/week names to navigate views
 			editable: false,
 			eventLimit: true, // allow "more" link when too many events
-			events: [
-				{
-					title: 'All Day Event',
-					start: '2016-12-01'
-				},
-				{
-					title: 'Long Event',
-					start: '2016-12-07',
-					end: '2016-12-10'
-				},
-				{
-					id: 999,
-					title: 'Repeating Event',
-					start: '2016-12-09T16:00:00'
-				},
-				{
-					id: 999,
-					title: 'Repeating Event',
-					start: '2016-12-16T16:00:00'
-				},
-				{
-					title: 'Conference',
-					start: '2016-12-11',
-					end: '2016-12-13'
-				},
-				{
-					title: 'Meeting',
-					start: '2016-12-12T10:30:00',
-					end: '2016-12-12T12:30:00'
-				},
-				{
-					title: 'Lunch',
-					start: '2016-12-12T12:00:00'
-				},
-				{
-					title: 'Meeting',
-					start: '2016-12-12T14:30:00'
-				},
-				{
-					title: 'Happy Hour',
-					start: '2016-12-12T17:30:00'
-				},
-				{
-					title: 'Dinner',
-					start: '2016-12-12T20:00:00'
-				},
-				{
-					title: 'Birthday Party',
-					start: '2016-12-13T07:00:00'
-				},
-				{
-					title: 'Click for Google',
-					url: 'http://google.com/',
-					start: '2016-12-28'
+
+	    	/*eventSources: [
+		        {
+		            url: 'http://localhost/smartunibo/src/json-events-feed.php',
+		            //url: 'url/json-events-feed.php',
+		            type: 'POST', // Send post data
+		            //dataType: 'jsonp',
+		            /*data: {
+		                custom_param1: 'description'
+		            },
+		            error: function() {
+		                alert('there was an error while fetching events!');
+		            },
+		            color: 'yellow',   // a non-ajax option
+		            textColor: 'black' // a non-ajax option
+		        }
+	    	]*/
+
+	    	/*events: {
+				url: 'http://localhost/smartunibo/src/json-events-feed.php',
+
+				error: function() {
+					$('#script-warning').show();
+					alert('there was an error while fetching events!');
 				}
-			]
+			},
+			loading: function(bool) {
+				$('#loading').toggle(bool);
+			}*/
 		});
-		
 	});
 
 </script>
