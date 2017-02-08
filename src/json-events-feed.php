@@ -3,10 +3,12 @@ try {
 
     // Connect to database
     // $connection = new PDO($url, $username, $password);
-    $connection = new PDO('mysql:host=localhost;dbname=events;charset=utf8_general_ci', 'root', '');
+    //$connection = new PDO('mysql:host=localhost;dbname=events;charset=utf8_general_ci', 'root', '');
+    $connection = new PDO('mysql:host=localhost;dbname=fullcalendar;charset=utf8_general_ci', 'root', '');
 
     // Prepare and execute query
-    $query = "SELECT * FROM events";
+    //$query = "SELECT * FROM events";
+    $query = "SELECT * FROM evenement";
     $sth = $connection->prepare($query);
     $sth->execute();
 
