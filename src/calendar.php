@@ -25,8 +25,8 @@
 				right: 'title'
 			},
 
-			//events: "http://localhost/smartunibo/src/events.php",
-			events: 'http://localhost/smartunibo/src/json-events-feed.php',
+			events: "http://localhost/smartunibo/src/events.php",
+			//events: 'http://localhost/smartunibo/src/json-events-feed.php',
 
 			// customize the button names,
 			// otherwise they'd all just say "list"

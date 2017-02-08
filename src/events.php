@@ -3,7 +3,8 @@
 $json = array();
 
  // Query that retrieves events
-$requete = "SELECT * FROM evenement ORDER BY id";
+//$requete = "SELECT * FROM evenement ORDER BY id";
+$requete = "SELECT * FROM evenement";
 
  // connection to the database
 try {
