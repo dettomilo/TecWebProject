@@ -15,18 +15,12 @@
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	    <!-- Latest compiled JavaScript -->
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 			<!-- CALENDAR -->
 			<link href='/smartunibo/lib/fullcalendar-3.1.0/fullcalendar.min.css' rel='stylesheet' />
 			<link href='/smartunibo/lib/fullcalendar-3.1.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
 			<script src='/smartunibo/lib/fullcalendar-3.1.0/lib/moment.min.js'></script>
 			<script src='/smartunibo/lib/fullcalendar-3.1.0/fullcalendar.min.js'></script>
-
-			<style>
-				#calendar {
-					max-width: 900px;
-					margin: 0 auto;
-				}
-			</style>
 
 	    <!-- bootstrap CSS override -->
 	    <link rel="stylesheet" type="text/css" href="homeStyle.php" media="screen"/>

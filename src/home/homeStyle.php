@@ -2,8 +2,10 @@
 <?php
 
 	header("Content-type: text/css; charset: UTF-8");
-	$paragraphSize = '85%';
+	$paragraphSize = '95%';
+	$titleSize = '300%';
 	$imageSize = "100%";
+	$modalBodyFontSize = "100%";
 ?>
 
 .mm-margin{
@@ -34,6 +36,7 @@
     color: #EEEEEE;
     transition-duration: 0.5s;
 }
+
 .header {
 		padding: 10px;
 }
@@ -46,8 +49,16 @@
 		font-size: <?=$paragraphSize?>;
 }
 
+.jumbotron h1 {
+		font-size: <?=$titleSize?>;
+}
+
 .jumbotron img {
 		width: <?=$imageSize?>;
+}
+
+.modal-body p {
+	font-size: <?=$modalBodyFontSize?>;
 }
 
 .glyphicon {
