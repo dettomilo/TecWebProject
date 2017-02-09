@@ -2,14 +2,12 @@
 // List of events
 $json = array();
 
- // Query that retrieves events
-//$requete = "SELECT * FROM evenement ORDER BY id";
+// Query that retrieves events
 $requete = "SELECT * FROM evenement";
 
  // connection to the database
 try {
 	$bdd = new PDO('mysql:host=localhost;dbname=fullcalendar', 'root', '');
-	//$bdd = new PDO('mysql:host=localhost;dbname=events;charset=utf8_general_ci', 'root', '');
 } catch(Exception $e) {
 	exit('Unable to connect to database.');
 }
