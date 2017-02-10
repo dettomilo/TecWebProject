@@ -27,7 +27,7 @@
   	</head>
 
 		<?php
-			$noImageSource = "/smartunibo/src/home/news/noImage.png";
+			$noImageSource = "/smartunibo/src/home/news/images/noImage.png";
 		 ?>
 
   	<body>
@@ -38,7 +38,7 @@
 	  					<a href="#">
 								<div class="row">
 									<div class="col-md-12">
-										<img class="img-responsive center-block" src="SmartUniboBanner.png" alt="Logo Smart Unibo">
+										<img class="img-responsive center-block" src="images/SmartUniboBanner.png" alt="Logo Smart Unibo">
 									</div>
 								</div>
       				</a>
