@@ -10,8 +10,17 @@
         //Includo il file esterno relativo la connessione al database.
         require($_SERVER['DOCUMENT_ROOT'] . "/smartunibo/src/database/db_connect.php");
 
+        //Includo il file esterno relativo le funzioni di login per la gestione della sessione.
+        require($_SERVER['DOCUMENT_ROOT'] . "/smartunibo/src/login/functions.php");
+
         //Includo il file esterno relativo le funzioni per l'ottenimento delle notizie.
         require("news/news_functions.php");
+
+        //Includo il file esterno relativo le funzioni per l'ottenimento dei dati dello studente.
+        require("student_functions.php");
+
+        //Avvio la sessione.
+        sec_session_start();
 
         //Stampo le 5 notizie di Ateneo più recenti.
         echo "<b>NOTIZIE ATENEO:</b><br>";
@@ -29,6 +38,13 @@
           }
         }
         echo "<br>";
+
+        //Stampo un saluto nei confronti dell'utente.
+        echo "Bentornato " .$_SESSION['nome'] ." " .$_SESSION['cognome'] ."!<br>";
+
+        //Stampo il nome del corso frequentato dallo studente.
+        $nomeCorso = getCorso($_SESSION['matricola'], $mysqli);
+        echo "<b>NOME CORSO: " .$nomeCorso ."</b><br>";
 
         //Stampo le 10 notizie legate al Corso più recenti.
         echo "<b>NOTIZIE CORSO:</b><br>";
