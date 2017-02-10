@@ -23,8 +23,11 @@ while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 	$event['end'] = $row['end'];
 	if ($row['allDay'] == 0) {
 		$event['allDay'] = false;
+		$event['color'] = "#008633";
+
 	} else {
 		$event['allDay'] = true;
+		$event['color'] = "#bb2e29";
 	}
 	//$event['allDay'] = false;
 
