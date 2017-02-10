@@ -12,21 +12,13 @@
 
 	$(document).ready(function() {
 
-		// Vars
-		var date = new Date();
-		var d = date.getDate();
-		var m = date.getMonth();
-		var y = date.getFullYear();
-
 		$('#calendar').fullCalendar({
 			header: {
 				left: 'prev,next today',
-				center: '',
 				right: 'title'
 			},
 
 			events: "http://localhost/smartunibo/src/events.php",
-
 			defaultView: 'listWeek',
 			//defaultDate: '2016-12-12', // this line should be deleted to use current day
 			navLinks: true, // can click day/week names to navigate views
