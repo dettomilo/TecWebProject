@@ -230,7 +230,7 @@
 										  </div>
 											</div>';
 
-								echo '<div class="modal fade" id="'.$currentNewsId.'" role="dialog">
+								echo nl2br('<div class="modal fade" id="'.$currentNewsId.'" role="dialog">
 												<div class="modal-dialog">
 													<div class="modal-content">
 														<div class="modal-header">
@@ -246,7 +246,7 @@
 														</div>
 													</div>
 												</div>
-											</div>';
+											</div>');
 
 								$currentNewsId++;
 							}
