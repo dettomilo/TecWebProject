@@ -76,18 +76,11 @@
 	      <!-- NO COLLAPSE -->
 	      <div class="navbar-header">
 	        <ul class="nav navbar-nav pull-right noStack">
-						<li><a href="/smartunibo/src/home/calendar/calendar.php" class="glyphicon glyphicon-calendar pull" role="button"></a></li>
+						<li><a href="/smartunibo/src/home/calendar/calendar.php" id="calendario" class="glyphicon glyphicon-calendar pull" role="button" aria-haspopup="true"></a></li>
 
-						<li><a href="#" id="notifiche" class="glyphicon glyphicon-bell" role="button" aria-haspopup="true"></a></li>
+						<li><a href="#" id="notifiche" class="glyphicon glyphicon-bell" aria-haspopup="true" data-toggle="notifichePopover" data-trigger="focus"></a></li>
 
-						<li class="dropdown">
-						<a href="#" class="glyphicon glyphicon-user" data-toggle="dropdown" aria-haspopup="true"></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Impostazioni</a></li>
-							<li role="separator" class="divider"></li>
-						  <li><a href="/smartunibo/src/login/logout.php">Logout</a></li>
-						</ul>
-
+						<li><a href="#" id="user" class="glyphicon glyphicon-user" aria-haspopup="true" data-toggle="userMenuPopover" data-trigger="focus"></a></li>
 	        </ul>
 	      </div>
 
@@ -107,30 +100,48 @@
 				<!-- NOTIFICHE POPOVER -->
 				<div style="display:none" class="lista_notifiche">
 			  	<ul class="unstyled">
-			    	<li data-alert_id="1" class="alert_li"><a href="#">Messaggio di notifica un po più lungo del normale</a> <br /><div class="clearfix"></div></li>
-			    	<li data-alert_id="2" class="alert_li"><a href="#">Messaggio di notifica 2 un po più lungo del normale</a> <br /><div class="clearfix"></div></li>
-			    	<li data-alert_id="3" class="alert_li"><a href="#">Messaggio di notifica un po più lungo del normale</a> <br /><div class="clearfix"></div></li>
+			    	<li class="notifica"><a href="#">Messaggio di notifica un po più lungo del normale</a> <br /><div class="clearfix"></div></li>
+			    	<li class="notifica"><a href="#">Messaggio di notifica 2 un po più lungo del normale</a> <br /><div class="clearfix"></div></li>
+			    	<li class="notifica"><a href="#">Messaggio di notifica un po più lungo del normale</a> <br /><div class="clearfix"></div></li>
 			  	</ul>
 				</div>
 
 				<script>
-				$("#notifiche").popover({
-					'title' : 'Notifiche',
-					'html' : true,
-					container: 'body',
-					'placement' : 'bottom',
-					template: '<div class="popover popover-medium"><div class="arrow"></div><div class="popover-inner"><h3 class="popover-title"></h3><div class="popover-content"><p></p></div></div></div>',
-					'content' : $(".lista_notifiche").html()
-				}).click(function(evt) {
-				    evt.stopPropagation();
-				    $(this).popover('show');
-				});
-
-				$('html').click(function() {
-				    $('#notifiche').popover('hide');
-				});
+					$(document).ready(function(){
+					    $('[data-toggle="notifichePopover"]').popover({
+								'title' : 'Notifiche',
+								'html' : true,
+								container: 'body',
+								'placement' : 'bottom',
+								template: '<div class="popover popover-medium popoverNotifiche"><div class="arrow"></div><div class="popover-inner"><h3 class="popover-title"></h3><div class="popover-content"><p></p></div></div></div>',
+								'content' : $(".lista_notifiche").html()
+							});
+					});
 				</script>
 				<!-- FINE NOTIFICHE POPOVER -->
+
+				<!-- USER MENU POPOVER -->
+				<div style="display:none" class="lista_menu_utente">
+					<ul>
+						<li><a href="#">Impostazioni</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="/smartunibo/src/login/logout.php">Logout</a></li>
+					</ul>
+				</div>
+
+				<script>
+					$(document).ready(function(){
+					    $('[data-toggle="userMenuPopover"]').popover({
+								'title' : 'Bentornato <?php echo $_SESSION['nome'] ?>',
+								'html' : true,
+								container: 'body',
+								'placement' : 'bottom',
+								template: '<div class="popover popover-medium popoverUser"><div class="arrow"></div><div class="popover-inner"><h3 class="popover-title"></h3><div class="popover-content"><p></p></div></div></div>',
+								'content' : $(".lista_menu_utente").html()
+							});
+					});
+				</script>
+				<!-- FINE USER MENU POPOVER -->
 
 				<div class="jumbotron">
 					<div class="container">

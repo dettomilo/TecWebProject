@@ -9,28 +9,32 @@
 	$nomeCorsoColor = "#bb2e29";
 ?>
 
-
-
 .mm-margin{
 	margin: 0;
 }
 
-.popover-medium {
-    max-width: 450px;
+.popoverNotifiche {
+		min-width: 460px;
+    max-width: 460px;
+}
+
+.popoverUser {
+		min-width: 150px;
+    max-width: 150px;
 }
 
 .alert_list {
 	font-size: 11px; color:grey
 }
 
-li.alert_li {
+li.notifica {
   font-size: 16px;
   color:grey;
   padding:10px 0px 2px 0px;
   border-bottom: thin solid #c0c0c0;
 }
 
-li.alert_li:hover {
+li.notifica:hover {
 	background-color:#eee
 }
 
@@ -43,6 +47,7 @@ li.alert_li:hover {
     background-color: #bb2e29;
     color: #EEEEEE;
     transition-duration: 0.5s;
+		border-color: #bb2e29;
 }
 
 .btn:hover {
@@ -59,15 +64,15 @@ li.alert_li:hover {
     transition-duration: 0.5s;
 }
 
-#notifiche {
+#notifiche,#user,#calendario {
 	transition-duration: 0.3s;
 }
 
-#notifiche:hover {
+#notifiche:hover,#user:hover,#calendario:hover {
 	background-color: #6b0808;
 }
 
-#notifiche:focus {
+#notifiche:focus,#user:focus,#calendario:focus {
 	background-color: #6b0808;
 }
 
@@ -203,7 +208,7 @@ li.alert_li:hover {
   }
 }
 
-.noStack>li {
+.noStack > li {
 		display: inline-block;
 }
 
