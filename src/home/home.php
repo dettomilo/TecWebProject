@@ -357,7 +357,7 @@
 
 				<footer>
 	        <p>© Smart Unibo - 2017</p>
-					<a href="#" class="go-top">Go Top</a>
+					<a href="#" class="go-top"><i class="glyphicon glyphicon-chevron-up" style="color:white"></i></a>
 	      </footer>
 
   			</section>

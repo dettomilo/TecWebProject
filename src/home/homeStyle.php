@@ -46,7 +46,7 @@
 		color: white;
 		background-color: rgba(0, 0, 0, 0.3);
 		font-size: 12px;
-		padding: 1em;
+		padding: 2em;
 		display: none;
 }
 
