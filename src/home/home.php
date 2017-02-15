@@ -305,17 +305,20 @@
 								                    </div>
 								                </div>
 
-								            <div class="panel-body">
-								                	';
-																	if (!is_null($n["Sommario"])) {
-																		echo $n["Sommario"];
-																	} else {
-																		echo '';
-																	}
-															echo '
-																	<br/>
-																	<button type="button" class="btn btn-info btn-md pull-left" data-toggle="modal" data-target="#'.$currentNewsId.'">Leggi</button>
-								            </div>
+							            <div class="panel-body">
+														<div class="row">
+															<div class="col-md-11">
+															';
+															if (!is_null($n["Sommario"])) {
+																echo $n["Sommario"];
+															} else {
+																echo '-';
+															}
+														echo '
+															</div>
+																	<button type="button" class="col-md-1 btn btn-info btn-md pull-left" data-toggle="modal" data-target="#'.$currentNewsId.'">Leggi</button>
+														</div>
+							            </div>
 
 								            <div class="panel-footer">
 								                <span class="label label-default">'.$n["Tipo"].'</span>
