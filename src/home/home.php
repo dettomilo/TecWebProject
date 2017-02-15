@@ -62,40 +62,40 @@
 	  				</div>
 	  			</header>
 
-		<!-- NAV BAR -->
-		<nav class="navbar navbar-default" role="navigation">
-    <div class="container">
-			<div class="navbar-header navbar-right">
-				<button type="button" class="navbar-toggle pull-right" data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="sr-only">Apri menu navigazione</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
+					<!-- NAV BAR -->
+					<nav class="navbar navbar-default" role="navigation">
+			    <div class="container">
+						<div class="navbar-header navbar-right">
+							<button type="button" class="navbar-toggle pull-right" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Apri menu navigazione</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
 
-	      <!-- NO COLLAPSE -->
-	      <div class="navbar-header">
-	        <ul class="nav navbar-nav pull-right noStack">
-						<li><a href="/smartunibo/src/home/calendar/calendar.php" id="calendario" class="glyphicon glyphicon-calendar pull" role="button" aria-haspopup="true"></a></li>
+				      <!-- NO COLLAPSE -->
+				      <div class="navbar-header">
+				        <ul class="nav navbar-nav pull-right noStack">
+									<li><a href="/smartunibo/src/home/calendar/calendar.php" id="calendario" class="glyphicon glyphicon-calendar pull" role="button" aria-haspopup="true"></a></li>
 
-						<li><a href="#" id="notifiche" class="glyphicon glyphicon-bell" aria-haspopup="true" data-toggle="notifichePopover" data-trigger="focus"></a></li>
+									<li><a href="#" id="notifiche" class="glyphicon glyphicon-bell" aria-haspopup="true" data-toggle="notifichePopover" data-trigger="focus"></a></li>
 
-						<li><a href="#" id="user" class="glyphicon glyphicon-user" aria-haspopup="true" data-toggle="userMenuPopover" data-trigger="focus"></a></li>
-	        </ul>
-	      </div>
+									<li><a href="#" id="user" class="glyphicon glyphicon-user" aria-haspopup="true" data-toggle="userMenuPopover" data-trigger="focus"></a></li>
+				        </ul>
+				      </div>
 
-			</div>
+						</div>
 
-			<div class="collapse navbar-collapse navbar-left">
-        <ul class="nav navbar-nav">
-					<li class="active"><a href="#">News</a></li>
-					<li><a href="#">Servizi</a></li>
-					<li><a href="#">Carriera</a></li>
-        </ul>
-      </div>
+						<div class="collapse navbar-collapse navbar-left">
+			        <ul class="nav navbar-nav">
+								<li class="active"><a href="#">News</a></li>
+								<li><a href="#">Servizi</a></li>
+								<li><a href="#">Carriera</a></li>
+			        </ul>
+			      </div>
 
-    </div>
-  </nav>
+			    </div>
+			  </nav>
 
 				<!-- NOTIFICHE POPOVER -->
 				<div style="display:none" class="lista_notifiche">

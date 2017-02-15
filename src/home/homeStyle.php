@@ -14,12 +14,12 @@
 }
 
 .popoverNotifiche {
-		min-width: 460px;
+		min-width: 100px;
     max-width: 460px;
 }
 
 .popoverUser {
-		min-width: 150px;
+		min-width: 100px;
     max-width: 150px;
 }
 
