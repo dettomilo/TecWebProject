@@ -62,7 +62,7 @@
 	  				</div>
 	  			</header>
 
-			<!-- NAV BAR -->
+		<!-- NAV BAR -->
 		<nav class="navbar navbar-default">
       <div class="container">
 
@@ -87,7 +87,9 @@
 
             <ul class="nav navbar-nav navbar-right">
 							<li><a href="/smartunibo/src/home/calendar/calendar.php" class="glyphicon glyphicon-calendar" role="button" aria-haspopup="true" aria-expanded="false"></a></li>
-							<li><a href="#" class="glyphicon glyphicon-bell" role="button" aria-haspopup="true" aria-expanded="false"></a></li>
+
+							<li><a href="#" id="notifiche" class="glyphicon glyphicon-bell" role="button" aria-haspopup="true" aria-expanded="false"></a></li>
+
 							<li class="dropdown">
                 <a href="#" class="glyphicon glyphicon-user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                 <ul class="dropdown-menu">
@@ -104,6 +106,34 @@
 			</div>
     </div><!--/.container-fluid -->
   </nav>
+
+				<!-- NOTIFICHE POPOVER -->
+				<div style="display:none" class="lista_notifiche">
+			  	<ul class="unstyled">
+			    	<li data-alert_id="1" class="alert_li"><a href="#">Messaggio di notifica un po più lungo del normale</a> <br /><div class="clearfix"></div></li>
+			    	<li data-alert_id="2" class="alert_li"><a href="#">Messaggio di notifica 2 un po più lungo del normale</a> <br /><div class="clearfix"></div></li>
+			    	<li data-alert_id="3" class="alert_li"><a href="#">Messaggio di notifica un po più lungo del normale</a> <br /><div class="clearfix"></div></li>
+			  	</ul>
+				</div>
+
+				<script>
+				$("#notifiche").popover({
+					'title' : 'Notifiche',
+					'html' : true,
+					container: 'body',
+					'placement' : 'bottom',
+					template: '<div class="popover popover-medium"><div class="arrow"></div><div class="popover-inner"><h3 class="popover-title"></h3><div class="popover-content"><p></p></div></div></div>',
+					'content' : $(".lista_notifiche").html()
+				}).click(function(evt) {
+				    evt.stopPropagation();
+				    $(this).popover('show');
+				});
+
+				$('html').click(function() {
+				    $('#notifiche').popover('hide');
+				});
+				</script>
+				<!-- FINE NOTIFICHE POPOVER -->
 
 				<div class="jumbotron">
 					<div class="container">
@@ -258,7 +288,7 @@
 
 				<footer>
 	        <p>© Smart Unibo - 2017</p>
-					<a href="#" class="go-top"><i class="glyphicon glyphicon-chevron-up" style="color:white"></i></a>
+					<a href="#" class="go-top"><i class="glyphicon glyphicon-chevron-up" style="color:#bb2e29"></i></a>
 	      </footer>
 
   			</section>

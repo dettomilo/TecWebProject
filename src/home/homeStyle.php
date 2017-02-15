@@ -13,6 +13,25 @@
 	margin: 0;
 }
 
+.popover-medium {
+    max-width: 450px;
+}
+
+.alert_list {
+	font-size: 11px; color:grey
+}
+
+li.alert_li {
+  font-size: 16px;
+  color:grey;
+  padding:10px 0px 2px 0px;
+  border-bottom: thin solid #c0c0c0;
+}
+
+li.alert_li:hover {
+	background-color:#eee
+}
+
 .readMore {
 	color: #bb2e29;
 }
@@ -22,16 +41,6 @@
     background-color: #bb2e29;
     color: #EEEEEE;
     transition-duration: 0.5s;
-}
-
-.newsAteneoBox {
-		transition-duration: 0.5s;
-}
-
-.newsAteneoBox:hover {
-		transition-duration: 0.5s;
-		border-radius: 10px;
-		box-shadow: 2px 2px 20px #444444;
 }
 
 .btn:hover {
@@ -46,6 +55,28 @@
     background-color: #bb2e29;
     color: #EEEEEE;
     transition-duration: 0.5s;
+}
+
+#notifiche {
+	transition-duration: 0.3s;
+}
+
+#notifiche:hover {
+	background-color: #6b0808;
+}
+
+#notifiche:focus {
+	background-color: #6b0808;
+}
+
+.newsAteneoBox {
+		transition-duration: 0.5s;
+}
+
+.newsAteneoBox:hover {
+		transition-duration: 0.5s;
+		border-radius: 10px;
+		box-shadow: 2px 2px 20px #444444;
 }
 
 .go-top {
