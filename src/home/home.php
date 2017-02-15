@@ -49,7 +49,7 @@
 
   	<body>
   		<main>
-  			<section id=content class="container-fluid">
+  			<section id="content" class="container-fluid">
 	  			<header class="header">
 	  				<div>
 	  					<a href="#">
@@ -63,48 +63,45 @@
 	  			</header>
 
 		<!-- NAV BAR -->
-		<nav class="navbar navbar-default">
-      <div class="container">
+		<nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+			<div class="navbar-header navbar-right">
+				<button type="button" class="navbar-toggle pull-right" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Apri menu navigazione</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
 
-				<div class="row">
-					<div class="col-md-12">
+	      <!-- NO COLLAPSE -->
+	      <div class="navbar-header">
+	        <ul class="nav navbar-nav pull-right noStack">
+						<li><a href="/smartunibo/src/home/calendar/calendar.php" class="glyphicon glyphicon-calendar pull" role="button"></a></li>
 
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Apri o Chiudi Navigazione</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-          </div>
+						<li><a href="#" id="notifiche" class="glyphicon glyphicon-bell" role="button" aria-haspopup="true"></a></li>
 
-          <div id="navbar" role="navigation" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
-            <ul class="nav navbar-nav">
-							<li class="active"><a href="#">News</a></li>
-              <li><a href="#">Servizi</a></li>
-              <li><a href="#">Carriera</a></li>
+						<li class="dropdown">
+						<a href="#" class="glyphicon glyphicon-user" data-toggle="dropdown" aria-haspopup="true"></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Impostazioni</a></li>
+							<li role="separator" class="divider"></li>
+						  <li><a href="/smartunibo/src/login/logout.php">Logout</a></li>
 						</ul>
 
-            <ul class="nav navbar-nav navbar-right">
-							<li><a href="/smartunibo/src/home/calendar/calendar.php" class="glyphicon glyphicon-calendar" role="button" aria-haspopup="true" aria-expanded="false"></a></li>
-
-							<li><a href="#" id="notifiche" class="glyphicon glyphicon-bell" role="button" aria-haspopup="true" aria-expanded="false"></a></li>
-
-							<li class="dropdown">
-                <a href="#" class="glyphicon glyphicon-user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-                <ul class="dropdown-menu">
-									<li><a href="#">Impostazioni</a></li>
-									<li role="separator" class="divider"></li>
-                  <li><a href="/smartunibo/src/login/logout.php">Logout</a></li>
-                </ul>
-              </li>
-            </ul>
-
-      		</div><!--/.nav-collapse -->
-				</div>
+	        </ul>
+	      </div>
 
 			</div>
-    </div><!--/.container-fluid -->
+
+			<div class="collapse navbar-collapse navbar-left">
+        <ul class="nav navbar-nav">
+					<li class="active"><a href="#">News</a></li>
+					<li><a href="#">Servizi</a></li>
+					<li><a href="#">Carriera</a></li>
+        </ul>
+      </div>
+
+    </div>
   </nav>
 
 				<!-- NOTIFICHE POPOVER -->

@@ -9,6 +9,8 @@
 	$nomeCorsoColor = "#bb2e29";
 ?>
 
+
+
 .mm-margin{
 	margin: 0;
 }
@@ -199,4 +201,12 @@ li.alert_li:hover {
     color: #ffffff;
     background-color: #6b0808;
   }
+}
+
+.noStack>li {
+		display: inline-block;
+}
+
+.noStack {
+	padding-right: 20px;
 }
