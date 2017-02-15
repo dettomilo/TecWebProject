@@ -22,6 +22,9 @@
 			<script src='/smartunibo/lib/fullcalendar-3.1.0/lib/moment.min.js'></script>
 			<script src='/smartunibo/lib/fullcalendar-3.1.0/fullcalendar.min.js'></script>
 
+			<!-- BackToTop script -->
+			<script src='/smartunibo/src/home/back_to_top.js'></script>
+
 	    <!-- bootstrap CSS override -->
 	    <link rel="stylesheet" type="text/css" href="homeStyle.php" media="screen"/>
   	</head>
@@ -351,6 +354,7 @@
 
 				<footer>
 	        <p>© Smart Unibo - 2017</p>
+					<a href="#" class="go-top">Go Top</a>
 	      </footer>
 
   			</section>

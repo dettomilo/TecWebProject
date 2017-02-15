@@ -38,6 +38,22 @@
     transition-duration: 0.5s;
 }
 
+.go-top {
+		position: fixed;
+		bottom: 2em;
+		right: 2em;
+		text-decoratioN: none;
+		color: white;
+		background-color: rgba(0, 0, 0, 0.3);
+		font-size: 12px;
+		padding: 1em;
+		display: none;
+}
+
+.go-top:hover {
+		background-color: rgba(0, 0, 0, 0.6);
+}
+
 .nomeCorsoNews {
 	color: <?=$nomeCorsoColor?>;
 }
