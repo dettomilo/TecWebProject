@@ -129,8 +129,12 @@
 			</div>
     </div><!--/.container-fluid -->
   </nav>
+        <div class="jumbotron">
+
+
         <?php
         //Stampo il nome del corso frequentato dallo studente.
+
         $nomeCorso = getCorso($_SESSION['matricola'], $mysqli);
         echo '
             <h2 class="text-center">CALENDARIO</h2>
@@ -141,13 +145,14 @@
             <div id='calendar'></div>
           </div>
         </div>
+        </div>
 
 				<!-- spacing line to footer -->
 				<hr>
 
 				<footer>
 	        <p>© Smart Unibo - 2017</p>
-					<a href="#" class="go-top"><i class="glyphicon glyphicon-chevron-up" style="color:white"></i></a>
+					<a href="#" class="go-top"><i class="glyphicon glyphicon-chevron-up" style="color:#bb2e29"></i></a>
 	      </footer>
 
   			</section>

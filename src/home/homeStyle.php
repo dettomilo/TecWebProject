@@ -72,16 +72,16 @@
 		padding: 10px;
 }
 
-.jumbotron h1 {
+.jumbotron h1,h2,h3 {
 	margin-top: 0px;
-}
-
-.jumbotron p {
-		font-size: <?=$paragraphSize?>;
 }
 
 .jumbotron h1 {
 		font-size: <?=$titleSize?>;
+}
+
+.jumbotron p {
+		font-size: <?=$paragraphSize?>;
 }
 
 .jumbotron img {
