@@ -3,11 +3,14 @@
 $json = array();
 
 // Query that retrieves events
-$request = "SELECT * FROM events";
+$request = "SELECT *
+			FROM eventi
+			INNER JOIN tipi_eventi
+			ON eventi.Tipo=tipi_eventi.TipoEvento";
 
 // connection to the database
 try {
-	$bdd = new PDO('mysql:host=localhost;dbname=fullcalendar', 'root', '');
+	$bdd = new PDO('mysql:host=localhost;dbname=smartunibo', 'root', '');
 } catch(Exception $ex) {
 	exit('Unable to connect to database.');
 }
@@ -17,19 +20,36 @@ $result = $bdd->query($request) or die(print_r($bdd->errorInfo()));
 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 
 	$event = array();
-	$event['id'] = $row['id'];
-	$event['title'] = $row['title'];
-	$event['start'] = $row['start'];
-	$event['end'] = $row['end'];
-	if ($row['allDay'] == 0) {
+	$event['id'] = $row['IdEvento'];
+	$event['title'] = $row['Titolo'];
+	$event['start'] = $row['DataOraInizio'];
+	$event['end'] = $row['DataOraFine'];
+	$event['color'] = $row['Colore'];
+	if ($row['GiornoIntero'] == 0) {
 		$event['allDay'] = false;
-		//$event['color'] = "#008633";
 
 	} else {
 		$event['allDay'] = true;
-		//$event['color'] = "#bb2e29";
 	}
-	//$event['allDay'] = false;
+
+	// Merge the event array into the return array
+	array_push($json, $event);
+}
+
+// Change the query in order to fetch from another table
+$request = "SELECT * FROM lezioni";
+// Execute the new query
+$result = $bdd->query($request) or die(print_r($bdd->errorInfo()));
+
+while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+
+	$event = array();
+	$event['id'] = $row['IdLezione'];
+	$event['title'] = $row['NomeMateria'];
+	$event['start'] = $combined_date_and_time = $row['Data'] . ' ' . $row['OraInizio'];
+	$event['end'] = $combined_date_and_time = $row['Data'] . ' ' . $row['OraFine'];
+	$event['allDay'] = false;
+	$event['color'] = "#008633";
 
 	// Merge the event array into the return array
 	array_push($json, $event);
