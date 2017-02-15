@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Feb 10, 2017 alle 21:31
+-- Creato il: Feb 15, 2017 alle 23:12
 -- Versione del server: 5.7.14
 -- Versione PHP: 5.6.25
 
@@ -237,6 +237,27 @@ INSERT INTO `materie` (`Nome`, `Cfu`, `NomeCorso`, `Sede`, `AnnoCorso`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `mense`
+--
+
+CREATE TABLE `mense` (
+  `IdMensa` int(6) UNSIGNED NOT NULL,
+  `Nome` varchar(200) NOT NULL,
+  `Latitudine` float NOT NULL,
+  `Longitudine` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dump dei dati per la tabella `mense`
+--
+
+INSERT INTO `mense` (`IdMensa`, `Nome`, `Latitudine`, `Longitudine`) VALUES
+(1, 'Le Fricò Self Service', 44.1444, 12.2485),
+(2, 'America Graffiti Diner Restaurant Cesena', 44.1438, 12.2486);
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `nazioni`
 --
 
@@ -382,8 +403,8 @@ CREATE TABLE `tentativi_login` (
 --
 
 INSERT INTO `tentativi_login` (`Matricola`, `Ora`) VALUES
-(123456, '1486306649'),
 (123456, '1486417867'),
+(123456, '1487108196'),
 (234567, '1482359198');
 
 -- --------------------------------------------------------
@@ -505,6 +526,12 @@ ALTER TABLE `materie`
   ADD KEY `NomeCorso_2` (`NomeCorso`,`Sede`,`AnnoCorso`);
 
 --
+-- Indici per le tabelle `mense`
+--
+ALTER TABLE `mense`
+  ADD PRIMARY KEY (`IdMensa`);
+
+--
 -- Indici per le tabelle `nazioni`
 --
 ALTER TABLE `nazioni`
@@ -575,12 +602,17 @@ ALTER TABLE `docenti`
 -- AUTO_INCREMENT per la tabella `eventi`
 --
 ALTER TABLE `eventi`
-  MODIFY `IdEvento` int(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `IdEvento` int(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT per la tabella `lezioni`
 --
 ALTER TABLE `lezioni`
   MODIFY `IdLezione` int(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT per la tabella `mense`
+--
+ALTER TABLE `mense`
+  MODIFY `IdMensa` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT per la tabella `nazioni`
 --
