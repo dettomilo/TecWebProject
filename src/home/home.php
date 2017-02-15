@@ -240,7 +240,7 @@
 											</div>';
 
 								echo nl2br('<div class="modal fade" id="'.$currentNewsId.'" role="dialog">
-												<div class="modal-dialog">
+												<div class="modal-dialog modal-lg">
 													<div class="modal-content">
 														<div class="modal-header">
 															<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -266,16 +266,19 @@
 					</div>
 				</div>
 				<!-- end of NEWS ATENEO -->
-				<?php
 
+
+				<?php
 				//---------------------------- start of NEWS ----------------------------
 
-					$corsoNews = getNews(1, 10, $mysqli);
 					//Stampo il nome del corso frequentato dallo studente.
 					$nomeCorso = getCorso($_SESSION['matricola'], $mysqli);
 					echo '
 							<h2 class="text-center">News Corso</h2>
 							<h3 class="text-center nomeCorsoNews">'.$nomeCorso.'</h3>';
+
+					$corsoNews = getNews(1, 10, $mysqli);
+
 	        foreach ($corsoNews as $n) {
 					echo '
 								<div class="container">
@@ -325,7 +328,7 @@
 							';
 
 					echo '<div class="modal fade" id="'.$currentNewsId.'" role="dialog">
-									<div class="modal-dialog">
+									<div class="modal-dialog modal-lg">
 										<div class="modal-content">
 											<div class="modal-header">
 												<button type="button" class="close" data-dismiss="modal">&times;</button>
