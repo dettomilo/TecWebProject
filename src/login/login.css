@@ -6,6 +6,10 @@ body {
     background-size: cover;
 }
 
+h1 {
+    font-size: 330%;
+}
+
 .form-control {
     border-radius: 10px;
 }
