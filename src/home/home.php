@@ -219,7 +219,7 @@
 							$currentNewsId = 0;
 			        foreach ($ateneoNews as $n) {
 
-								echo '<div class="col-md-3 col-sm-6 col-xs-12" role="button" data-toggle="modal" data-target="#'.$currentNewsId.'">
+								echo '<div class="col-md-3 col-sm-6 col-xs-12 newsAteneoBox" role="button" data-toggle="modal" data-target="#'.$currentNewsId.'">
 										    <div class="thumbnail">';
 
 								if (!is_null($n["Immagine"])) {
@@ -312,7 +312,7 @@
 															if (!is_null($n["Sommario"])) {
 																echo $n["Sommario"];
 															} else {
-																echo '-';
+																echo '';
 															}
 														echo '
 															</div>

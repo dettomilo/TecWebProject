@@ -24,6 +24,16 @@
     transition-duration: 0.5s;
 }
 
+.newsAteneoBox {
+		transition-duration: 0.5s;
+}
+
+.newsAteneoBox:hover {
+		transition-duration: 0.5s;
+		border-radius: 10px;
+		box-shadow: 2px 2px 20px #444444;
+}
+
 .btn:hover {
     background-color: #6b0808;
     color: #FFFFFF;
