@@ -122,11 +122,9 @@
 
 				<!-- USER MENU POPOVER -->
 				<div style="display:none" class="lista_menu_utente">
-					<ul>
-						<li><a href="#">Impostazioni</a></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="/smartunibo/src/login/logout.php">Logout</a></li>
-					</ul>
+						<a href="#">Impostazioni</a>
+						<hr>
+						<a href="/smartunibo/src/login/logout.php">Logout</a>
 				</div>
 
 				<script>
