@@ -1,13 +1,9 @@
 body {
-    background: url("loginBack.png") no-repeat center center fixed;
+    background: url("illustration.png") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-}
-
-h1 {
-    font-size: 400%;
 }
 
 .form-control {
