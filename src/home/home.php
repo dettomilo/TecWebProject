@@ -28,6 +28,20 @@
 
 		<?php
 			$noImageSource = "/smartunibo/src/home/news/images/noImage.png";
+
+			//Includo il file esterno relativo la connessione al database.
+			require($_SERVER['DOCUMENT_ROOT'] . "/smartunibo/src/database/db_connect.php");
+			//Includo il file esterno relativo le funzioni di login per la gestione della sessione.
+			require($_SERVER['DOCUMENT_ROOT'] . "/smartunibo/src/login/functions.php");
+
+			//Includo il file esterno relativo le funzioni per l'ottenimento delle notizie.
+			require("news/news_functions.php");
+
+			//Includo il file esterno relativo le funzioni per l'ottenimento dei dati dello studente.
+			require("student_functions.php");
+
+			//Avvio la sessione.
+			sec_session_start();
 		 ?>
 
   	<body>
@@ -196,11 +210,6 @@
 						<h1 class="display-1">News Ateneo</h1>
 						<div class="row">
 						<?php
-			        //Includo il file esterno relativo la connessione al database.
-			        require($_SERVER['DOCUMENT_ROOT'] . "/smartunibo/src/database/db_connect.php");
-
-			        //Includo il file esterno relativo le funzioni per l'ottenimento delle notizie.
-			        require("news/news_functions.php");
 
 			        //Stampo le 4 notizie di Ateneo più recenti.
 			        $ateneoNews = getNews(0, 4, $mysqli);
@@ -257,11 +266,16 @@
 					</div>
 				</div>
 				<!-- end of NEWS ATENEO -->
-
-				<!-- start of NEWS -->
 				<?php
-					$corsoNews = getNews(1, 10, $mysqli);
 
+				//---------------------------- start of NEWS ----------------------------
+
+					$corsoNews = getNews(1, 10, $mysqli);
+					//Stampo il nome del corso frequentato dallo studente.
+					$nomeCorso = getCorso($_SESSION['matricola'], $mysqli);
+					echo '
+							<h2 class="text-center">News Corso</h2>
+							<h3 class="text-center nomeCorsoNews">'.$nomeCorso.'</h3>';
 	        foreach ($corsoNews as $n) {
 					echo '
 								<div class="container">

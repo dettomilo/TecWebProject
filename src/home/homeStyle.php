@@ -6,6 +6,7 @@
 	$titleSize = '300%';
 	$imageSize = "100%";
 	$modalBodyFontSize = "100%";
+	$nomeCorsoColor = "#bb2e29";
 ?>
 
 .mm-margin{
@@ -35,6 +36,10 @@
     background-color: #bb2e29;
     color: #EEEEEE;
     transition-duration: 0.5s;
+}
+
+.nomeCorsoNews {
+	color: <?=$nomeCorsoColor?>;
 }
 
 .header {
