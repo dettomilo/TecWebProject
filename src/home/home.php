@@ -153,7 +153,7 @@
 							$currentNewsId = 0;
 			        foreach ($ateneoNews as $n) {
 
-								echo '<div class="col-md-3 col-sm-6 col-xs-12" role="button" data-toggle="modal" data-target="#'.$currentNewsId.'">
+								echo '<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12" role="button" data-toggle="modal" data-target="#'.$currentNewsId.'">
 												<div class="newsAteneoBox">
 										    <div class="thumbnail">
 
@@ -171,7 +171,7 @@
 								echo '<p><em>' .$n["Data"] .'</em></p>';
 
 								if (!is_null($n["Sommario"])) {
-			            echo "<p>" .$n["Sommario"] ."</p>";
+			            echo "<p>" .$n["Sommario"]."</p>";
 			          }
 
 							  echo '				<p><em class="readMore">Leggi tutto »</em></p>
