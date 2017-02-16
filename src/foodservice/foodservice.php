@@ -6,7 +6,8 @@
       /* Impostazione esplicita dell'altezza della mappa per la definzione delle dimensioni
        * dell'elemento div che la contiene. */
       #map {
-        height: 100%;
+        height: 500px;
+        width: 500px;
       }
       /* Impostazione delle dimensioni della pagina. */
       html, body {
@@ -25,7 +26,7 @@
 
   <body>
     <main>
-      <div id="map" style="width: 500px; height: 400px;"></div>
+      <div id="map"></div>
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbS22mHEoCvuhOAtmH2dGIJj1UmLGiJE0&callback=initMap"></script>
     </main>
   </body>
