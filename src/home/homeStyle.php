@@ -64,15 +64,15 @@ li.notifica:hover {
     transition-duration: 0.5s;
 }
 
-#notifiche,#user,#calendario {
+#notifiche,#user,#calendario,#news,#servizi,#carriera {
 	transition-duration: 0.3s;
 }
 
-#notifiche:hover,#user:hover,#calendario:hover {
+#notifiche:hover,#user:hover,#calendario:hover,#news:hover,#servizi:hover,#carriera:hover {
 	background-color: #6b0808;
 }
 
-#notifiche:focus,#user:focus,#calendario:focus {
+#notifiche:focus,#user:focus,#calendario:focus,#news:focus,#servizi:focus,#carriera:focus {
 	background-color: #6b0808;
 }
 

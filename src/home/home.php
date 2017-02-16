@@ -88,9 +88,9 @@
 
 						<div class="collapse navbar-collapse navbar-left">
 			        <ul class="nav navbar-nav">
-								<li class="active"><a href="#">News</a></li>
-								<li><a href="#">Servizi</a></li>
-								<li><a href="#">Carriera</a></li>
+								<li class="active"><a href="#" id="news">News</a></li>
+								<li><a href="#" id="servizi">Servizi</a></li>
+								<li><a href="#" id="carriera">Carriera</a></li>
 			        </ul>
 			      </div>
 

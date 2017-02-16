@@ -113,9 +113,9 @@
 
 						<div class="collapse navbar-collapse navbar-left">
 			        <ul class="nav navbar-nav">
-								<li><a href="/smartunibo/src/home/home.php">News</a></li>
-								<li><a href="#">Servizi</a></li>
-								<li><a href="#">Carriera</a></li>
+								<li><a href="/smartunibo/src/home/home.php" id="news">News</a></li>
+								<li><a href="#" id="servizi">Servizi</a></li>
+								<li><a href="#" id="carriera">Carriera</a></li>
 			        </ul>
 			      </div>
 
