@@ -28,6 +28,14 @@
     <main>
       <div id="map"></div>
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbS22mHEoCvuhOAtmH2dGIJj1UmLGiJE0&callback=initMap"></script>
+
+      <!-- FOOD 5 STAR RATING -->
+      <div style="width: 100px;">
+        <div class="rating" style="height: 26px; width: 85%; background-color:orange;">
+          <img class="img-responsive" src="/smartunibo/src/foodservice/images/starRatingMask.png" alt="Rating" style="max-width:100px;">
+        </div>
+      </div>
+
     </main>
   </body>
 </html>
