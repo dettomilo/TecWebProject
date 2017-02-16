@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Feb 15, 2017 alle 23:12
+-- Creato il: Feb 16, 2017 alle 09:21
 -- Versione del server: 5.7.14
 -- Versione PHP: 5.6.25
 
@@ -243,17 +243,20 @@ INSERT INTO `materie` (`Nome`, `Cfu`, `NomeCorso`, `Sede`, `AnnoCorso`) VALUES
 CREATE TABLE `mense` (
   `IdMensa` int(6) UNSIGNED NOT NULL,
   `Nome` varchar(200) NOT NULL,
+  `Indirizzo` varchar(150) NOT NULL,
   `Latitudine` float NOT NULL,
-  `Longitudine` float NOT NULL
+  `Longitudine` float NOT NULL,
+  `SitoWeb` varchar(200) DEFAULT NULL,
+  `Telefono` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dump dei dati per la tabella `mense`
 --
 
-INSERT INTO `mense` (`IdMensa`, `Nome`, `Latitudine`, `Longitudine`) VALUES
-(1, 'Le Fricò Self Service', 44.1444, 12.2485),
-(2, 'America Graffiti Diner Restaurant Cesena', 44.1438, 12.2486);
+INSERT INTO `mense` (`IdMensa`, `Nome`, `Indirizzo`, `Latitudine`, `Longitudine`, `SitoWeb`, `Telefono`) VALUES
+(1, 'Le Fricò Self Service', 'Piazzale Karl Marx, 47521 Cesena FC', 44.1444, 12.2485, 'http://www.camst.it/', '0547 20437'),
+(2, 'America Graffiti Diner Restaurant Cesena', 'Piazza Aldo Moro, 170, 47521 Cesena FC', 44.1438, 12.2486, 'http://www.americagraffiti.it/', '0547 612024');
 
 -- --------------------------------------------------------
 

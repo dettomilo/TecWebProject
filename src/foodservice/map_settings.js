@@ -4,12 +4,8 @@
 * Google Maps API: https://developers.google.com/maps/documentation/javascript/mysql-to-maps
 */
 function initMap() {
-	//Posizione di default su cui centrare la mappa (Via Sacchi 3, Cesena)
-	var myPosition = new google.maps.LatLng(44.139763, 12.243217);
-
 	//Impostazioni della mappa
 	var mapProp = {
-	    center: myPosition,
 	    zoom: 16,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			zoomControl: true,
@@ -39,13 +35,26 @@ function initMap() {
 	//Geolocalizzazione HTML5
 	if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = {
+      var myPosition = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-      map.setCenter(pos);
+      map.setCenter(myPosition);
+			var userImage = "/smartunibo/src/foodservice/images/userMapPointer.png";
+			var marker = new google.maps.Marker({
+        map: map,
+        position: myPosition,
+				icon: userImage,
+				animation: google.maps.Animation.DROP,
+				clickable: false
+      });
     });
-  }
+  } else {
+			//Se la geolocalizzazione non è supportata dal Browser...
+			//Posizione di default su cui centrare la mappa (Via Sacchi 3, Cesena)
+			var defaultPos = new google.maps.LatLng(44.139763, 12.243217);
+			map.setCenter(defaultPos);
+	}
 
 	//A partire dal file XML contenente i dati delle varie mense (estratte da db)
 	//si realizza il caricamento dei marker all'interno della mappa.
@@ -54,9 +63,12 @@ function initMap() {
     var markers = xml.documentElement.getElementsByTagName('marker');
     Array.prototype.forEach.call(markers, function(markerElem) {
       var name = markerElem.getAttribute('Nome');
+			var address = markerElem.getAttribute('Indirizzo');
       var point = new google.maps.LatLng(
           parseFloat(markerElem.getAttribute('Latitudine')),
           parseFloat(markerElem.getAttribute('Longitudine')));
+			var siteWeb = markerElem.getAttribute('SitoWeb');
+			var telephone = markerElem.getAttribute('Telefono');
 
       var infowincontent = document.createElement('div');
       var strong = document.createElement('strong');
@@ -64,11 +76,26 @@ function initMap() {
       infowincontent.appendChild(strong);
       infowincontent.appendChild(document.createElement('br'));
 
-			var image = "/smartunibo/src/foodservice/images/RestaurantMapPointer.png";
+			var addressText = document.createElement('text');
+			addressText.textContent = address;
+			infowincontent.appendChild(addressText);
+      infowincontent.appendChild(document.createElement('br'));
+
+			var siteWebText = document.createElement('text');
+			siteWebText.textContent = siteWeb;
+			infowincontent.appendChild(siteWebText);
+      infowincontent.appendChild(document.createElement('br'));
+
+			var telephoneText = document.createElement('text');
+			telephoneText.textContent = telephone;
+			infowincontent.appendChild(telephoneText);
+      infowincontent.appendChild(document.createElement('br'));
+
+			var foodServiceImage = "/smartunibo/src/foodservice/images/RestaurantMapPointer.png";
       var marker = new google.maps.Marker({
         map: map,
         position: point,
-				icon: image,
+				icon: foodServiceImage,
 				animation: google.maps.Animation.DROP
       });
       marker.addListener('click', function() {

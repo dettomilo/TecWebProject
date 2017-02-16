@@ -20,8 +20,11 @@ if ($stmt = $mysqli->prepare("SELECT * FROM mense WHERE 1")) {
 	  $node = $dom->createElement("marker");
 	  $newnode = $parnode->appendChild($node);
 	  $newnode->setAttribute("Nome", $row['Nome']);
+    $newnode->setAttribute("Indirizzo", $row['Indirizzo']);
 	  $newnode->setAttribute("Latitudine", $row['Latitudine']);
 	  $newnode->setAttribute("Longitudine", $row['Longitudine']);
+    $newnode->setAttribute("SitoWeb", $row['SitoWeb']);
+    $newnode->setAttribute("Telefono", $row['Telefono']);
 	}
 
 	echo $dom->saveXML();
