@@ -52,8 +52,9 @@ li.notifica:hover {
 
 .btn:hover {
     background-color: #6b0808;
+		border-color: #6b0808;
     color: #FFFFFF;
-    border-radius: 25px;
+    border-radius: 12px;
     box-shadow: 5px 5px 20px #6b0808;
 }
 
