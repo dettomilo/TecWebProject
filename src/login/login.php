@@ -25,6 +25,7 @@
 
   <body>
     <main>
+      <img class="img-responsive" src="/smartunibo/src/login/images/sigillo.png" alt="Logo Unibo" style="position:absolute; float:left; bottom:0">
       <section id="content" class="container-fluid">
 
         <?php
