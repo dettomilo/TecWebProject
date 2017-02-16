@@ -14,13 +14,13 @@
 }
 
 .popoverNotifiche {
-		min-width: 100px;
+		min-width: 300px;
     max-width: 460px;
 }
 
 .popoverUser {
-		min-width: 100px;
-    max-width: 150px;
+		min-width: 170px;
+    max-width: 200px;
 }
 
 .alert_list {
@@ -65,7 +65,7 @@ li.notifica:hover {
 }
 
 #notifiche,#user,#calendario,#news,#servizi,#carriera {
-	transition-duration: 0.3s;
+	transition-duration: 0.2s;
 }
 
 #notifiche:hover,#user:hover,#calendario:hover,#news:hover,#servizi:hover,#carriera:hover {

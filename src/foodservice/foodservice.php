@@ -25,7 +25,7 @@
 
   <body>
     <main>
-      <div id="map"></div>
+      <div id="map" style="width: 500px; height: 400px;"></div>
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbS22mHEoCvuhOAtmH2dGIJj1UmLGiJE0&callback=initMap"></script>
     </main>
   </body>
