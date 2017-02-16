@@ -153,8 +153,11 @@
 							$currentNewsId = 0;
 			        foreach ($ateneoNews as $n) {
 
-								echo '<div class="col-md-3 col-sm-6 col-xs-12 newsAteneoBox" role="button" data-toggle="modal" data-target="#'.$currentNewsId.'">
-										    <div class="thumbnail">';
+								echo '<div class="col-md-3 col-sm-6 col-xs-12" role="button" data-toggle="modal" data-target="#'.$currentNewsId.'">
+												<div class="newsAteneoBox">
+										    <div class="thumbnail">
+
+												';
 
 								if (!is_null($n["Immagine"])) {
 			            echo '<img src="'.$n["Immagine"].'" height=\"150\" width=\"200\">';
@@ -171,9 +174,10 @@
 			            echo "<p>" .$n["Sommario"] ."</p>";
 			          }
 
-							  echo '<p><em class="readMore">Leggi tutto »</em></p>
-										  </div>
-										  </div>
+							  echo '				<p><em class="readMore">Leggi tutto »</em></p>
+										  			</div>
+										  		</div>
+												</div>
 											</div>';
 
 								echo nl2br('<div class="modal fade" id="'.$currentNewsId.'" role="dialog">

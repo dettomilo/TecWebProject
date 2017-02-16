@@ -81,7 +81,6 @@ li.notifica:hover {
 }
 
 .newsAteneoBox:hover {
-		transition-duration: 0.5s;
 		border-radius: 10px;
 		box-shadow: 2px 2px 20px #444444;
 }
