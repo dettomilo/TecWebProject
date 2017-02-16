@@ -245,7 +245,7 @@
 
 							            <div class="panel-body">
 														<div class="row">
-															<div class="col-md-11">
+															<div class="col-md-11 col-sm-11 col-xs-10">
 															';
 															if (!is_null($n["Sommario"])) {
 																echo $n["Sommario"];
@@ -254,7 +254,7 @@
 															}
 														echo '
 															</div>
-																	<button type="button" class="col-md-1 btn btn-info btn-md pull-left" data-toggle="modal" data-target="#'.$currentNewsId.'">Leggi</button>
+																	<button type="button" class="col-md-1 col-sm-1 col-xs-2 btn btn-info btn-md pull-left" data-toggle="modal" data-target="#'.$currentNewsId.'">Leggi</button>
 														</div>
 							            </div>
 
@@ -266,7 +266,7 @@
 
 								    </div>
 								</div>
-									<div class="col-md-1"></div>
+									<div class="col-md-1 col-xs-1"></div>
 									</div>
 								</div>
 							';

@@ -81,8 +81,16 @@ li.notifica:hover {
 }
 
 .newsAteneoBox:hover {
-		border-radius: 10px;
+	border-radius: 10px;
 		box-shadow: 2px 2px 20px #444444;
+}
+
+.thumbnail {
+	transition-duration: 0.5s;
+}
+
+.thumbnail:hover {
+	border-radius: 10px;
 }
 
 .go-top {
