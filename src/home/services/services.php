@@ -17,40 +17,10 @@
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 			<!-- CALENDAR -->
-      <link href='/smartunibo/lib/fullcalendar-3.1.0/fullcalendar.min.css' rel='stylesheet' />
-      <link href='/smartunibo/lib/fullcalendar-3.1.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
-      <script src='/smartunibo/lib/fullcalendar-3.1.0/lib/moment.min.js'></script>
-      <script src='/smartunibo/lib/fullcalendar-3.1.0/fullcalendar.min.js'></script>
-      <script src='/smartunibo/lib/fullcalendar-3.1.0/locale/it.js'></script>
-
-      <script>
-
-      	$(document).ready(function() {
-
-      		$('#calendar').fullCalendar({
-      			header: {
-      				left: 'prev,next today',
-      				right: 'title'
-      			},
-
-      			events: "/smartunibo/src/home/calendar/events.php",
-      			defaultView: 'listWeek',
-      			defaultDate: '2017-02-22', // this line should be deleted to use current day
-      			navLinks: true, // can click day/week names to navigate views
-      			editable: false,
-      			eventLimit: true, // allow "more" link when too many events
-      		});
-      	});
-
-      </script>
-      <style>
-
-      	#calendar {
-      		max-width: 1050px;
-      		margin: 0 auto;
-      	}
-
-      </style>
+			<link href='/smartunibo/lib/fullcalendar-3.1.0/fullcalendar.min.css' rel='stylesheet' />
+			<link href='/smartunibo/lib/fullcalendar-3.1.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+			<script src='/smartunibo/lib/fullcalendar-3.1.0/lib/moment.min.js'></script>
+			<script src='/smartunibo/lib/fullcalendar-3.1.0/fullcalendar.min.js'></script>
 
 			<!-- BackToTop script -->
 			<script src='/smartunibo/src/home/back_to_top.js'></script>
@@ -59,25 +29,12 @@
 	    <link rel="stylesheet" type="text/css" href="/smartunibo/src/home/homeStyle.php" media="screen"/>
   	</head>
 
-    <?php
-			//Includo il file esterno relativo la connessione al database.
-			require($_SERVER['DOCUMENT_ROOT'] . "/smartunibo/src/database/db_connect.php");
-      //Includo il file esterno relativo le funzioni di login per la gestione della sessione.
-			require($_SERVER['DOCUMENT_ROOT'] . "/smartunibo/src/login/functions.php");
-
-			//Includo il file esterno relativo le funzioni per l'ottenimento dei dati dello studente.
-			require("../student_functions.php");
-
-			//Avvio la sessione.
-			sec_session_start();
-		 ?>
-
   	<body>
   		<main>
-  			<section id=content class="container">
+  			<section id="content" class="container">
 	  			<header class="header">
 	  				<div>
-	  					<a href="/smartunibo/src/home/home.php">
+	  					<a href="#">
 								<div class="row">
 									<div class="col-md-12">
 										<img class="img-responsive center-block" src="/smartunibo/src/home/images/SmartUniboBanner.png" alt="Logo Smart Unibo">
@@ -101,7 +58,7 @@
 				      <!-- NO COLLAPSE -->
 				      <div class="navbar-header">
 				        <ul class="nav navbar-nav pull-right noStack">
-									<li class="active"><a href="/smartunibo/src/home/calendar/calendar.php" id="calendario" class="glyphicon glyphicon-calendar pull" role="button" aria-haspopup="true"></a></li>
+									<li><a href="/smartunibo/src/home/calendar/calendar.php" id="calendario" class="glyphicon glyphicon-calendar pull" role="button" aria-haspopup="true"></a></li>
 
 									<li><a href="#" id="notifiche" class="glyphicon glyphicon-bell" aria-haspopup="true" data-toggle="notifichePopover" data-trigger="focus"></a></li>
 
@@ -113,8 +70,8 @@
 
 						<div class="collapse navbar-collapse navbar-left">
 			        <ul class="nav navbar-nav">
-								<li><a href="/smartunibo/src/home/home.php" id="news">News</a></li>
-								<li><a href="#" id="servizi">Servizi</a></li>
+								<li><a href="#" id="news">News</a></li>
+								<li class="active"><a href="#" id="servizi">Servizi</a></li>
 								<li><a href="#" id="carriera">Carriera</a></li>
 			        </ul>
 			      </div>
@@ -166,21 +123,18 @@
 				</script>
 				<!-- FINE USER MENU POPOVER -->
 
-        <div class="jumbotron">
-        <?php
-        //Stampo il nome del corso frequentato dallo studente.
+				<div class="container">
+					<div class="row center-block">
+						<h2 class="display-2">Servizi Smart Unibo</h2>
+						<hr />
+								<div class="col-md-3 panel panel-default servicePanel" role="button">
+									<span class="serviceIcon glyphicon glyphicon-education" aria-hidden="true"></span>
+									<br />
+									<span class="serviceDescription">Test Service</span>
+								</div>
+					</div>
+				</div>
 
-        $nomeCorso = getCorso($_SESSION['matricola'], $mysqli);
-        echo '
-            <h2 class="text-center">CALENDARIO</h2>
-            <h3 class="text-center nomeCorsoNews">'.$nomeCorso.'</h3>';
-         ?>
-        <div class="row">
-          <div class="col-md-12">
-            <div id='calendar'></div>
-          </div>
-        </div>
-        </div>
 
 				<!-- spacing line to footer -->
 				<hr />
@@ -188,6 +142,7 @@
 				<footer>
 	        <p>© Smart Unibo - 2017</p>
 					<a href="#" class="go-top"><i class="glyphicon glyphicon-chevron-up" style="color:#bb2e29"></i></a>
+					<a href="/smartunibo/src/foodservice/foodservice.php">FoodService</a>
 	      </footer>
 
   			</section>

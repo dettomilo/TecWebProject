@@ -67,6 +67,7 @@ li.notifica:hover {
 
 #notifiche,#user,#calendario,#news,#servizi,#carriera {
 	transition-duration: 0.2s;
+	color: #EEEEEE;
 }
 
 #notifiche:hover,#user:hover,#calendario:hover,#news:hover,#servizi:hover,#carriera:hover {
@@ -83,7 +84,7 @@ li.notifica:hover {
 
 .newsAteneoBox:hover {
 	border-radius: 10px;
-		box-shadow: 2px 2px 20px #444444;
+	box-shadow: 2px 2px 20px #444444;
 }
 
 .thumbnail {
@@ -139,10 +140,6 @@ li.notifica:hover {
 	font-size: <?=$modalBodyFontSize?>;
 }
 
-.glyphicon {
-		color: #EEEEEE;
-}
-
 .glyphicon.glyphicon-chevron-up {
 		color: #bb2e29;
 }
@@ -161,22 +158,10 @@ li.notifica:hover {
 .navbar-default .navbar-text {
   color: #ecf0f1;
 }
-.navbar-default .navbar-nav > li > a {
-  color: #ecf0f1;
-}
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
-  color: #ffffff;
-}
+
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-  color: #ffffff;
-  background-color: #6b0808;
-}
-.navbar-default .navbar-nav > .open > a,
-.navbar-default .navbar-nav > .open > a:hover,
-.navbar-default .navbar-nav > .open > a:focus {
   color: #ffffff;
   background-color: #6b0808;
 }
@@ -224,3 +209,43 @@ li.notifica:hover {
 .noStack {
 	padding-right: 20px;
 }
+
+.servicePanel {
+	border-radius: 8px;
+	margin: 5px;
+	transition-duration: 0.2s;
+}
+
+.servicePanel:hover {
+	border-radius: 10px;
+	box-shadow: 2px 2px 10px #666;
+}
+
+.serviceIcon {
+	color: #666;
+	font-size: 8em;
+	display: block;
+  text-align: center;
+}
+
+.serviceDescription {
+	color: #888;
+
+	display: block;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// end

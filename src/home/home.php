@@ -49,7 +49,7 @@
 
   	<body>
   		<main>
-  			<section id="content" class="container-fluid">
+  			<section id="content" class="container">
 	  			<header class="header">
 	  				<div>
 	  					<a href="#">
@@ -76,7 +76,7 @@
 				      <!-- NO COLLAPSE -->
 				      <div class="navbar-header">
 				        <ul class="nav navbar-nav pull-right noStack">
-									<li><a href="/smartunibo/src/home/calendar/calendar.php" id="calendario" class="glyphicon glyphicon-calendar pull" role="button" aria-haspopup="true"></a></li>
+									<li><a href="/smartunibo/src/home/calendar/calendar.php" id="calendario" class="glyphicon glyphicon-calendar" role="button" aria-haspopup="true"></a></li>
 
 									<li><a href="#" id="notifiche" class="glyphicon glyphicon-bell" aria-haspopup="true" data-toggle="notifichePopover" data-trigger="focus"></a></li>
 
@@ -89,7 +89,7 @@
 						<div class="collapse navbar-collapse navbar-left">
 			        <ul class="nav navbar-nav">
 								<li class="active"><a href="#" id="news">News</a></li>
-								<li><a href="#" id="servizi">Servizi</a></li>
+								<li><a href="/smartunibo/src/home/services/services.php" id="servizi">Servizi</a></li>
 								<li><a href="#" id="carriera">Carriera</a></li>
 			        </ul>
 			      </div>
@@ -294,7 +294,7 @@
 				?>
 
 				<!-- spacing line to footer -->
-				<hr>
+				<hr />
 
 				<footer>
 	        <p>© Smart Unibo - 2017</p>
