@@ -9,6 +9,11 @@
 	$nomeCorsoColor = "#bb2e29";
 ?>
 
+#map {
+	height: 500px;
+	width: 500px;
+}
+
 .mm-margin{
 	margin: 0;
 }

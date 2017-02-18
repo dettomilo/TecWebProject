@@ -15,6 +15,12 @@
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	    <!-- Latest compiled JavaScript -->
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+			<!-- Map script -->
+
+	    <script src="/smartunibo/src/foodservice/map_settings.js"></script>
+
+	    <!-- Page controls script -->
+	    <script src="/smartunibo/src/foodservice/page_controls.js"></script>
 
 			<!-- FONT AWESOME CDN -->
 			<script src="https://use.fontawesome.com/7bd167f128.js"></script>
@@ -23,6 +29,20 @@
 
 	    <!-- bootstrap CSS override -->
 	    <link rel="stylesheet" type="text/css" href="/smartunibo/src/home/homeStyle.php" media="screen"/>
+
+			<style>
+	      /* Impostazione esplicita dell'altezza della mappa per la definzione delle dimensioni
+	       * dell'elemento div che la contiene. */
+	      #map {
+	        height: 60vh;
+	      }
+	      /* Impostazione delle dimensioni della pagina. */
+	      html, body {
+	        height: 100%;
+	        margin: 0;
+	        padding: 0;
+	      }
+	    </style>
   	</head>
 
 		<?php
@@ -30,7 +50,7 @@
 			require($_SERVER['DOCUMENT_ROOT'] . "/smartunibo/src/login/functions.php");
 
 			//Includo il file esterno relativo le funzioni per l'ottenimento dei dati dello studente.
-			require("../student_functions.php");
+			require("../home/student_functions.php");
 
 			//Avvio la sessione.
 			sec_session_start();
@@ -131,49 +151,57 @@
 				<!-- FINE USER MENU POPOVER -->
 
 				<!-- SERVICES LIST style="float: none; margin: 0 auto;" -->
-				<div class="container-fluid jumbotron text-center">
-						<h2 class="display-2">Servizi</h2>
+				<div class="container-fluid jumbotron">
+						<h2 class="display-2  text-center">Servizio Mensa</h2>
 						<br />
-					<div class="row buttonList">
+						<div class="row">
 
-							<div onclick="window.location='#';" class="col-md-3 col-sm-4 col-xs-6 panel panel-default servicePanel" role="button">
-								<span class="serviceIcon fa fa-envelope-o" aria-hidden="true"></span>
-								<hr />
-								<span class="serviceDescription">Mail</span>
+							<div class="col-md-5">
+								<!-- SELEZIONE RAGGIO -->
+					      <form>
+					        Seleziona la modalità di localizzazione:<br>
+					        <input type="radio" id="geolocation" name="position" value="geolocation" checked> Geolocalizzazione
+					        <input type="radio" id="manual" name="position" value="manual"> Manuale<br>
+					        <input type="text" id="address" name="address" placeholder="Es. Via Sacchi 3, Cesena" size="50" style="visibility:hidden;">
+					        <input type="button" id="calculatePos" value="Calcola posizione" style="visibility:hidden;"><br><br>
+					        Seleziona il range per la ricerca delle mense:<br>
+					        <select id="rangeSelector" class="range">
+					          <option value="0.2">200 m</option>
+					          <option value="0.5">500 m</option>
+					          <option value="1">1 Km</option>
+					          <option value="2" selected="selected">2 Km</option>
+					          <option value="3">3 Km</option>
+					          <option value="4">4 Km</option>
+					          <option value="5">5 Km</option>
+					        </select>
+					      </form>
+
+								<!-- ELENCO MENSE -->
+
+					      <div class="pre-scrollable container-fluid" id="foodservices"></div>
+					      <script>
+					        /*
+					        * Questa funzione, quando richiamata, carica all'interno dell'elemento div (mediante AJAX) l'elenco
+					        * delle mense situate in un certo raggio a partire dalla posizione scelta dall'utente.
+					        */
+					        function refreshFoodServicesInRange(lat, lng) {
+					          $.ajax({
+					            url: "data.php?range=" + $("#rangeSelector option:selected").val() + "&lat=" + lat + "&lng=" + lng,
+					            cache: false,
+					            success: function(data) {
+					              $("#foodservices").html(data);
+					            }
+					          });
+					        }
+					      </script>
 							</div>
 
-							<div onclick="window.location='#';" class="col-md-3 col-sm-4 col-xs-6 panel panel-default servicePanel" role="button">
-								<span class="serviceIcon fa fa-university" aria-hidden="true"></span>
-								<hr />
-								<span class="serviceDescription">Aule Studio</span>
+								<!-- MAPPA -->
+				      <div class="container-fluid col-md-7" id="map"></div>
+					      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbS22mHEoCvuhOAtmH2dGIJj1UmLGiJE0&callback=initMap"></script>
 							</div>
 
-
-							<div onclick="window.location='/smartunibo/src/foodservice/foodservice.php';" class="col-md-3 col-sm-4 col-xs-6 panel panel-default servicePanel" role="button">
-								<span class="serviceIcon fa fa-cutlery" aria-hidden="true"></span>
-								<hr />
-								<span class="serviceDescription">Mensa</span>
-							</div>
-
-							<div onclick="window.location='#';" class="col-md-3 col-sm-4 col-xs-6 panel panel-default servicePanel" role="button">
-								<span class="serviceIcon fa fa-bicycle" aria-hidden="true"></span>
-								<hr />
-								<span class="serviceDescription">Bike Sharing</span>
-							</div>
-
-							<div onclick="window.location='#';" class="col-md-3 col-sm-4 col-xs-6 panel panel-default servicePanel" role="button">
-								<span class="serviceIcon fa fa-car" aria-hidden="true"></span>
-								<hr />
-								<span class="serviceDescription">Car Sharing</span>
-							</div>
-
-							<div onclick="window.location='#';" class="col-md-3 col-sm-4 col-xs-6 panel panel-default servicePanel" role="button">
-								<span class="serviceIcon fa fa-bus" aria-hidden="true"></span>
-								<hr />
-								<span class="serviceDescription">Servizi Pubblici</span>
-							</div>
-
-					</div>
+						</div>
 				</div>
 
 
