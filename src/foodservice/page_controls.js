@@ -1,5 +1,6 @@
 $(function() {
 	$( ".range" ).change(function() {
-	  updateRange($(this).val());
+		updateRange($(this).val());
+		refreshFoodServicesInRange();
 	});
 });
