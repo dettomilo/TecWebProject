@@ -266,7 +266,7 @@
 							';
 
 					echo nl2br('<div class="modal fade" id="'.$currentNewsId.'" role="dialog">
-									<div class="modal-dialog modal-lg">
+									<div class="modal-dialog modal-md">
 										<div class="modal-content">
 											<div class="modal-header">
 												<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -293,7 +293,6 @@
 				<footer>
 	        <p>Smart Unibo - 2017</p>
 					<a href="#" class="go-top"><i class="glyphicon glyphicon-chevron-up" style="color:#bb2e29"></i></a>
-					<a href="/smartunibo/src/foodservice/foodservice.php">FoodService</a>
 	      </footer>
 
   			</section>
