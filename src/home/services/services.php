@@ -34,7 +34,7 @@
   			<section id="content" class="container">
 	  			<header class="header">
 	  				<div>
-	  					<a href="#">
+	  					<a href="/smartunibo/src/home/home.php">
 								<div class="row">
 									<div class="col-md-12">
 										<img class="img-responsive center-block" src="/smartunibo/src/home/images/SmartUniboBanner.png" alt="Logo Smart Unibo">
@@ -70,8 +70,8 @@
 
 						<div class="collapse navbar-collapse navbar-left">
 			        <ul class="nav navbar-nav">
-								<li><a href="#" id="news">News</a></li>
-								<li class="active"><a href="#" id="servizi">Servizi</a></li>
+								<li><a href="/smartunibo/src/home/home.php" id="news">News</a></li>
+								<li class="active"><a href="/smartunibo/src/home/services/services.php" id="servizi">Servizi</a></li>
 								<li><a href="#" id="carriera">Carriera</a></li>
 			        </ul>
 			      </div>
@@ -123,11 +123,46 @@
 				</script>
 				<!-- FINE USER MENU POPOVER -->
 
-				<div class="container">
-					<div class="row center-block">
+				<div class="container-fluid jumbotron text-center">
 						<h2 class="display-2">Servizi Smart Unibo</h2>
+					<div class="row buttonList">
 						<hr />
-								<div class="col-md-3 panel panel-default servicePanel" role="button">
+								<div class="col-md-3 col-sm-3 col-xs-6 panel panel-default servicePanel" role="button">
+									<span class="serviceIcon glyphicon glyphicon-education" aria-hidden="true"></span>
+									<br />
+									<span class="serviceDescription">Test Service</span>
+								</div>
+								<div class="col-md-3 col-sm-3 col-xs-6 panel panel-default servicePanel" role="button">
+									<span class="serviceIcon glyphicon glyphicon-education" aria-hidden="true"></span>
+									<br />
+									<span class="serviceDescription">Test Service</span>
+								</div>
+								<div class="col-md-3 col-sm-3 col-xs-6 panel panel-default servicePanel" role="button">
+									<span class="serviceIcon glyphicon glyphicon-education" aria-hidden="true"></span>
+									<br />
+									<span class="serviceDescription">Test Service</span>
+								</div>
+								<div class="col-md-3 col-sm-3 col-xs-6 panel panel-default servicePanel" role="button">
+									<span class="serviceIcon glyphicon glyphicon-education" aria-hidden="true"></span>
+									<br />
+									<span class="serviceDescription">Test Service</span>
+								</div>
+								<div class="col-md-3 col-sm-3 col-xs-6 panel panel-default servicePanel" role="button">
+									<span class="serviceIcon glyphicon glyphicon-education" aria-hidden="true"></span>
+									<br />
+									<span class="serviceDescription">Test Service</span>
+								</div>
+								<div class="col-md-3 col-sm-3 col-xs-6 panel panel-default servicePanel" role="button">
+									<span class="serviceIcon glyphicon glyphicon-education" aria-hidden="true"></span>
+									<br />
+									<span class="serviceDescription">Test Service</span>
+								</div>
+								<div class="col-md-3 col-sm-3 col-xs-6 panel panel-default servicePanel" role="button">
+									<span class="serviceIcon glyphicon glyphicon-education" aria-hidden="true"></span>
+									<br />
+									<span class="serviceDescription">Test Service</span>
+								</div>
+								<div class="col-md-3 col-sm-3 col-xs-6 panel panel-default servicePanel" role="button">
 									<span class="serviceIcon glyphicon glyphicon-education" aria-hidden="true"></span>
 									<br />
 									<span class="serviceDescription">Test Service</span>

@@ -52,7 +52,7 @@
   			<section id="content" class="container">
 	  			<header class="header">
 	  				<div>
-	  					<a href="#">
+	  					<a href="/smartunibo/src/home/home.php">
 								<div class="row">
 									<div class="col-md-12">
 										<img class="img-responsive center-block" src="/smartunibo/src/home/images/SmartUniboBanner.png" alt="Logo Smart Unibo">
@@ -88,7 +88,7 @@
 
 						<div class="collapse navbar-collapse navbar-left">
 			        <ul class="nav navbar-nav">
-								<li class="active"><a href="#" id="news">News</a></li>
+								<li class="active"><a href="/smartunibo/src/home/home.php" id="news">News</a></li>
 								<li><a href="/smartunibo/src/home/services/services.php" id="servizi">Servizi</a></li>
 								<li><a href="#" id="carriera">Carriera</a></li>
 			        </ul>
