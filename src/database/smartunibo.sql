@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Feb 16, 2017 alle 09:21
+-- Creato il: Feb 18, 2017 alle 00:51
 -- Versione del server: 5.7.14
 -- Versione PHP: 5.6.25
 
@@ -247,16 +247,25 @@ CREATE TABLE `mense` (
   `Latitudine` float NOT NULL,
   `Longitudine` float NOT NULL,
   `SitoWeb` varchar(200) DEFAULT NULL,
-  `Telefono` varchar(11) NOT NULL
+  `Telefono` varchar(11) NOT NULL,
+  `Valutazione` int(11) NOT NULL,
+  `TipoServizio` int(6) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dump dei dati per la tabella `mense`
 --
 
-INSERT INTO `mense` (`IdMensa`, `Nome`, `Indirizzo`, `Latitudine`, `Longitudine`, `SitoWeb`, `Telefono`) VALUES
-(1, 'Le Fricò Self Service', 'Piazzale Karl Marx, 47521 Cesena FC', 44.1444, 12.2485, 'http://www.camst.it/', '0547 20437'),
-(2, 'America Graffiti Diner Restaurant Cesena', 'Piazza Aldo Moro, 170, 47521 Cesena FC', 44.1438, 12.2486, 'http://www.americagraffiti.it/', '0547 612024');
+INSERT INTO `mense` (`IdMensa`, `Nome`, `Indirizzo`, `Latitudine`, `Longitudine`, `SitoWeb`, `Telefono`, `Valutazione`, `TipoServizio`) VALUES
+(1, 'Le Fricò Self Service', 'Piazzale Karl Marx, 47521 Cesena FC', 44.1444, 12.2485, 'http://www.camst.it/', '0547 20437', 30, 3),
+(2, 'America Graffiti Diner Restaurant Cesena', 'Piazza Aldo Moro, 170, 47521 Cesena FC', 44.1438, 12.2486, 'http://www.americagraffiti.it/', '0547 612024', 85, 6),
+(3, 'La Saraghina', 'Via Giovanni Bovio, 186, 47521 Cesena FC', 44.1433, 12.2469, NULL, '0547 612506', 70, 7),
+(4, 'La Malaghiotta', 'Piazza Fabbri, 5, 47521 Cesena FC', 44.1384, 12.2435, NULL, '338 1794650', 80, 7),
+(5, 'Maison Lulu', 'Piazza Fabbri, 5, 47521 Cesena FC', 44.1384, 12.2433, NULL, '0547 610456', 72, 9),
+(6, 'Piotto', 'Piazza Fabbri, 3, 47521 Cesena FC', 44.1382, 12.2433, 'http://piotto.eu/', '0547 28692', 88, 4),
+(7, 'Gelateria Mara & Meo', 'Piazza Fabbri, 3, 47521 Cesena FC', 44.1383, 12.2433, NULL, '0547 346212', 61, 8),
+(8, 'Sei&60 La Gelateria', 'Via Mura Barriera Ponente, 61, 47521 Cesena FC', 44.1411, 12.2442, 'http://www.6e60lagelateria.com/', '331 6228800', 65, 8),
+(9, 'DolceAmaro', 'Viale Gaspare Finali, 50, 47521 Cesena FC', 44.1408, 12.2453, 'http://www.dolceamarobar.it/soon/', '0547 27436', 78, 9);
 
 -- --------------------------------------------------------
 
@@ -452,6 +461,33 @@ INSERT INTO `tipi_notizie` (`IdTipo`, `Tipo`) VALUES
 (4, 'Associazione studentesca'),
 (5, 'Lauree ad honorem');
 
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `tipi_servizi`
+--
+
+CREATE TABLE `tipi_servizi` (
+  `IdTipoServizio` int(6) UNSIGNED NOT NULL,
+  `Descrizione` varchar(30) NOT NULL,
+  `Immagine` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dump dei dati per la tabella `tipi_servizi`
+--
+
+INSERT INTO `tipi_servizi` (`IdTipoServizio`, `Descrizione`, `Immagine`) VALUES
+(1, 'Ristorante', '/smartunibo/src/foodservice/images/RestaurantMapPointer.png'),
+(2, 'Mensa', '/smartunibo/src/foodservice/images/CookhouseMapPointer.png'),
+(3, 'Self service', '/smartunibo/src/foodservice/images/SelfServiceMapPointer.png'),
+(4, 'Pizzeria', '/smartunibo/src/foodservice/images/PizzaMapPointer.png'),
+(5, 'Paninoteca', '/smartunibo/src/foodservice/images/SandwitchMapPointer.png'),
+(6, 'Fast food', '/smartunibo/src/foodservice/images/FastFoodMapPointer.png'),
+(7, 'Piadineria', '/smartunibo/src/foodservice/images/SandwitchMapPointer.png'),
+(8, 'Gelateria', '/smartunibo/src/foodservice/images/IceCreamMapPointer.png'),
+(9, 'Bar caffè', '/smartunibo/src/foodservice/images/CoffeeMapPointer.png');
+
 --
 -- Indici per le tabelle scaricate
 --
@@ -532,7 +568,8 @@ ALTER TABLE `materie`
 -- Indici per le tabelle `mense`
 --
 ALTER TABLE `mense`
-  ADD PRIMARY KEY (`IdMensa`);
+  ADD PRIMARY KEY (`IdMensa`),
+  ADD KEY `TipoServizio` (`TipoServizio`);
 
 --
 -- Indici per le tabelle `nazioni`
@@ -593,6 +630,12 @@ ALTER TABLE `tipi_notizie`
   ADD PRIMARY KEY (`IdTipo`);
 
 --
+-- Indici per le tabelle `tipi_servizi`
+--
+ALTER TABLE `tipi_servizi`
+  ADD PRIMARY KEY (`IdTipoServizio`);
+
+--
 -- AUTO_INCREMENT per le tabelle scaricate
 --
 
@@ -615,7 +658,7 @@ ALTER TABLE `lezioni`
 -- AUTO_INCREMENT per la tabella `mense`
 --
 ALTER TABLE `mense`
-  MODIFY `IdMensa` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `IdMensa` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT per la tabella `nazioni`
 --
@@ -641,6 +684,11 @@ ALTER TABLE `sedi`
 --
 ALTER TABLE `tipi_notizie`
   MODIFY `IdTipo` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT per la tabella `tipi_servizi`
+--
+ALTER TABLE `tipi_servizi`
+  MODIFY `IdTipoServizio` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- Limiti per le tabelle scaricate
 --
@@ -696,6 +744,12 @@ ALTER TABLE `lezioni`
 --
 ALTER TABLE `materie`
   ADD CONSTRAINT `materie_ibfk_1` FOREIGN KEY (`NomeCorso`,`Sede`,`AnnoCorso`) REFERENCES `corsi_anni` (`NomeCorso`, `Sede`, `Anno`);
+
+--
+-- Limiti per la tabella `mense`
+--
+ALTER TABLE `mense`
+  ADD CONSTRAINT `mense_ibfk_1` FOREIGN KEY (`TipoServizio`) REFERENCES `tipi_servizi` (`IdTipoServizio`);
 
 --
 -- Limiti per la tabella `notizie`

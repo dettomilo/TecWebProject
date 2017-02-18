@@ -12,8 +12,8 @@ function getNews($isCorso, $numNews, $mysqli) {
   if ($stmt = $mysqli->prepare("SELECT IdNotizia, t.Tipo, DATE_FORMAT(DATE(DataOra), '%d/%m/%Y') as Data, Titolo, Sommario, Testo, Immagine
   FROM notizie AS n INNER JOIN tipi_notizie AS t ON n.Tipo = t.IdTipo
   WHERE IsCorso = ? ORDER BY DataOra DESC LIMIT ?")) {
-    $stmt->bind_param('ii', $isCorso, $numNews); //Eseguo il binding dei parametri.
-    $stmt->execute(); //Eseguo la query appena creata.
+    $stmt->bind_param('ii', $isCorso, $numNews); //Eseguo il binding dei parametri
+    $stmt->execute(); //Eseguo la query appena creata
     $result = $stmt->get_result(); //Ottengo il risultato della query
     $temp = array();
     $array = array();

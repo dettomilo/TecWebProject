@@ -1,3 +1,12 @@
+//Posizione corrente dell'utente
+var pos;
+
+//Mappa
+var map;
+
+//Cerchio per la rappresentazione dell'area di ricerca
+var rangeCircle;
+
 /*
 * Questa funzione inizializza la mappa, impostando le sue proprietà.
 * Lo schema di funzionamento è stato assunto a partire dalle guida ufficiale sulle
@@ -6,7 +15,7 @@
 function initMap() {
 	//Impostazioni della mappa
 	var mapProp = {
-	    zoom: 16,
+	    zoom: 14,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			zoomControl: true,
       zoomControlOptions: {
@@ -23,7 +32,7 @@ function initMap() {
 	};
 
 	//Binding delle proprietà
-	var map = new google.maps.Map(document.getElementById("map"), mapProp);
+	map = new google.maps.Map(document.getElementById("map"), mapProp);
 
 	//Disablitazione della visibilità dei punti di interesse all'interno della mappa (es. ristoranti)
 	//diversi da quelli supportati dal servizio
@@ -35,15 +44,16 @@ function initMap() {
 	//Geolocalizzazione HTML5
 	if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
-      var myPosition = {
+      pos = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-      map.setCenter(myPosition);
+			drawRange(map, pos, 2000);	//2Km
+			map.setCenter(pos);
 			var userImage = "/smartunibo/src/foodservice/images/userMapPointer.png";
 			var marker = new google.maps.Marker({
         map: map,
-        position: myPosition,
+        position: pos,
 				icon: userImage,
 				animation: google.maps.Animation.DROP,
 				clickable: false
@@ -52,9 +62,11 @@ function initMap() {
   } else {
 			//Se la geolocalizzazione non è supportata dal Browser...
 			//Posizione di default su cui centrare la mappa (Via Sacchi 3, Cesena)
-			var defaultPos = new google.maps.LatLng(44.139763, 12.243217);
-			map.setCenter(defaultPos);
+			pos = new google.maps.LatLng(44.139763, 12.243217);
+			drawRange(map, pos, 2000);	//2Km
+			map.setCenter(pos);
 	}
+
 
 	//A partire dal file XML contenente i dati delle varie mense (estratte da db)
 	//si realizza il caricamento dei marker all'interno della mappa.
@@ -69,33 +81,52 @@ function initMap() {
           parseFloat(markerElem.getAttribute('Longitudine')));
 			var siteWeb = markerElem.getAttribute('SitoWeb');
 			var telephone = markerElem.getAttribute('Telefono');
+			var rating = markerElem.getAttribute('Valutazione');
+			var image = markerElem.getAttribute('Immagine');
 
+			//Nome
       var infowincontent = document.createElement('div');
       var strong = document.createElement('strong');
       strong.textContent = name;
       infowincontent.appendChild(strong);
       infowincontent.appendChild(document.createElement('br'));
 
+			//Indirizzo
 			var addressText = document.createElement('text');
 			addressText.textContent = address;
 			infowincontent.appendChild(addressText);
       infowincontent.appendChild(document.createElement('br'));
 
-			var siteWebText = document.createElement('text');
-			siteWebText.textContent = siteWeb;
-			infowincontent.appendChild(siteWebText);
-      infowincontent.appendChild(document.createElement('br'));
+			//Sito web
+			if (siteWeb.length > 0) {
+				var siteWebText = document.createElement('a');
+				var linkText = document.createTextNode(siteWeb);
+				siteWebText.appendChild(linkText);
+				siteWebText.title = siteWeb;
+				siteWebText.href = siteWeb;
+				infowincontent.appendChild(siteWebText);
+	      infowincontent.appendChild(document.createElement('br'));
+			}
 
+			//Telefono
 			var telephoneText = document.createElement('text');
 			telephoneText.textContent = telephone;
 			infowincontent.appendChild(telephoneText);
       infowincontent.appendChild(document.createElement('br'));
 
-			var foodServiceImage = "/smartunibo/src/foodservice/images/RestaurantMapPointer.png";
+			//Valutazione
+			var ratingControl = document.createElement('div');
+			var str =
+			'<div style="width: 100px;"><div class="rating" style="height: 26px; width: ' + rating + '%; background-color:orange;">' +
+			'<img class="img-responsive" src="/smartunibo/src/foodservice/images/starRatingMask.png" alt="Rating" style="max-width:100px;">' +
+			'</div></div>';
+			ratingControl.innerHTML = str;
+			infowincontent.appendChild(ratingControl);
+
       var marker = new google.maps.Marker({
         map: map,
         position: point,
-				icon: foodServiceImage,
+				icon: image,
 				animation: google.maps.Animation.DROP
       });
       marker.addListener('click', function() {
@@ -104,6 +135,19 @@ function initMap() {
       });
     });
 	});
+}
+
+/*
+* Questa funzione aggiorna la circonferenza rappresentante l'area di ricerca mense
+* sulla base del raggio specificato.
+*/
+function updateRange(range) {
+	rangeCircle.setMap(null);
+	drawRange(map, pos, range * 1000);
+}
+
+function getCurrentPosition() {
+	return pos;
 }
 
 /*
@@ -118,6 +162,23 @@ var styles = {
 		}
 	]
 };
+
+/*
+* Questa funzione disegna una circonferenza in corrispondenza della posizione
+* specificata e del raggio indicato.
+*/
+function drawRange(map, pos, radius) {
+	rangeCircle = new google.maps.Circle({
+		strokeColor: '#696969',
+		strokeOpacity: 0.8,
+		strokeWeight: 2,
+		fillColor: '#939393',
+		fillOpacity: 0.2,
+		map: map,
+		center: pos,
+		radius: radius
+	});
+}
 
 /*
 * Questa funzione carica il file XML dall'URL specificato sfruttando AJAX.
@@ -139,7 +200,6 @@ function downloadUrl(url, callback) {
   request.open('GET', url, true);
   request.send(null);
 }
-
 
 /*
 * Funzione vuota di supporto

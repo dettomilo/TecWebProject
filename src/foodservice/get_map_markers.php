@@ -8,7 +8,7 @@ $node = $dom->createElement("markers");
 $parnode = $dom->appendChild($node);
 
 //Seleziono tutti i marker
-if ($stmt = $mysqli->prepare("SELECT * FROM mense WHERE 1")) {
+if ($stmt = $mysqli->prepare("SELECT * FROM mense AS M INNER JOIN tipi_servizi AS T ON M.TipoServizio = T.IdTipoServizio WHERE 1")) {
   $stmt->execute(); //Eseguo la query creata
   $result = $stmt->get_result(); //Ottengo il risultato della query
 
@@ -19,12 +19,15 @@ if ($stmt = $mysqli->prepare("SELECT * FROM mense WHERE 1")) {
 	while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
 	  $node = $dom->createElement("marker");
 	  $newnode = $parnode->appendChild($node);
+    $newnode->setAttribute("IdMensa", $row['IdMensa']);
 	  $newnode->setAttribute("Nome", $row['Nome']);
     $newnode->setAttribute("Indirizzo", $row['Indirizzo']);
 	  $newnode->setAttribute("Latitudine", $row['Latitudine']);
 	  $newnode->setAttribute("Longitudine", $row['Longitudine']);
     $newnode->setAttribute("SitoWeb", $row['SitoWeb']);
     $newnode->setAttribute("Telefono", $row['Telefono']);
+    $newnode->setAttribute("Valutazione", $row['Valutazione']);
+    $newnode->setAttribute("Immagine", $row['Immagine']);
 	}
 
 	echo $dom->saveXML();
