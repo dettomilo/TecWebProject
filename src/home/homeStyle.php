@@ -89,7 +89,7 @@ li.notifica:hover {
 
 .thumbnail {
 	transition-duration: 0.5s;
-	min-height: 540px;
+	min-height: 450px;
 }
 
 .thumbnail:hover {
