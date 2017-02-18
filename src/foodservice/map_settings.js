@@ -7,6 +7,18 @@ var map;
 //Cerchio per la rappresentazione dell'area di ricerca
 var rangeCircle;
 
+//Dimensione di default del raggio dell'area
+var currentRangeRadius = 2000;
+
+//Marker relativo alla posizione dell'utente
+var userMarker;
+
+//Variabile per il refresh della geolocalizzazione
+var positionTimer;
+
+//Variabile per la gestione della traduzione Indirizzo-->coordinate
+var geocoder;
+
 /*
 * Questa funzione inizializza la mappa, impostando le sue proprietà.
 * Lo schema di funzionamento è stato assunto a partire dalle guida ufficiale sulle
@@ -31,6 +43,9 @@ function initMap() {
 			gestureHandling: 'cooperative'
 	};
 
+	//inizializzazione del geocoder
+	geocoder = new google.maps.Geocoder();
+
 	//Binding delle proprietà
 	map = new google.maps.Map(document.getElementById("map"), mapProp);
 
@@ -42,37 +57,7 @@ function initMap() {
 	var infoWindow = new google.maps.InfoWindow();
 
 	//Geolocalizzazione HTML5
-	if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
-
-			//Operazioni svolte non appena si entra a conoscenza della posizione
-			drawRange(map, pos, 2000);
-			refreshFoodServicesInRange(pos.lat, pos.lng);
-
-			//Visualizzazione del marker in corrispondenza dell'utente
-			map.setCenter(pos);
-			var userImage = "/smartunibo/src/foodservice/images/userMapPointer.png";
-			var marker = new google.maps.Marker({
-        map: map,
-        position: pos,
-				icon: userImage,
-				animation: google.maps.Animation.DROP,
-				clickable: false
-      });
-    });
-  } else {
-			//Se la geolocalizzazione non è supportata dal Browser...
-			//Si ricorre a una osizione di default su cui centrare la mappa (Via Sacchi 3, Cesena)
-			pos = new google.maps.LatLng(44.139763, 12.243217);
-			drawRange(map, pos, 2000);
-			refreshFoodServicesInRange(pos.lat, pos.lng);
-			map.setCenter(pos);
-	}
-
+	setGeolocatedPosition();
 
 	//A partire dal file XML contenente i dati delle varie mense (estratte da db)
 	//si realizza il caricamento dei marker all'interno della mappa.
@@ -146,11 +131,12 @@ function initMap() {
 
 /*
 * Questa funzione aggiorna la circonferenza rappresentante l'area di ricerca mense
-* sulla base del raggio specificato.
+* sulla base del raggio (in chilometri) specificato.
 */
 function updateRange(range) {
 	rangeCircle.setMap(null);
-	drawRange(map, pos, range * 1000);
+	currentRangeRadius = range * 1000;
+	drawRange(map, pos, currentRangeRadius);
 }
 
 /*
@@ -159,6 +145,134 @@ function updateRange(range) {
 */
 function getCurrentPosition() {
 	return pos;
+}
+
+/*
+* Questa funzione gestisce la geolocalizzazione qualora sia supportata.
+*/
+function setGeolocatedPosition() {
+	if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(displayAndWatch, locError, {
+			enableHighAccuracy: true,
+			timeout: 10000,
+			maximumAge: 0
+		});
+  } else {
+		window.alert("Il tuo browser non supporta la geolocalizzazione");
+	}
+}
+
+/*
+* Questa funzione gestisce i possibili errori che possono essere incontrati durante la
+* geolocalizzazione.
+*/
+function locError(err) {
+	if (err.code == 1) {
+		console.log("Error: Access is denied!");
+	} else if (err.code == 2) {
+		console.log("Error: Position is unavailable!");
+	} else {
+		console.log("Error: Geolocation not supported");
+	}
+}
+
+/*
+* Questa funzione rappresenta ciò che viene svolto qualora la localizzazione abbia successo.
+*/
+function displayAndWatch(position) {
+	//Aggiornamento della posizione
+	pos = {
+		lat: position.coords.latitude,
+		lng: position.coords.longitude
+	};
+
+	//Disegno dell'area
+	if (rangeCircle != null) {
+		rangeCircle.setMap(null);
+	}
+	drawRange(map, pos, currentRangeRadius);
+	refreshFoodServicesInRange(position.coords.latitude, position.coords.longitude);
+
+	//Impostazione della posizione dell'utente e relativo marker
+	setUserLocation(position);
+
+	//Aggiornamento del marker al cambiamento di posizione dell'utente
+	watchCurrentPosition();
+}
+
+/*
+* Questa funzione gestisce il disegno del marker legato all'utente e il centramento della mappa.
+*/
+function setUserLocation(position) {
+	var userImage = "/smartunibo/src/foodservice/images/userMapPointer.png";
+	if (userMarker != null) {
+		userMarker.setMap(null);
+	}
+	userMarker = new google.maps.Marker({
+		map: map,
+		position: pos,
+		icon: userImage,
+		animation: google.maps.Animation.DROP,
+		clickable: false
+	});
+	map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+}
+
+/*
+* Questa funzione aggiorna la posizione del marker sulla mappa e il conseguenziale centramento.
+*/
+function watchCurrentPosition() {
+	positionTimer = navigator.geolocation.watchPosition(function(position) {
+		setMarkerPosition(userMarker, position);
+		map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+	})
+}
+
+/*
+* Questa funzione posiziona il marker specificato nel punto individuato mediante geolocalizzazione.
+*/
+function setMarkerPosition(marker, position) {
+	marker.setPosition(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+}
+
+/*
+* Questa funzione prende in ingresso una stringa rappresentante un indirizzo e la converte
+* in coordinate geografiche, aggiornando di conseguenza la posizione, il marker dell'utente
+* e l'area di ricerca.
+* Se non viene individuato alcun risultato per l'indirizzo passato come parametro, non viene
+* applicata alcuna modifica.
+*/
+function setNewPosition(address) {
+	if (geocoder) {
+		geocoder.geocode( {'address': address}, function(results, status) {
+			if (status == google.maps.GeocoderStatus.OK) {
+				if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+					navigator.geolocation.clearWatch(positionTimer);
+					//Aggiornamento della posizione e centramento della mappa
+					pos = {
+						lat: results[0].geometry.location.lat(),
+						lng: results[0].geometry.location.lng()
+					};
+					map.setCenter(pos);
+					//Reset del marker dell'utente
+					var userImage = "/smartunibo/src/foodservice/images/userMapPointer.png";
+					userMarker.setMap(null);
+					userMarker = new google.maps.Marker({
+		        map: map,
+		        position: pos,
+						icon: userImage,
+						animation: google.maps.Animation.DROP,
+						clickable: false
+		      });
+					//Ridisegno del range
+					rangeCircle.setMap(null);
+					drawRange(map, pos, currentRangeRadius);
+					//Mostro le mense presenti nel raggio a partire dalla nuova posizione specificata
+					refreshFoodServicesInRange(pos.lat, pos.lng);
+				}
+			}
+		});
+	}
 }
 
 /*

@@ -33,8 +33,15 @@
     <main>
       <!-- SELEZIONE RAGGIO -->
       <form>
+        Seleziona la modalità di localizzazione:<br>
+        <input type="radio" id="geolocation" name="position" value="geolocation" checked> Geolocalizzazione
+        <input type="radio" id="manual" name="position" value="manual"> Manuale<br>
+        <input type="text" id="address" name="address" placeholder="Es. Via Sacchi 3, Cesena" size="50" style="visibility:hidden;">
+        <input type="button" id="calculatePos" value="Calcola posizione" style="visibility:hidden;"><br><br>
         Seleziona il range per la ricerca delle mense:<br>
         <select id="rangeSelector" class="range">
+          <option value="0.2">200 m</option>
+          <option value="0.5">500 m</option>
           <option value="1">1 Km</option>
           <option value="2" selected="selected">2 Km</option>
           <option value="3">3 Km</option>
