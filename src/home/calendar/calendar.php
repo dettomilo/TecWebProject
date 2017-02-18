@@ -29,7 +29,7 @@
 
       		$('#calendar').fullCalendar({
       			header: {
-      				left: 'prev,next today',
+      				left: 'prev,next today listWeek',
       				right: 'title'
       			},
 
