@@ -2,7 +2,8 @@
 
 /*
 * Questa funzione calcola la distanza tra due posizioni geografiche e restituisce il
-* risultato dell'operazione sulla base dell'unità di misura specificata.
+* risultato dell'operazione sulla base dell'unità di misura specificata, approssimandolo a
+* due cifre decimali.
 */
 function calcDistance($lat1, $lon1, $lat2, $lon2, $unit) {
   $theta = $lon1 - $lon2;

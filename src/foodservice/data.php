@@ -5,9 +5,10 @@
   //Includo il file esterno relativo le funzioni per l'ottenimento delle mense poste in un certo range.
   require("foodservice_functions.php");
 
-  //Visualizzazione delle mense in un certo range:
-  //è stabilita temporaneamente una posizione fissa.
-  $menseInRange = getFoodServicesInRange(44.14455, 12.248835, $_GET['range'], $mysqli);
+  //Visualizzazione delle mense in un certo range.
+  $menseInRange = getFoodServicesInRange($_GET['lat'], $_GET['lng'], $_GET['range'], $mysqli);
+  echo "Latitudine: " .$_GET['lat'] ."<br>";
+  echo "Longitudine: " .$_GET['lng'] ."<br><br>";
   echo "<b>Mense nel raggio di " .$_GET['range'] ."Km (ordinate per distanza):</b><br>";
   foreach ($menseInRange as $m) {
     echo "Nome = " .$m["Nome"] ."<br>";

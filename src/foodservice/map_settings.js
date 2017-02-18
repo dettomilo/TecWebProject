@@ -48,7 +48,12 @@ function initMap() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-			drawRange(map, pos, 2000);	//2Km
+
+			//Operazioni svolte non appena si entra a conoscenza della posizione
+			drawRange(map, pos, 2000);
+			refreshFoodServicesInRange(pos.lat, pos.lng);
+
+			//Visualizzazione del marker in corrispondenza dell'utente
 			map.setCenter(pos);
 			var userImage = "/smartunibo/src/foodservice/images/userMapPointer.png";
 			var marker = new google.maps.Marker({
@@ -61,9 +66,10 @@ function initMap() {
     });
   } else {
 			//Se la geolocalizzazione non è supportata dal Browser...
-			//Posizione di default su cui centrare la mappa (Via Sacchi 3, Cesena)
+			//Si ricorre a una osizione di default su cui centrare la mappa (Via Sacchi 3, Cesena)
 			pos = new google.maps.LatLng(44.139763, 12.243217);
-			drawRange(map, pos, 2000);	//2Km
+			drawRange(map, pos, 2000);
+			refreshFoodServicesInRange(pos.lat, pos.lng);
 			map.setCenter(pos);
 	}
 
@@ -123,6 +129,7 @@ function initMap() {
 			ratingControl.innerHTML = str;
 			infowincontent.appendChild(ratingControl);
 
+			//Visualizzazione del marker in corrispondenza della mensa corrente e gestione dei relativi eventi
       var marker = new google.maps.Marker({
         map: map,
         position: point,
@@ -146,6 +153,10 @@ function updateRange(range) {
 	drawRange(map, pos, range * 1000);
 }
 
+/*
+* Questa funzione restituisce la posizione corrente dell'utente (geolocalizzata o meno),
+* su cui è inzialmente centrata la mappa.
+*/
 function getCurrentPosition() {
 	return pos;
 }

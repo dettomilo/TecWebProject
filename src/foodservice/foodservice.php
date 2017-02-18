@@ -50,19 +50,19 @@
       <!-- ELENCO MENSE -->
       <div id="foodservices"></div>
       <script>
-        function refreshFoodServicesInRange() {
+        /*
+        * Questa funzione, quando richiamata, carica all'interno dell'elemento div (mediante AJAX) l'elenco
+        * delle mense situate in un certo raggio a partire dalla posizione scelta dall'utente.
+        */
+        function refreshFoodServicesInRange(lat, lng) {
           $.ajax({
-            url: "data.php?range=" + $("#rangeSelector option:selected").val(),
+            url: "data.php?range=" + $("#rangeSelector option:selected").val() + "&lat=" + lat + "&lng=" + lng,
             cache: false,
             success: function(data) {
               $("#foodservices").html(data);
             }
           });
         }
-
-        $(document).ready(function(){
-          refreshFoodServicesInRange();  //Loads foordservices when DOM is ready
-        });
       </script>
     </main>
   </body>
