@@ -168,7 +168,7 @@
 			            echo "<p>" .$n["Sommario"]."</p>";
 			          }
 
-							  echo '				<p><em class="readMore">Leggi tutto »</em></p>
+							  echo '				<em class="readMore">Leggi tutto »</em>
 										  			</div>
 										  		</div>
 												</div>
@@ -182,8 +182,9 @@
 																<h3 class="modal-title">'.$n["Titolo"].'</h3>
 														</div>
 														<div class="modal-body">
-															<p><em>' .$n["Data"] .'</em></p>
-															<p>'.$n["Testo"].'</p>
+															<em>' .$n["Data"] .'</em>
+															<br />
+															<p class="pre-scrollable">'.$n["Testo"].'</p>
 														</div>
 														<div class="modal-footer">
 															<button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
@@ -274,7 +275,7 @@
 											</div>
 											<div class="modal-body">
 												<p><em>' .$n["Data"] .'</em></p>
-												<p>'.$n["Testo"].'</p>
+												<p class="pre-scrollable">'.$n["Testo"].'</p>
 											</div>
 											<div class="modal-footer">
 												<button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
