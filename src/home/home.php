@@ -84,7 +84,7 @@
 			        <ul class="nav navbar-nav">
 								<li class="active"><a href="/smartunibo/src/home/home.php" id="news">News</a></li>
 								<li><a href="/smartunibo/src/home/services/services.php" id="servizi">Servizi</a></li>
-								<li><a href="#" id="carriera">Carriera</a></li>
+								<li><a href="/smartunibo/src/home/career/career.php" id="carriera">Carriera</a></li>
 			        </ul>
 			      </div>
 

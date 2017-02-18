@@ -231,12 +231,51 @@ li.notifica:hover {
 	margin : 10px;
 }
 
+.careerIcon {
+	color: #666;
+	font-size: 5vw;
+	display: block;
+  text-align: center;
+	margin : 10px;
+}
+
 .serviceDescription {
 	color: #888;
 	font-size: 125%;
 	display: block;
   text-align: center;
 	margin-bottom: 8%;
+}
+
+.careerDescription {
+	color: #888;
+	font-size: 105%;
+	display: block;
+  text-align: center;
+	margin-bottom: 8%;
+}
+
+@media only screen and (max-width: 767px) {
+
+	.careerDescription {
+		font-size: 2.5vw;
+	}
+
+	.serviceDescription {
+		font-size: 2.7vw;
+	}
+
+}
+
+@media only screen and (max-width: 568px) {
+
+	.careerDescription {
+		font-size: 3vw;
+	}
+
+	.serviceDescription {
+		font-size: 3.2vw;
+	}
 }
 
 .buttonList {

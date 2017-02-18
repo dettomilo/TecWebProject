@@ -26,7 +26,7 @@
   	</head>
 
 		<?php
-			//Includo il file esterno relativo le funzioni di login per la gestione della sessione.
+      //Includo il file esterno relativo le funzioni di login per la gestione della sessione.
 			require($_SERVER['DOCUMENT_ROOT'] . "/smartunibo/src/login/functions.php");
 
 			//Includo il file esterno relativo le funzioni per l'ottenimento dei dati dello studente.
@@ -78,8 +78,8 @@
 						<div class="collapse navbar-collapse navbar-left">
 			        <ul class="nav navbar-nav">
 								<li><a href="/smartunibo/src/home/home.php" id="news">News</a></li>
-								<li class="active"><a href="/smartunibo/src/home/services/services.php" id="servizi">Servizi</a></li>
-								<li><a href="/smartunibo/src/home/career/career.php" id="carriera">Carriera</a></li>
+								<li><a href="/smartunibo/src/home/services/services.php" id="servizi">Servizi</a></li>
+								<li class="active"><a href="/smartunibo/src/home/career/career.php" id="carriera">Carriera</a></li>
 			        </ul>
 			      </div>
 
@@ -132,44 +132,98 @@
 
 				<!-- SERVICES LIST style="float: none; margin: 0 auto;" -->
 				<div class="container-fluid jumbotron text-center">
-						<h2 class="display-2">Servizi Smart Unibo</h2>
+						<h2 class="display-2">Carriera</h2>
+						<br />
 					<div class="row buttonList">
 
-							<div onclick="window.location='#';" class="col-md-3 col-sm-4 col-xs-6 panel panel-default servicePanel" role="button">
-								<span class="serviceIcon fa fa-envelope-o" aria-hidden="true"></span>
+							<div onclick="window.location='#';" class="col-md-2 col-sm-3 col-xs-4 panel panel-default servicePanel" role="button">
+								<span class="careerIcon fa fa-check-square-o" aria-hidden="true"></span>
 								<hr />
-								<span class="serviceDescription">Mail</span>
+								<span class="careerDescription">Ammissione</span>
 							</div>
 
-							<div onclick="window.location='#';" class="col-md-3 col-sm-4 col-xs-6 panel panel-default servicePanel" role="button">
-								<span class="serviceIcon fa fa-university" aria-hidden="true"></span>
+							<div onclick="window.location='#';" class="col-md-2 col-sm-3 col-xs-4 panel panel-default servicePanel" role="button">
+								<span class="careerIcon fa fa-id-card-o" aria-hidden="true"></span>
 								<hr />
-								<span class="serviceDescription">Aule Studio</span>
+								<span class="careerDescription">Immatricolazioni</span>
 							</div>
 
-
-							<div onclick="window.location='/smartunibo/src/foodservice/foodservice.php';" class="col-md-3 col-sm-4 col-xs-6 panel panel-default servicePanel" role="button">
-								<span class="serviceIcon fa fa-cutlery" aria-hidden="true"></span>
+							<div onclick="window.location='#';" class="col-md-2 col-sm-3 col-xs-4 panel panel-default servicePanel" role="button">
+								<span class="careerIcon fa fa-pencil" aria-hidden="true"></span>
 								<hr />
-								<span class="serviceDescription">Mensa</span>
+								<span class="careerDescription">Esami</span>
 							</div>
 
-							<div onclick="window.location='#';" class="col-md-3 col-sm-4 col-xs-6 panel panel-default servicePanel" role="button">
-								<span class="serviceIcon fa fa-bicycle" aria-hidden="true"></span>
+							<div onclick="window.location='#';" class="col-md-2 col-sm-3 col-xs-4 panel panel-default servicePanel" role="button">
+								<span class="careerIcon fa fa-eur" aria-hidden="true"></span>
 								<hr />
-								<span class="serviceDescription">Bike Sharing</span>
+								<span class="careerDescription">Tasse</span>
 							</div>
 
-							<div onclick="window.location='#';" class="col-md-3 col-sm-4 col-xs-6 panel panel-default servicePanel" role="button">
-								<span class="serviceIcon fa fa-car" aria-hidden="true"></span>
+							<div onclick="window.location='#';" class="col-md-2 col-sm-3 col-xs-4 panel panel-default servicePanel" role="button">
+								<span class="careerIcon fa fa-line-chart" aria-hidden="true"></span>
 								<hr />
-								<span class="serviceDescription">Car Sharing</span>
+								<span class="careerDescription">Libretto</span>
 							</div>
 
-							<div onclick="window.location='#';" class="col-md-3 col-sm-4 col-xs-6 panel panel-default servicePanel" role="button">
-								<span class="serviceIcon fa fa-bus" aria-hidden="true"></span>
+							<div onclick="window.location='#';" class="col-md-2 col-sm-3 col-xs-4 panel panel-default servicePanel" role="button">
+								<span class="careerIcon fa fa-book" aria-hidden="true"></span>
 								<hr />
-								<span class="serviceDescription">Servizi Pubblici</span>
+								<span class="careerDescription">Piani di Studio</span>
+							</div>
+
+							<div onclick="window.location='#';" class="col-md-2 col-sm-3 col-xs-4 panel panel-default servicePanel" role="button">
+								<span class="careerIcon fa fa-users" aria-hidden="true"></span>
+								<hr />
+								<span class="careerDescription">Tirocinio</span>
+							</div>
+
+							<div onclick="window.location='#';" class="col-md-2 col-sm-3 col-xs-4 panel panel-default servicePanel" role="button">
+								<span class="careerIcon fa fa-graduation-cap" aria-hidden="true"></span>
+								<hr />
+								<span class="careerDescription">Laurea</span>
+							</div>
+
+							<div onclick="window.location='#';" class="col-md-2 col-sm-3 col-xs-4 panel panel-default servicePanel" role="button">
+								<span class="careerIcon fa fa-refresh" aria-hidden="true"></span>
+								<hr />
+								<span class="careerDescription">Passaggio Corso</span>
+							</div>
+
+							<div onclick="window.location='#';" class="col-md-2 col-sm-3 col-xs-4 panel panel-default servicePanel" role="button">
+								<span class="careerIcon fa fa-arrow-right" aria-hidden="true"></span>
+								<hr />
+								<span class="careerDescription">Trasferimento</span>
+							</div>
+
+							<div onclick="window.location='#';" class="col-md-2 col-sm-3 col-xs-4 panel panel-default servicePanel" role="button">
+								<span class="careerIcon fa fa-pencil-square-o" aria-hidden="true"></span>
+								<hr />
+								<span class="careerDescription">Prenotazioni</span>
+							</div>
+
+							<div onclick="window.location='#';" class="col-md-2 col-sm-3 col-xs-4 panel panel-default servicePanel" role="button">
+								<span class="careerIcon fa fa-clipboard" aria-hidden="true"></span>
+								<hr />
+								<span class="careerDescription">Bandi</span>
+							</div>
+
+							<div onclick="window.location='#';" class="col-md-2 col-sm-3 col-xs-4 panel panel-default servicePanel" role="button">
+								<span class="careerIcon fa fa-check" aria-hidden="true"></span>
+								<hr />
+								<span class="careerDescription">Certificazioni</span>
+							</div>
+
+							<div onclick="window.location='#';" class="col-md-2 col-sm-3 col-xs-4 panel panel-default servicePanel" role="button">
+								<span class="careerIcon fa fa-times" aria-hidden="true"></span>
+								<hr />
+								<span class="careerDescription">Rinuncia</span>
+							</div>
+
+							<div onclick="window.location='#';" class="col-md-2 col-sm-3 col-xs-4 panel panel-default servicePanel" role="button">
+								<span class="careerIcon fa fa-hand-paper-o" aria-hidden="true"></span>
+								<hr />
+								<span class="careerDescription">Sospensione</span>
 							</div>
 
 					</div>
@@ -182,7 +236,6 @@
 				<footer>
 	        <p>Smart Unibo - 2017</p>
 					<a href="#" class="go-top"><i class="glyphicon glyphicon-chevron-up" style="color:#bb2e29"></i></a>
-					<a href="/smartunibo/src/foodservice/foodservice.php">FoodService</a>
 	      </footer>
 
   			</section>

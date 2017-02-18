@@ -115,7 +115,7 @@
 			        <ul class="nav navbar-nav">
 								<li><a href="/smartunibo/src/home/home.php" id="news">News</a></li>
 								<li><a href="/smartunibo/src/home/services/services.php" id="servizi">Servizi</a></li>
-								<li><a href="#" id="carriera">Carriera</a></li>
+								<li><a href="/smartunibo/src/home/career/career.php" id="carriera">Carriera</a></li>
 			        </ul>
 			      </div>
 
@@ -172,8 +172,9 @@
 
         $nomeCorso = getCorso($_SESSION['matricola'], $mysqli);
         echo '
-            <h2 class="text-center">CALENDARIO</h2>
-            <h3 class="text-center nomeCorsoNews">'.$nomeCorso.'</h3>';
+            <h2 class="display-2">Calendario</h2>
+            <h3 class="nomeCorsoNews">'.$nomeCorso.'</h3>
+						<br />';
          ?>
         <div class="row">
           <div class="col-md-12">
