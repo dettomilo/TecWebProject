@@ -16,12 +16,8 @@
 	    <!-- Latest compiled JavaScript -->
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-			<!-- CALENDAR -->
-			<link href='/smartunibo/lib/fullcalendar-3.1.0/fullcalendar.min.css' rel='stylesheet' />
-			<link href='/smartunibo/lib/fullcalendar-3.1.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
-			<script src='/smartunibo/lib/fullcalendar-3.1.0/lib/moment.min.js'></script>
-			<script src='/smartunibo/lib/fullcalendar-3.1.0/fullcalendar.min.js'></script>
-
+			<!-- FONT AWESOME CDN -->
+			<script src="https://use.fontawesome.com/7bd167f128.js"></script>
 			<!-- BackToTop script -->
 			<script src='/smartunibo/src/home/back_to_top.js'></script>
 
@@ -123,50 +119,48 @@
 				</script>
 				<!-- FINE USER MENU POPOVER -->
 
+				<!-- SERVICES LIST style="float: none; margin: 0 auto;" -->
 				<div class="container-fluid jumbotron text-center">
 						<h2 class="display-2">Servizi Smart Unibo</h2>
 					<div class="row buttonList">
-						<hr />
-								<div class="col-md-3 col-sm-3 col-xs-6 panel panel-default servicePanel" role="button">
-									<span class="serviceIcon glyphicon glyphicon-education" aria-hidden="true"></span>
-									<br />
-									<span class="serviceDescription">Test Service</span>
-								</div>
-								<div class="col-md-3 col-sm-3 col-xs-6 panel panel-default servicePanel" role="button">
-									<span class="serviceIcon glyphicon glyphicon-education" aria-hidden="true"></span>
-									<br />
-									<span class="serviceDescription">Test Service</span>
-								</div>
-								<div class="col-md-3 col-sm-3 col-xs-6 panel panel-default servicePanel" role="button">
-									<span class="serviceIcon glyphicon glyphicon-education" aria-hidden="true"></span>
-									<br />
-									<span class="serviceDescription">Test Service</span>
-								</div>
-								<div class="col-md-3 col-sm-3 col-xs-6 panel panel-default servicePanel" role="button">
-									<span class="serviceIcon glyphicon glyphicon-education" aria-hidden="true"></span>
-									<br />
-									<span class="serviceDescription">Test Service</span>
-								</div>
-								<div class="col-md-3 col-sm-3 col-xs-6 panel panel-default servicePanel" role="button">
-									<span class="serviceIcon glyphicon glyphicon-education" aria-hidden="true"></span>
-									<br />
-									<span class="serviceDescription">Test Service</span>
-								</div>
-								<div class="col-md-3 col-sm-3 col-xs-6 panel panel-default servicePanel" role="button">
-									<span class="serviceIcon glyphicon glyphicon-education" aria-hidden="true"></span>
-									<br />
-									<span class="serviceDescription">Test Service</span>
-								</div>
-								<div class="col-md-3 col-sm-3 col-xs-6 panel panel-default servicePanel" role="button">
-									<span class="serviceIcon glyphicon glyphicon-education" aria-hidden="true"></span>
-									<br />
-									<span class="serviceDescription">Test Service</span>
-								</div>
-								<div class="col-md-3 col-sm-3 col-xs-6 panel panel-default servicePanel" role="button">
-									<span class="serviceIcon glyphicon glyphicon-education" aria-hidden="true"></span>
-									<br />
-									<span class="serviceDescription">Test Service</span>
-								</div>
+
+							<div onclick="window.location='#';" class="col-md-3 col-sm-4 col-xs-4 panel panel-default servicePanel" role="button">
+								<span class="serviceIcon fa fa-envelope-o" aria-hidden="true"></span>
+								<hr />
+								<span class="serviceDescription">Mail</span>
+							</div>
+
+							<div onclick="window.location='#';" class="col-md-3 col-sm-4 col-xs-4 panel panel-default servicePanel" role="button">
+								<span class="serviceIcon fa fa-university" aria-hidden="true"></span>
+								<hr />
+								<span class="serviceDescription">Aule Studio</span>
+							</div>
+
+
+							<div onclick="window.location='/smartunibo/src/foodservice/foodservice.php';" class="col-md-3 col-sm-4 col-xs-4 panel panel-default servicePanel" role="button">
+								<span class="serviceIcon fa fa-cutlery" aria-hidden="true"></span>
+								<hr />
+								<span class="serviceDescription">Mensa</span>
+							</div>
+
+							<div onclick="window.location='#';" class="col-md-3 col-sm-4 col-xs-4 panel panel-default servicePanel" role="button">
+								<span class="serviceIcon fa fa-bicycle" aria-hidden="true"></span>
+								<hr />
+								<span class="serviceDescription">Bike Sharing</span>
+							</div>
+
+							<div onclick="window.location='#';" class="col-md-3 col-sm-4 col-xs-4 panel panel-default servicePanel" role="button">
+								<span class="serviceIcon fa fa-car" aria-hidden="true"></span>
+								<hr />
+								<span class="serviceDescription">Car Sharing</span>
+							</div>
+
+							<div onclick="window.location='#';" class="col-md-3 col-sm-4 col-xs-4 panel panel-default servicePanel" role="button">
+								<span class="serviceIcon fa fa-bus" aria-hidden="true"></span>
+								<hr />
+								<span class="serviceDescription">Servizi Pubblici</span>
+							</div>
+
 					</div>
 				</div>
 
@@ -175,7 +169,7 @@
 				<hr />
 
 				<footer>
-	        <p>© Smart Unibo - 2017</p>
+	        <p>Smart Unibo - 2017</p>
 					<a href="#" class="go-top"><i class="glyphicon glyphicon-chevron-up" style="color:#bb2e29"></i></a>
 					<a href="/smartunibo/src/foodservice/foodservice.php">FoodService</a>
 	      </footer>

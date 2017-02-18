@@ -16,12 +16,6 @@
 	    <!-- Latest compiled JavaScript -->
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-			<!-- CALENDAR -->
-			<link href='/smartunibo/lib/fullcalendar-3.1.0/fullcalendar.min.css' rel='stylesheet' />
-			<link href='/smartunibo/lib/fullcalendar-3.1.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
-			<script src='/smartunibo/lib/fullcalendar-3.1.0/lib/moment.min.js'></script>
-			<script src='/smartunibo/lib/fullcalendar-3.1.0/fullcalendar.min.js'></script>
-
 			<!-- BackToTop script -->
 			<script src='/smartunibo/src/home/back_to_top.js'></script>
 
@@ -297,7 +291,7 @@
 				<hr />
 
 				<footer>
-	        <p>© Smart Unibo - 2017</p>
+	        <p>Smart Unibo - 2017</p>
 					<a href="#" class="go-top"><i class="glyphicon glyphicon-chevron-up" style="color:#bb2e29"></i></a>
 					<a href="/smartunibo/src/foodservice/foodservice.php">FoodService</a>
 	      </footer>

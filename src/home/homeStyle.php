@@ -211,14 +211,15 @@ li.notifica:hover {
 }
 
 .servicePanel {
-	border-radius: 8px;
-	margin: 1%;
 	transition-duration: 0.2s;
-	width: 20%;
+	margin: 1%;
+	box-shadow: 2px 2px 5px #DDD;
+	display:inline-block;
+  float:none;
 }
 
 .servicePanel:hover {
-	border-radius: 10px;
+	border-radius: 8px;
 	box-shadow: 2px 2px 10px #666;
 }
 
@@ -232,15 +233,19 @@ li.notifica:hover {
 
 .serviceDescription {
 	color: #888;
-
+	font-size: 125%;
 	display: block;
   text-align: center;
+	margin-bottom: 8%;
 }
 
 .buttonList {
-	padding-left: 10%;
+	text-align:center;
 }
 
+.display-2 {
+	color: #666;
+}
 
 
 
