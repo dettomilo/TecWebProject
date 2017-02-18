@@ -132,7 +132,8 @@
 
 				<!-- SERVICES LIST style="float: none; margin: 0 auto;" -->
 				<div class="container-fluid jumbotron text-center">
-						<h2 class="display-2">Servizi Smart Unibo</h2>
+						<h2 class="display-2">Servizi</h2>
+						<br />
 					<div class="row buttonList">
 
 							<div onclick="window.location='#';" class="col-md-3 col-sm-4 col-xs-6 panel panel-default servicePanel" role="button">
