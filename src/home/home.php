@@ -101,7 +101,7 @@
 			  		<script>
 					$(document).ready(function(){
 						var newHTML = [];
-						//$ateneoNews = getNews(0, 4, $mysqli);
+						//$notifications = getNotifications($mysqli);
 						for (var i = 0; i < 4; i++) {
 							newHTML.push('<li class="notifica"><a href="#">Messaggio di po più lungo del normale</a> <br /><div class="clearfix"></div></li>');
 						}
