@@ -193,7 +193,17 @@
 
 										<div class="col-md-10 col-sm-10 col-xs-9 input-group" style="padding-right: 4%;">
 											<label class="control-label sr-only" for="address">Cerca Indirizzo</label>
-											<input type="text" class="form-control" name="address" id="address" placeholder="Es. Via Sacchi 3, Cesena">
+											<input type="text" class="form-control" name="address" id="address" placeholder="Es. Via Sacchi 3, Cesena" onkeypress="handleFocus(event)"/>
+											<script>
+												/*
+												* Questa funzione forza l'esecuzione della ricerca alla pressione del tasto invio.
+												*/
+												function handleFocus(e) {
+													if (e.keyCode == 13) {
+														setNewPosition($("#address").val());
+													}
+												}
+											</script>
 
 											<div class="input-group-btn">
 									      <button id="calculatePos" class="btn btn-default" type="submit">
@@ -262,7 +272,7 @@
 							</div>
 							<div class="col-md-6 col-sm-6 col-xs-6">
 								<p class="pull-right">
-									<a href="/smartunibo/src/home/about/about.php">> About</a>
+									<a href="about/about.php">-> About</a>
 								</p>
 						</div>
 						<a href="#" class="go-top"><i class="glyphicon glyphicon-chevron-up" style="color:#bb2e29"></i></a>
