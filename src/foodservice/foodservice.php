@@ -72,7 +72,7 @@
   			<section id="content" class="container">
 	  			<header class="header">
 	  				<div>
-	  					<a href="/smartunibo/src/home/home.php" title="Vai alla homepage del Portale">
+	  					<a href="/smartunibo/src/home/home.php">
 								<div class="row">
 									<div class="col-md-12">
 										<img class="img-responsive center-block" src="/smartunibo/src/home/images/SmartUniboBanner.png" alt="Logo Smart Unibo">
@@ -96,11 +96,11 @@
 				      <!-- NO COLLAPSE -->
 				      <div class="navbar-header">
 				        <ul class="nav navbar-nav pull-right noStack">
-									<li><a href="/smartunibo/src/home/calendar/calendar.php" id="calendario" title="Calendario" class="glyphicon glyphicon-calendar pull" role="button" aria-haspopup="true"></a></li>
+									<li><a href="/smartunibo/src/home/calendar/calendar.php" id="calendario" class="glyphicon glyphicon-calendar pull" role="button" aria-haspopup="true"></a></li>
 
-									<li><a href="#" id="notifiche" title="Notifiche" class="glyphicon glyphicon-bell" aria-haspopup="true" data-toggle="notifichePopover" data-trigger="focus"></a></li>
+									<li><a href="#" id="notifiche" class="glyphicon glyphicon-bell" aria-haspopup="true" data-toggle="notifichePopover" data-trigger="focus"></a></li>
 
-									<li><a href="#" id="user" title="Profilo" class="glyphicon glyphicon-user" aria-haspopup="true" data-toggle="userMenuPopover" data-trigger="focus"></a></li>
+									<li><a href="#" id="user" class="glyphicon glyphicon-user" aria-haspopup="true" data-toggle="userMenuPopover" data-trigger="focus"></a></li>
 				        </ul>
 				      </div>
 
@@ -174,24 +174,27 @@
 
 								<div class="form-group">
 									<div class="row">
-										<div class="col-md-1">
-											<div class="btn btn-default" id="geolocation" name="position" value="geolocation"><i class="fa fa-location-arrow" aria-hidden="true"></i></div>
+										<div class="col-md-2 col-sm-2 col-xs-2 text-center">
+											<button class="btn btn-default" id="geolocation" name="position"><i class="fa fa-location-arrow" aria-hidden="true"></i></button>
 										</div>
 
-										<div class="col-md-11 has-feedback">
+										<div class="col-md-10 col-sm-10 col-xs-10 input-group" style="padding-right: 4%;">
 											<label class="control-label sr-only" for="address">Cerca Indirizzo</label>
-											<span class="glyphicon glyphicon-search form-control-feedback"></span>
 											<input type="text" class="form-control" name="address" id="address" placeholder="Es. Via Sacchi 3, Cesena">
+
+											<div class="input-group-btn">
+									      <button id="calculatePos" class="btn btn-default" type="submit">
+									        <i class="glyphicon glyphicon-search"></i>
+									      </button>
+									    </div>
+
 										</div>
+
 									</div>
 								</div>
-
-								<input type="radio" id="geolocation" name="position" value="geolocation" checked> Geolocalizzazione
-							  <input type="radio" id="manual" name="position" value="manual"> Manuale<br />
-								<input type="button" id="calculatePos" value="Calcola posizione" style="visibility:hidden;">
 						</div>
 
-						<div class="col-md-6 form-group">
+						<div class="col-md-6 form-group pull-right">
 							<!-- SELEZIONE RAGGIO -->
 									Range di ricerca:
 									<select id="rangeSelector" class="range selectpicker">
