@@ -20,12 +20,12 @@ var canvas = document.getElementById( 'canvas' ),
 		// particle collection
 		particles = [],
 		// starting hue
-		hue = 120,
+		hue = 100,
 		// when launching fireworks with a click, too many get launched at once without a limiter, one launch per 5 loop ticks
 		limiterTotal = 5,
 		limiterTick = 0,
 		// this will time the auto launches of fireworks, one launch per 80 loop ticks
-		timerTotal = 80,
+		timerTotal = 60,
 		timerTick = 0,
 		mousedown = false,
 		// mouse x coordinate,
@@ -81,7 +81,7 @@ function Firework( sx, sy, tx, ty ) {
 		this.coordinates.push( [ this.x, this.y ] );
 	}
 	this.angle = Math.atan2( ty - sy, tx - sx );
-	this.speed = 2;
+	this.speed = 5;
 	this.acceleration = 1.05;
 	this.brightness = random( 60, 80 );
 	// circle target indicator radius
@@ -196,7 +196,7 @@ Particle.prototype.draw = function() {
 // create particle group/explosion
 function createParticles( x, y ) {
 	// increase the particle count for a bigger explosion, beware of the canvas performance hit with the increased particles though
-	var particleCount = 30;
+	var particleCount = 100;
 	while( particleCount-- ) {
 		particles.push( new Particle( x, y ) );
 	}
