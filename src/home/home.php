@@ -101,17 +101,6 @@
 				<!-- NOTIFICHE POPOVER -->
 				<div style="display:none" class="lista_notifiche">
 			  	<ul>
-				  		<!--<script>
-						$(document).ready(function(){
-							var newHTML = [];
-							var notif = new Array( getNotifications($mysqli) );
-							var countries = ['United States', 'Canada', 'Argentina', 'Armenia'];
-							for (var i = 0; i < 4; i++) {
-								newHTML.push('<li class="notifica"><a href="#">'+countries[i]+'</a> <br /><div class="clearfix"></div></li>');
-							}
-							$(".lista_notifiche").html(newHTML.join(""));
-						});
-						</script>-->
 						<?php
 							$not = getNotifications($mysqli);
 							$currentNewsId = 0;

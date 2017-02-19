@@ -30,7 +30,9 @@
 			require($_SERVER['DOCUMENT_ROOT'] . "/smartunibo/src/database/db_connect.php");
       //Includo il file esterno relativo le funzioni di login per la gestione della sessione.
 			require($_SERVER['DOCUMENT_ROOT'] . "/smartunibo/src/login/functions.php");
-
+			
+			//Includo il file esterno relativo le funzioni per l'ottenimento delle notifiche.
+			require("../notifications/notifications_functions.php");
 			//Includo il file esterno relativo le funzioni per l'ottenimento dei dati dello studente.
 			require("../student_functions.php");
 
@@ -93,11 +95,22 @@
 
 				<!-- NOTIFICHE POPOVER -->
 				<div style="display:none" class="lista_notifiche">
-			  	<ul class="unstyled">
-			    	<li class="notifica"><a href="#">Messaggio di notifica un po più lungo del normale</a> <br /><div class="clearfix"></div></li>
-			    	<li class="notifica"><a href="#">Messaggio di notifica 2 un po più lungo del normale</a> <br /><div class="clearfix"></div></li>
-			    	<li class="notifica"><a href="#">Messaggio di notifica un po più lungo del normale</a> <br /><div class="clearfix"></div></li>
-			  	</ul>
+			  	<ul>
+						<?php
+							$not = getNotifications($mysqli);
+							$currentNewsId = 0;
+							for ($i = 1; $i <= 4; $i++) {
+								if(array_key_exists($i, $not)) {
+					        		$n = $not[$i];
+									echo '
+										<li class="notifica" style="cursor:pointer">
+											<i class="glyphicon '.$n["Icona"].'"></i><a href"#> '.$n["Titolo"].'</a><div class="clearfix"></div>
+										</li>
+									';
+								}
+							}
+						?>
+					</ul>
 				</div>
 
 				<script>
