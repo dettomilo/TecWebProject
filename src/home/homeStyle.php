@@ -60,7 +60,7 @@ li.notifica:hover {
 		border-color: #6b0808;
     color: #FFFFFF;
     border-radius: 10px;
-    box-shadow: 5px 5px 20px #6b0808;
+    box-shadow: 5px 2px 10px #6b0808;
 }
 
 .btn:focus {
@@ -295,7 +295,14 @@ li.notifica:hover {
 	background: #BABABA;
 }
 
+#address {
+		transition-duration: 0.2s;
+}
 
+#address:focus {
+    border-color: #bb2e29;
+    box-shadow: 0px 0px 5px #6b0808;
+}
 
 
 

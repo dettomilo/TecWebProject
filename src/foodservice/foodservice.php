@@ -162,23 +162,23 @@
 				<!-- FINE USER MENU POPOVER -->
 
 				<!-- MAP FoodService -->
-				<div class="jumbotron container-fluid">
+				<div class="jumbotron container-fluid" style="padding-top : 3%;">
 					<h2 class="display-2 text-center">Servizio Mensa</h2>
-						<strong>Benvenuto nel servizio mensa Smart Unibo!</strong><br />
-						<p>
-							Qui potrai visualizzare tutte le mense Unibo convenzionate e scegliere quella che più ti piace!
-						</p>
+					<br />
+					<strong>Benvenuto nel servizio mensa Smart Unibo!</strong><br />
+					<p>
+						Qui potrai visualizzare tutte le mense Unibo convenzionate e scegliere quella che più ti piace!
+					</p>
+					<br />
 
 					<div class="row">
-						<div class="col-md-6">
-
-								<div class="form-group">
+								<div class="form-group col-md-6 col-sm-9 col-xs-8">
 									<div class="row">
-										<div class="col-md-2 col-sm-2 col-xs-2 text-center">
+										<div class="col-md-2 col-sm-2 col-xs-3">
 											<button class="btn btn-default" id="geolocation" name="position"><i class="fa fa-location-arrow" aria-hidden="true"></i></button>
 										</div>
 
-										<div class="col-md-10 col-sm-10 col-xs-10 input-group" style="padding-right: 4%;">
+										<div class="col-md-10 col-sm-10 col-xs-9 input-group" style="padding-right: 4%;">
 											<label class="control-label sr-only" for="address">Cerca Indirizzo</label>
 											<input type="text" class="form-control" name="address" id="address" placeholder="Es. Via Sacchi 3, Cesena">
 
@@ -187,17 +187,12 @@
 									        <i class="glyphicon glyphicon-search"></i>
 									      </button>
 									    </div>
-
 										</div>
 
 									</div>
 								</div>
-						</div>
 
-						<div class="col-md-6 form-group pull-right">
-							<!-- SELEZIONE RAGGIO -->
-									Range di ricerca:
-									<select id="rangeSelector" class="range selectpicker">
+									<select id="rangeSelector" class="form-group col-md-2 col-sm-3 col-xs-4 range selectpicker pull-left">
 										<optgroup label="Distanza">
 											<option value="0.2">200 m</option>
 											<option value="0.5">500 m</option>
@@ -208,42 +203,39 @@
 											<option value="5">5 Km</option>
 										</optgroup>
 									</select>
-						</div>
+								<div class="col-md-4 col-sm-0 col-xs-0">
+								</div>
 					</div>
-				</div>
-
-
-				<div class="container-fluid">
 
 						<br />
 						<div class="row">
-							<div class="container-fluid col-md-5">
-								<!-- ELENCO MENSE -->
+						<div class="col-md-5 well" style="min-height: 60vmin;">
+						<!-- ELENCO MENSE -->
+						<h3>Elenco mense</h3>
+						<hr />
+			      <div class="pre-scrollable" id="foodservices" style="min-height: 47vmin;"></div>
+			      <script>
+			        /*
+			        * Questa funzione, quando richiamata, carica all'interno dell'elemento div (mediante AJAX) l'elenco
+			        * delle mense situate in un certo raggio a partire dalla posizione scelta dall'utente.
+			        */
+			        function refreshFoodServicesInRange(lat, lng) {
+			          $.ajax({
+			            url: "data.php?range=" + $("#rangeSelector option:selected").val() + "&lat=" + lat + "&lng=" + lng,
+			            cache: false,
+			            success: function(data) {
+			              $("#foodservices").html(data);
+			            }
+			          });
+			        }
+			      </script>
+					</div>
 
-					      <div class="pre-scrollable container-fluid" id="foodservices"></div>
-					      <script>
-					        /*
-					        * Questa funzione, quando richiamata, carica all'interno dell'elemento div (mediante AJAX) l'elenco
-					        * delle mense situate in un certo raggio a partire dalla posizione scelta dall'utente.
-					        */
-					        function refreshFoodServicesInRange(lat, lng) {
-					          $.ajax({
-					            url: "data.php?range=" + $("#rangeSelector option:selected").val() + "&lat=" + lat + "&lng=" + lng,
-					            cache: false,
-					            success: function(data) {
-					              $("#foodservices").html(data);
-					            }
-					          });
-					        }
-					      </script>
-							</div>
+					<!-- MAPPA -->
+					<div class="container-fluid col-md-7 well" id="map"></div>
+						<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbS22mHEoCvuhOAtmH2dGIJj1UmLGiJE0&callback=initMap"></script>
+					</div>
 
-							<!-- MAPPA -->
-							<div class="container-fluid col-md-7" id="map"></div>
-								<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbS22mHEoCvuhOAtmH2dGIJj1UmLGiJE0&callback=initMap"></script>
-							</div>
-
-						</div>
 				</div>
 
 
