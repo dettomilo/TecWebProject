@@ -96,10 +96,12 @@ function initMap() {
 				siteWebText.title = siteWeb;
 				siteWebText.href = siteWeb;
 				infowincontent.appendChild(siteWebText);
+				infowincontent.appendChild(document.createElement('br'));
 			}
 
 			//Telefono
 			var telephoneText = document.createElement('text');
+
 			telephoneText.textContent = telephone;
 			infowincontent.appendChild(telephoneText);
       infowincontent.appendChild(document.createElement('br'));
@@ -107,9 +109,12 @@ function initMap() {
 			//Valutazione
 			var ratingControl = document.createElement('div');
 			var str =
-			'<div style="width: 100px;"><div class="rating" style="height: 26px; width: ' + rating + '%; background-color:orange;">' +
-			'<img class="img-responsive" src="/smartunibo/src/foodservice/images/starRatingMask.png" alt="Rating" style="max-width:100px;">' +
-			'</div></div>';
+			'<br /><div style="min-width:110px; width: 110px;">'+
+        '<div class="rating" style="width: '+ rating +'%; height: 97%; background-color:orange;">'+
+        '<img src="/smartunibo/src/foodservice/images/starRatingMask.png" alt="Rating" style="min-width:110px;">'+
+        '</div>'+
+      '</div>';
+
 			ratingControl.innerHTML = str;
 			infowincontent.appendChild(ratingControl);
 

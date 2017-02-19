@@ -13,20 +13,22 @@
   foreach ($menseInRange as $m) {
     echo
     '
-    <div class="well">
+    <div class="well" style="border-radius: 10px; box-shadow: 5px 2px 10px #888; margin: 5%;">
       <strong>'.$m["Nome"].'</strong><br />
       <p>'.$m["Indirizzo"].'</p>
       <em>Telefono: '.$m["Telefono"].'</em><br />
 
-      <div style="width: 100px;">
-        <div class="rating" style="height: 26px; width: '.$m["Valutazione"].'%; background-color:orange;">
-  			   <img class="img-responsive" src="/smartunibo/src/foodservice/images/starRatingMask.png" alt="Rating" style="max-width:100px;">
+      <div style="min-width:110px; width: 110px;">
+        <div class="rating" style="width: '.$m["Valutazione"].'%; height: 97%; background-color:orange;">
+        <img src="/smartunibo/src/foodservice/images/starRatingMask.png" alt="Rating" style="min-width:110px;">
         </div>
       </div>
+
+      <br />
       <p>Distanza: '.$m["Distanza"].' km</p>
     </div>
     ';
   }
-
+  //'.$m["Valutazione"].'
   //<a href="'.$m["Indirizzo"].'">'.preg_replace('#^https?://#', '', $m["Indirizzo"]).'</a><br />
  ?>
