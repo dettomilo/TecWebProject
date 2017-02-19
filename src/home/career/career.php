@@ -261,7 +261,7 @@
 						</div>
 						<div class="col-md-6 col-sm-6 col-xs-6">
 							<p class="pull-right">
-								<a href="about/about.php">-> About</a>
+								<a href="/smartunibo/src/home/about/about.php">> About</a>
 							</p>
 					</div>
 					<a href="#" class="go-top"><i class="glyphicon glyphicon-chevron-up" style="color:#bb2e29"></i></a>
