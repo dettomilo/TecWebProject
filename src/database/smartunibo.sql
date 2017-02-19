@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Creato il: Feb 19, 2017 alle 12:36
+-- Creato il: Feb 20, 2017 alle 00:14
 -- Versione del server: 10.1.16-MariaDB
 -- Versione PHP: 5.6.24
 
@@ -154,9 +154,10 @@ CREATE TABLE `eventi` (
 --
 
 INSERT INTO `eventi` (`IdEvento`, `Titolo`, `DataOraInizio`, `DataOraFine`, `GiornoIntero`, `Url`, `Tipo`) VALUES
-(1, 'Maker Inside (and Outside)', '2016-12-21 14:00:00', '2016-12-21 19:00:00', 0, 'http://corsi.unibo.it/Magistrale/IngegneriaScienzeInformatiche/Eventi/2016/12/workshop-maker-inside-and-outside.aspx', 'Workshop'),
+(1, 'Maker Inside (and Outside)', '2017-02-21 14:00:00', '2017-02-21 19:00:00', 0, 'http://corsi.unibo.it/Magistrale/IngegneriaScienzeInformatiche/Eventi/2016/12/workshop-maker-inside-and-outside.aspx', 'Workshop'),
 (2, 'CineSprite - PRIMA SERATA', '2017-02-22 18:00:00', '2017-02-22 21:00:00', 0, NULL, 'Incontro'),
-(3, 'Linux Day', '2017-02-24 16:00:00', '2017-02-24 19:00:00', 0, NULL, 'Seminario');
+(3, 'Linux Day', '2017-02-24 16:00:00', '2017-02-24 19:00:00', 0, NULL, 'Seminario'),
+(4, 'StarApperitivo', '2017-02-24 19:00:00', '2017-02-24 21:00:00', 0, NULL, 'Incontro');
 
 -- --------------------------------------------------------
 
@@ -709,7 +710,7 @@ ALTER TABLE `docenti`
 -- AUTO_INCREMENT per la tabella `eventi`
 --
 ALTER TABLE `eventi`
-  MODIFY `IdEvento` int(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `IdEvento` int(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT per la tabella `lezioni`
 --
