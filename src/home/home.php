@@ -310,8 +310,18 @@
 				<hr />
 
 				<footer>
-					<p>Smart Unibo - 2017</p>
-					<a href="about/about.php">About</a>
+					<div class="row">
+						<div class="col-md-6 col-sm-6 col-xs-6">
+							<p class="pull-left">
+								Smart Unibo - 2017 |
+								This website uses: <a href="http://glyphicons.com/">Glyphicon</a> and <a href="http://fontawesome.io/icons/">Fontawesome</a> icons.
+							</p>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-6">
+							<p class="pull-right">
+								<a href="about/about.php">-> About</a>
+							</p>
+					</div>
 					<a href="#" class="go-top"><i class="glyphicon glyphicon-chevron-up" style="color:#bb2e29"></i></a>
     		</footer>
 
@@ -321,7 +331,8 @@
 
 		<?php
 			} else {
-				echo "<p><b>Attenzione</b>: è necessario effetturare prima il login</p>";
+				header("Location: /smartunibo/src/login/login.php");
+				die();
 			}
 		?>
 </html>
