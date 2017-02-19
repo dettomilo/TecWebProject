@@ -153,8 +153,8 @@ function getCurrentPosition() {
 function setGeolocatedPosition() {
 	if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(displayAndWatch, locError, {
-			enableHighAccuracy: true,
-			timeout: 10000,
+			enableHighAccuracy: false,
+			timeout: 60000,
 			maximumAge: 0
 		});
   } else {

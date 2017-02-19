@@ -1,7 +1,7 @@
 $(function() {
 	//RADIOBUTTON
 	$("#geolocation").change(function() {
-		initMap();
+		setGeolocatedPosition();
 		$("#address").css('visibility', 'hidden');
 		$("#calculatePos").css('visibility', 'hidden');
 	});
