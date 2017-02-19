@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Creato il: Feb 18, 2017 alle 19:04
+-- Creato il: Feb 19, 2017 alle 12:36
 -- Versione del server: 10.1.16-MariaDB
 -- Versione PHP: 5.6.24
 
@@ -313,7 +313,9 @@ CREATE TABLE `notifiche` (
 INSERT INTO `notifiche` (`IdNotifica`, `Titolo`, `Url`, `Tipo`, `DataOra`) VALUES
 (1, 'Scadenza seconda rata', NULL, 'Tassa', '2017-02-18 18:55:14'),
 (2, 'Disponibile il bando Erasmus 2016/2017', NULL, 'Bando', '2016-12-21 00:00:00'),
-(3, 'Scadenza prima rata', NULL, 'Tassa', '2016-10-18 00:00:00');
+(3, 'Scadenza prima rata', NULL, 'Tassa', '2016-10-18 00:00:00'),
+(4, 'Disponibile il bando di concoroso per ricercatore a tempo determinato', NULL, 'Bando', '2016-10-10 00:00:00'),
+(5, 'Bando TOLC-I', NULL, 'Bando', '2016-08-30 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -727,7 +729,7 @@ ALTER TABLE `nazioni`
 -- AUTO_INCREMENT per la tabella `notifiche`
 --
 ALTER TABLE `notifiche`
-  MODIFY `IdNotifica` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `IdNotifica` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT per la tabella `notizie`
 --

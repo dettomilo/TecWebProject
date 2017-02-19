@@ -43,6 +43,9 @@
 
 			//Avvio la sessione.
 			sec_session_start();
+
+			//Verifico che il login sia stato eseguito.
+			if (login_check($mysqli)) {
 		 ?>
 
   	<body>
@@ -311,4 +314,9 @@
   		</main>
   	</body>
 
+		<?php
+			} else {
+				echo "<p><b>Attenzione</b>: è necessario effetturare prima il login</p>";
+			}
+		?>
 </html>
