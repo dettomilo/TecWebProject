@@ -98,10 +98,17 @@
 				<!-- NOTIFICHE POPOVER -->
 				<div style="display:none" class="lista_notifiche">
 			  	<ul class="unstyled">
-			    	<li class="notifica"><a href="#">Messaggio di notifica un po più lungo del normale</a> <br /><div class="clearfix"></div></li>
-			    	<li class="notifica"><a href="#">Messaggio di notifica 2 un po più lungo del normale</a> <br /><div class="clearfix"></div></li>
-			    	<li class="notifica"><a href="#">Messaggio di notifica un po più lungo del normale</a> <br /><div class="clearfix"></div></li>
-			  	</ul>
+			  		<script>
+					$(document).ready(function(){
+						var newHTML = [];
+						//$ateneoNews = getNews(0, 4, $mysqli);
+						for (var i = 0; i < 4; i++) {
+							newHTML.push('<li class="notifica"><a href="#">Messaggio di po più lungo del normale</a> <br /><div class="clearfix"></div></li>');
+						}
+						$(".lista_notifiche").html(newHTML.join(""));
+					});
+					</script>
+				</ul>
 				</div>
 
 				<script>
