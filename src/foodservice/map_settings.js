@@ -154,7 +154,7 @@ function setGeolocatedPosition() {
     navigator.geolocation.getCurrentPosition(displayAndWatch, locError, {
 			enableHighAccuracy: false,
 			timeout: 60000,
-			maximumAge: 0
+			maximumAge: 60000
 		});
   } else {
 		window.alert("Il tuo browser non supporta la geolocalizzazione");

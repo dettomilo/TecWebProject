@@ -16,8 +16,8 @@
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	  <!-- Latest compiled JavaScript -->
 	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<!-- Map script -->
 
+    <!-- Map script -->
 	  <script src="/smartunibo/src/foodservice/map_settings.js"></script>
 
 	  <!-- Page controls script -->
@@ -65,7 +65,7 @@
 
 			//Verifico che il login sia stato eseguito.
 			if (login_check($mysqli)) {
-		 ?>
+		?>
 
   	<body>
   		<main>
