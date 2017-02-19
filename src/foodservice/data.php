@@ -13,7 +13,7 @@
   foreach ($menseInRange as $m) {
     echo
     '
-    <div class="well" style="border-radius: 10px; box-shadow: 5px 2px 10px #888; margin: 5%;">
+    <div class="well" style="border-radius: 10px; box-shadow: 5px 2px 10px #888; margin: 5%; background-color:white;">
       <strong>'.$m["Nome"].'</strong><br />
       <p>'.$m["Indirizzo"].'</p>
       <em>Telefono: '.$m["Telefono"].'</em><br />
@@ -29,6 +29,4 @@
     </div>
     ';
   }
-  //'.$m["Valutazione"].'
-  //<a href="'.$m["Indirizzo"].'">'.preg_replace('#^https?://#', '', $m["Indirizzo"]).'</a><br />
  ?>
