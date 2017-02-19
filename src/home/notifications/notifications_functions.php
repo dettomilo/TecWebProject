@@ -4,7 +4,7 @@
 * Based on:
 * - http://php.net/manual/it/mysqli-result.fetch-array.php
 */
-function getNews($mysqli) {
+function getNotifications($mysqli) {
 	if ($stmt = $mysqli->prepare("SELECT IdNotifica, Titolo, Url, t.Tipo, DataOra, t.Icona
 								  FROM notifiche AS n INNER JOIN tipi_notifiche AS t ON n.Tipo = t.Tipo
 								  ORDER BY DataOra")) {

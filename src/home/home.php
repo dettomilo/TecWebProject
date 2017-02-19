@@ -38,6 +38,9 @@
 			//Includo il file esterno relativo le funzioni per l'ottenimento dei dati dello studente.
 			require("student_functions.php");
 
+			//Includo il file esterno relativo le funzioni per l'ottenimento delle notifiche.
+			require("notifications/notifications_functions.php");
+
 			//Avvio la sessione.
 			sec_session_start();
 		 ?>
