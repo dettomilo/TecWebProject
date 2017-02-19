@@ -28,6 +28,7 @@
 
 			//Includo il file esterno relativo la connessione al database.
 			require($_SERVER['DOCUMENT_ROOT'] . "/smartunibo/src/database/db_connect.php");
+
 			//Includo il file esterno relativo le funzioni di login per la gestione della sessione.
 			require($_SERVER['DOCUMENT_ROOT'] . "/smartunibo/src/login/functions.php");
 
