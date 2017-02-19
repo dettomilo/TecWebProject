@@ -134,6 +134,7 @@
 			</script>
 			<!-- FINE USER MENU POPOVER -->
 
+			<div class="jumbotron" style="background-color: #111">
 				<div class="row">
 						<canvas id="canvas" class="col-md-12"></canvas>
 						<script src="fireworks.js"></script>
