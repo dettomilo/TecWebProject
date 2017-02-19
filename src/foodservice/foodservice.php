@@ -207,34 +207,36 @@
 								</div>
 					</div>
 
-						<br />
-						<div class="row">
-						<div class="col-md-5 well" style="min-height: 60vmin;">
-						<!-- ELENCO MENSE -->
-						<h3>Elenco mense</h3>
-						<hr />
-			      <div class="pre-scrollable" id="foodservices" style="min-height: 47vmin;"></div>
-			      <script>
-			        /*
-			        * Questa funzione, quando richiamata, carica all'interno dell'elemento div (mediante AJAX) l'elenco
-			        * delle mense situate in un certo raggio a partire dalla posizione scelta dall'utente.
-			        */
-			        function refreshFoodServicesInRange(lat, lng) {
-			          $.ajax({
-			            url: "data.php?range=" + $("#rangeSelector option:selected").val() + "&lat=" + lat + "&lng=" + lng,
-			            cache: false,
-			            success: function(data) {
-			              $("#foodservices").html(data);
-			            }
-			          });
-			        }
-			      </script>
-					</div>
 
-					<!-- MAPPA -->
-					<div class="container-fluid col-md-7 well" id="map"></div>
-						<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbS22mHEoCvuhOAtmH2dGIJj1UmLGiJE0&callback=initMap"></script>
-					</div>
+						<div class="row ">
+							<!-- MAPPA -->
+							<div class="container-fluid col-md-7 well" id="map">
+								<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbS22mHEoCvuhOAtmH2dGIJj1UmLGiJE0&callback=initMap"></script>
+							</div>
+
+							<div class="col-md-5 well" style="min-height: 60vmin;">
+							<!-- ELENCO MENSE -->
+							<h3>Elenco mense</h3>
+							<hr />
+				      <div class="pre-scrollable" id="foodservices" style="min-height: 47vmin;"></div>
+				      <script>
+				        /*
+				        * Questa funzione, quando richiamata, carica all'interno dell'elemento div (mediante AJAX) l'elenco
+				        * delle mense situate in un certo raggio a partire dalla posizione scelta dall'utente.
+				        */
+				        function refreshFoodServicesInRange(lat, lng) {
+				          $.ajax({
+				            url: "data.php?range=" + $("#rangeSelector option:selected").val() + "&lat=" + lat + "&lng=" + lng,
+				            cache: false,
+				            success: function(data) {
+				              $("#foodservices").html(data);
+				            }
+				          });
+				        }
+				      </script>
+						</div>
+
+
 
 				</div>
 
