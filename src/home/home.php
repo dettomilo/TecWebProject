@@ -104,9 +104,11 @@
 			  		<script>
 					$(document).ready(function(){
 						var newHTML = [];
-						//$notifications = getNotifications($mysqli);
+						//$(".lista_notifiche").html(newHTML.push('<p>ciao</p>'));
+						//var notif = new Array( getNotifications($mysqli) );
+						var countries = ['United States', 'Canada', 'Argentina', 'Armenia'];
 						for (var i = 0; i < 4; i++) {
-							newHTML.push('<li class="notifica"><a href="#">Messaggio di po più lungo del normale</a> <br /><div class="clearfix"></div></li>');
+							newHTML.push('<li class="notifica"><a href="#">'+countries[i]+'</a> <br /><div class="clearfix"></div></li>');
 						}
 						$(".lista_notifiche").html(newHTML.join(""));
 					});
