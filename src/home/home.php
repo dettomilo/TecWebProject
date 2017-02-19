@@ -116,8 +116,8 @@
 						$not = getNotifications($mysqli);
 						$currentNewsId = 0;
 						echo '<span class=notifica>';
-						for ($i = 1; $i <= 4; $i++) {
-							if($not[$i] != null) {
+						for ($i = 1; $i <= 40; $i++) {
+							if(array_key_exists($i, $not)) {
 				        		$n = $not[$i];
 								echo '<li class="glyphicon '.$n["Icona"].'"><a href="#">'.$n["Titolo"].'</a> <br /><div class="clearfix"></div></li>';
 							}
