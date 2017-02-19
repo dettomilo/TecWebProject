@@ -319,9 +319,10 @@
 				<hr />
 
 				<footer>
-	        <p>Smart Unibo - 2017</p>
+	        		<p>Smart Unibo - 2017</p>
+	        		<a href="about/about.html">About</a>
 					<a href="#" class="go-top"><i class="glyphicon glyphicon-chevron-up" style="color:#bb2e29"></i></a>
-	      </footer>
+	      		</footer>
 
   			</section>
   		</main>
