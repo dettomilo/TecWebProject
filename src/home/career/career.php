@@ -26,6 +26,8 @@
   	</head>
 
 		<?php
+			//Includo il file esterno relativo la connessione al database.
+			require($_SERVER['DOCUMENT_ROOT'] . "/smartunibo/src/database/db_connect.php");
       //Includo il file esterno relativo le funzioni di login per la gestione della sessione.
 			require($_SERVER['DOCUMENT_ROOT'] . "/smartunibo/src/login/functions.php");
 
@@ -34,6 +36,9 @@
 
 			//Avvio la sessione.
 			sec_session_start();
+
+			//Verifico che il login sia stato eseguito.
+			if (login_check($mysqli)) {
 		 ?>
 
   	<body>
@@ -41,7 +46,7 @@
   			<section id="content" class="container">
 	  			<header class="header">
 	  				<div>
-	  					<a href="/smartunibo/src/home/home.php">
+	  					<a href="/smartunibo/src/home/home.php" title="Vai alla homepage del Portale">
 								<div class="row">
 									<div class="col-md-12">
 										<img class="img-responsive center-block" src="/smartunibo/src/home/images/SmartUniboBanner.png" alt="Logo Smart Unibo">
@@ -65,11 +70,11 @@
 				      <!-- NO COLLAPSE -->
 				      <div class="navbar-header">
 				        <ul class="nav navbar-nav pull-right noStack">
-									<li><a href="/smartunibo/src/home/calendar/calendar.php" id="calendario" class="glyphicon glyphicon-calendar pull" role="button" aria-haspopup="true"></a></li>
+									<li><a href="/smartunibo/src/home/calendar/calendar.php" id="calendario" title="Calendario" class="glyphicon glyphicon-calendar pull" role="button" aria-haspopup="true"></a></li>
 
-									<li><a href="#" id="notifiche" class="glyphicon glyphicon-bell" aria-haspopup="true" data-toggle="notifichePopover" data-trigger="focus"></a></li>
+									<li><a href="#" id="notifiche" title="Notifiche" class="glyphicon glyphicon-bell" aria-haspopup="true" data-toggle="notifichePopover" data-trigger="focus"></a></li>
 
-									<li><a href="#" id="user" class="glyphicon glyphicon-user" aria-haspopup="true" data-toggle="userMenuPopover" data-trigger="focus"></a></li>
+									<li><a href="#" id="user" title="Profilo" class="glyphicon glyphicon-user" aria-haspopup="true" data-toggle="userMenuPopover" data-trigger="focus"></a></li>
 				        </ul>
 				      </div>
 
@@ -242,4 +247,9 @@
   		</main>
   	</body>
 
+		<?php
+			} else {
+				echo "<p><b>Attenzione</b>: è necessario effetturare prima il login</p>";
+			}
+		?>
 </html>
