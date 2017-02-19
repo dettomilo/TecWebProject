@@ -104,7 +104,6 @@
 			  		<script>
 					$(document).ready(function(){
 						var newHTML = [];
-						//$(".lista_notifiche").html(newHTML.push('<p>ciao</p>'));
 						//var notif = new Array( getNotifications($mysqli) );
 						var countries = ['United States', 'Canada', 'Argentina', 'Armenia'];
 						for (var i = 0; i < 4; i++) {
