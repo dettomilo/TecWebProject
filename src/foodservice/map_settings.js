@@ -93,7 +93,7 @@ function initMap() {
 				var siteWebText = document.createElement('a');
 				var linkText = document.createTextNode(siteWeb);
 				siteWebText.appendChild(linkText);
-				siteWebText.title = siteWeb;
+				siteWebText.title = siteWeb.replace(/.*?:\/\//g, "");;
 				siteWebText.href = siteWeb;
 				infowincontent.appendChild(siteWebText);
 				infowincontent.appendChild(document.createElement('br'));
