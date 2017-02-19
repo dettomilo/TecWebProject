@@ -96,7 +96,6 @@ function initMap() {
 				siteWebText.title = siteWeb;
 				siteWebText.href = siteWeb;
 				infowincontent.appendChild(siteWebText);
-	      infowincontent.appendChild(document.createElement('br'));
 			}
 
 			//Telefono

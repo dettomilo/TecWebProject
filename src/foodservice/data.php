@@ -11,12 +11,22 @@
   //echo "Longitudine: " .$_GET['lng'] ."<br><br>";
   //echo "<b>Mense nel raggio di " .$_GET['range'] ."Km (ordinate per distanza):</b><br>";
   foreach ($menseInRange as $m) {
-    echo "Nome = " .$m["Nome"] ."<br>";
-    echo "Indirizzo = " .$m["Indirizzo"] ."<br>";
-    echo "SitoWeb = " .$m["SitoWeb"] ."<br>";
-    echo "Telefono = " .$m["Telefono"] ."<br>";
-    echo "Valutazione = " .$m["Valutazione"] ."/100<br>";
-    echo "Distanza = " .$m["Distanza"] ."km<br>";
-    echo "---------------------------------------------<br>";
+    echo
+    '
+    <div class="well">
+      <strong>'.$m["Nome"].'</strong><br />
+      <p>'.$m["Indirizzo"].'</p>
+      <em>Telefono: '.$m["Telefono"].'</em><br />
+
+      <div style="width: 100px;">
+        <div class="rating" style="height: 26px; width: '.$m["Valutazione"].'%; background-color:orange;">
+  			   <img class="img-responsive" src="/smartunibo/src/foodservice/images/starRatingMask.png" alt="Rating" style="max-width:100px;">
+        </div>
+      </div>
+      <p>Distanza: '.$m["Distanza"].' km</p>
+    </div>
+    ';
   }
+
+  //<a href="'.$m["Indirizzo"].'">'.preg_replace('#^https?://#', '', $m["Indirizzo"]).'</a><br />
  ?>

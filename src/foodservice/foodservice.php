@@ -207,7 +207,6 @@
 								</div>
 					</div>
 
-
 						<div class="row ">
 							<!-- MAPPA -->
 							<div class="container-fluid col-md-7 well" id="map">
@@ -235,11 +234,7 @@
 				        }
 				      </script>
 						</div>
-
-
-
-				</div>
-
+					</div>
 
 				<!-- spacing line to footer -->
 				<hr />
