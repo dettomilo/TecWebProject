@@ -69,7 +69,7 @@
 						<!-- NO COLLAPSE -->
 						<div class="navbar-header">
 							<ul class="nav navbar-nav pull-right noStack">
-								<li class="active"><a href="/smartunibo/src/home/calendar/calendar.php" id="calendario" title="Calendario" class="glyphicon glyphicon-calendar pull" role="button" aria-haspopup="true"></a></li>
+								<li><a href="/smartunibo/src/home/calendar/calendar.php" id="calendario" title="Calendario" class="glyphicon glyphicon-calendar pull" role="button" aria-haspopup="true"></a></li>
 
 								<li><a href="#" id="notifiche" title="Notifiche" class="glyphicon glyphicon-bell" aria-haspopup="true" data-toggle="notifichePopover" data-trigger="focus"></a></li>
 
@@ -134,9 +134,9 @@
 			</script>
 			<!-- FINE USER MENU POPOVER -->
 
-			<div class="jumbotron" style="background-color: #111">
+			<div class="jumbotron" style="background-color: #030303">
 				<div class="row">
-						<canvas id="canvas" class="col-md-12"></canvas>
+						<canvas id="canvas" class="col-md-12" style="height: 55vmin"></canvas>
 						<script src="fireworks.js"></script>
 				</div>
 			</div>

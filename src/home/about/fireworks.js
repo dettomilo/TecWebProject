@@ -5,7 +5,7 @@ window.requestAnimFrame = ( function() {
 				window.webkitRequestAnimationFrame ||
 				window.mozRequestAnimationFrame ||
 				function( callback ) {
-					window.setTimeout( callback, 1000 / 60 );
+					window.setTimeout( callback, 1000 / 10 );
 				};
 })();
 
@@ -13,8 +13,8 @@ window.requestAnimFrame = ( function() {
 var canvas = document.getElementById( 'canvas' ),
 		ctx = canvas.getContext( '2d' ),
 		// full screen dimensions
-		cw = window.innerWidth,
-		ch = window.innerHeight,
+		cw = document.getElementById("canvas").offsetWidth,
+		ch = document.getElementById("canvas").innerHeight,
 		// firework collection
 		fireworks = [],
 		// particle collection
@@ -39,10 +39,10 @@ canvas.height = ch;
 
 // resize handler
 window.addEventListener('resize', new function() {
-	canvas.width = window.innerWidth;
-	canvas.height = window.innerHeight;
-	cw = window.innerWidth;
-	ch = window.innerHeight;
+	canvas.width = document.getElementById("canvas").offsetWidth;
+	canvas.height = document.getElementById("canvas").offsetHeight;
+	cw = document.getElementById("canvas").offsetWidth;
+	ch = document.getElementById("canvas").offsetHeight;
 }, false);
 
 // now we are going to setup our function placeholders for the entire demo
@@ -83,7 +83,7 @@ function Firework( sx, sy, tx, ty ) {
 	this.angle = Math.atan2( ty - sy, tx - sx );
 	this.speed = 2;
 	this.acceleration = 1.05;
-	this.brightness = random( 50, 70 );
+	this.brightness = random( 60, 80 );
 	// circle target indicator radius
 	this.targetRadius = 1;
 }
