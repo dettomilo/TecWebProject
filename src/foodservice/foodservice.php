@@ -171,26 +171,39 @@
 
 					<div class="row">
 						<div class="col-md-6">
-							<form>
-								<p>Seleziona la modalità di localizzazione:</p>
+
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-1">
+											<div class="btn btn-default" id="geolocation" name="position" value="geolocation"><i class="fa fa-location-arrow" aria-hidden="true"></i></div>
+										</div>
+
+										<div class="col-md-11 has-feedback">
+											<label class="control-label sr-only" for="address">Cerca Indirizzo</label>
+											<span class="glyphicon glyphicon-search form-control-feedback"></span>
+											<input type="text" class="form-control" name="address" id="address" placeholder="Es. Via Sacchi 3, Cesena">
+										</div>
+									</div>
+								</div>
+
 								<input type="radio" id="geolocation" name="position" value="geolocation" checked> Geolocalizzazione
 							  <input type="radio" id="manual" name="position" value="manual"> Manuale<br />
-								<input type="text" id="address" name="address" placeholder="Es. Via Sacchi 3, Cesena" size="35" style="visibility:hidden;">
 								<input type="button" id="calculatePos" value="Calcola posizione" style="visibility:hidden;">
-							</form>
 						</div>
 
-						<div class="col-md-6">
+						<div class="col-md-6 form-group">
 							<!-- SELEZIONE RAGGIO -->
 									Range di ricerca:
 									<select id="rangeSelector" class="range selectpicker">
-										<option value="0.2">200 m</option>
-										<option value="0.5">500 m</option>
-										<option value="1">1 Km</option>
-										<option value="2" selected="selected">2 Km</option>
-										<option value="3">3 Km</option>
-										<option value="4">4 Km</option>
-										<option value="5">5 Km</option>
+										<optgroup label="Distanza">
+											<option value="0.2">200 m</option>
+											<option value="0.5">500 m</option>
+											<option value="1">1 Km</option>
+											<option value="2" selected="selected">2 Km</option>
+											<option value="3">3 Km</option>
+											<option value="4">4 Km</option>
+											<option value="5">5 Km</option>
+										</optgroup>
 									</select>
 						</div>
 					</div>

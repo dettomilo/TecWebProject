@@ -48,7 +48,7 @@ li.notifica:hover {
 }
 
 .btn {
-    border-radius: 10px;
+    border-radius: 8px;
     background-color: #bb2e29;
     color: #EEEEEE;
     transition-duration: 0.5s;
@@ -59,7 +59,7 @@ li.notifica:hover {
     background-color: #6b0808;
 		border-color: #6b0808;
     color: #FFFFFF;
-    border-radius: 12px;
+    border-radius: 10px;
     box-shadow: 5px 5px 20px #6b0808;
 }
 
@@ -294,7 +294,6 @@ li.notifica:hover {
 #ex1Slider .slider-selection {
 	background: #BABABA;
 }
-
 
 
 
