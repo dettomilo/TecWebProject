@@ -34,7 +34,7 @@
 	      /* Impostazione esplicita dell'altezza della mappa per la definzione delle dimensioni
 	       * dell'elemento div che la contiene. */
 	      #map {
-	        height: 60vmin;
+	        height: 60vh;
 	      }
 	      /* Impostazione delle dimensioni della pagina. */
 	      html, body {
@@ -46,6 +46,8 @@
   	</head>
 
 		<?php
+			//Includo il file esterno relativo la connessione al database.
+			require($_SERVER['DOCUMENT_ROOT'] . "/smartunibo/src/database/db_connect.php");
 			//Includo il file esterno relativo le funzioni di login per la gestione della sessione.
 			require($_SERVER['DOCUMENT_ROOT'] . "/smartunibo/src/login/functions.php");
 
@@ -54,6 +56,9 @@
 
 			//Avvio la sessione.
 			sec_session_start();
+
+			//Verifico che il login sia stato eseguito.
+			if (login_check($mysqli)) {
 		 ?>
 
   	<body>
@@ -156,7 +161,7 @@
 						<br />
 						<div class="row">
 
-							<div class="container-fluid col-md-5">
+							<div class="col-md-5">
 								<!-- SELEZIONE RAGGIO -->
 					      <form>
 					        Seleziona la modalità di localizzazione:<br>
@@ -195,10 +200,10 @@
 					        }
 					      </script>
 							</div>
-							
-							<!-- MAPPA -->
-							<div class="container-fluid col-md-7" id="map"></div>
-								<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbS22mHEoCvuhOAtmH2dGIJj1UmLGiJE0&callback=initMap"></script>
+
+								<!-- MAPPA -->
+				      <div class="container-fluid col-md-7" id="map"></div>
+					      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbS22mHEoCvuhOAtmH2dGIJj1UmLGiJE0&callback=initMap"></script>
 							</div>
 
 						</div>
@@ -217,4 +222,9 @@
   		</main>
   	</body>
 
+		<?php
+			} else {
+				echo "<p><b>Attenzione</b>: è necessario effetturare prima il login</p>";
+			}
+		?>
 </html>

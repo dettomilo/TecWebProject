@@ -26,6 +26,8 @@
   	</head>
 
 		<?php
+			//Includo il file esterno relativo la connessione al database.
+			require($_SERVER['DOCUMENT_ROOT'] . "/smartunibo/src/database/db_connect.php");
 			//Includo il file esterno relativo le funzioni di login per la gestione della sessione.
 			require($_SERVER['DOCUMENT_ROOT'] . "/smartunibo/src/login/functions.php");
 
@@ -34,6 +36,9 @@
 
 			//Avvio la sessione.
 			sec_session_start();
+
+			//Verifico che il login sia stato eseguito.
+			if (login_check($mysqli)) {
 		 ?>
 
   	<body>
@@ -189,4 +194,9 @@
   		</main>
   	</body>
 
+		<?php
+			} else {
+				echo "<p><b>Attenzione</b>: è necessario effetturare prima il login</p>";
+			}
+		?>
 </html>
