@@ -101,7 +101,7 @@
 				<!-- NOTIFICHE POPOVER -->
 				<div style="display:none" class="lista_notifiche">
 			  	<ul class="unstyled">
-			  		<script>
+			  		<!--<script>
 					$(document).ready(function(){
 						var newHTML = [];
 						var notif = new Array( getNotifications($mysqli) );
@@ -111,7 +111,15 @@
 						}
 						$(".lista_notifiche").html(newHTML.join(""));
 					});
-					</script>
+					</script>-->
+					<?php
+						$not = getNotifications($mysqli);
+						$currentNewsId = 0;
+						for ($i = 1; $i <= 4; $i++) {
+			        		$n = $not[$i];
+							echo '<li class="notifica"><a href="#">'.$n["Titolo"].'</a> <br /><div class="clearfix"></div></li>';
+						}
+					?>
 				</ul>
 				</div>
 
