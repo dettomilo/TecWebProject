@@ -117,7 +117,7 @@
 						$currentNewsId = 0;
 						for ($i = 1; $i <= 4; $i++) {
 			        		$n = $not[$i];
-							echo '<li class="notifica"><a href="#">'.$n["Titolo"].'</a> <br /><div class="clearfix"></div></li>';
+							echo '<li class="notifica glyphicon '.$n["Icona"].'"><a href="#">'.$n["Titolo"].'</a> <br /><div class="clearfix"></div></li>';
 						}
 					?>
 				</ul>
