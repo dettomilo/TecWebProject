@@ -7,9 +7,9 @@
 
   //Visualizzazione delle mense in un certo range.
   $menseInRange = getFoodServicesInRange($_GET['lat'], $_GET['lng'], $_GET['range'], $mysqli);
-  echo "Latitudine: " .$_GET['lat'] ."<br>";
-  echo "Longitudine: " .$_GET['lng'] ."<br><br>";
-  echo "<b>Mense nel raggio di " .$_GET['range'] ."Km (ordinate per distanza):</b><br>";
+  //echo "Latitudine: " .$_GET['lat'] ."<br>";
+  //echo "Longitudine: " .$_GET['lng'] ."<br><br>";
+  //echo "<b>Mense nel raggio di " .$_GET['range'] ."Km (ordinate per distanza):</b><br>";
   foreach ($menseInRange as $m) {
     echo "Nome = " .$m["Nome"] ."<br>";
     echo "Indirizzo = " .$m["Indirizzo"] ."<br>";

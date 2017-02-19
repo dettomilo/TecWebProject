@@ -2,48 +2,53 @@
 <html lang="it">
 
 	<head>
-	    <title>Smart Unibo</title>
+	  <title>Smart Unibo</title>
 
-	    <!-- meta informations -->
-	    <meta charset="UTF-8">
-	    <!-- to ensure proper zooming and rendering on mobile -->
-	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <!-- meta informations -->
+	  <meta charset="UTF-8">
+	  <!-- to ensure proper zooming and rendering on mobile -->
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	    <!-- Latest compiled and minified CSS -->
-	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	    <!-- jQuery library -->
-	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	    <!-- Latest compiled JavaScript -->
-	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-			<!-- Map script -->
+	  <!-- Latest compiled and minified CSS -->
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <!-- jQuery library -->
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	  <!-- Latest compiled JavaScript -->
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<!-- Map script -->
 
-	    <script src="/smartunibo/src/foodservice/map_settings.js"></script>
+	  <script src="/smartunibo/src/foodservice/map_settings.js"></script>
 
-	    <!-- Page controls script -->
-	    <script src="/smartunibo/src/foodservice/page_controls.js"></script>
+	  <!-- Page controls script -->
+	  <script src="/smartunibo/src/foodservice/page_controls.js"></script>
 
-			<!-- FONT AWESOME CDN -->
-			<script src="https://use.fontawesome.com/7bd167f128.js"></script>
-			<!-- BackToTop script -->
-			<script src='/smartunibo/src/home/back_to_top.js'></script>
+		<!-- FONT AWESOME CDN -->
+		<script src="https://use.fontawesome.com/7bd167f128.js"></script>
 
-	    <!-- bootstrap CSS override -->
-	    <link rel="stylesheet" type="text/css" href="/smartunibo/src/home/homeStyle.php" media="screen"/>
+		<!-- Bootstrap COMBOBOX select -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
 
-			<style>
-	      /* Impostazione esplicita dell'altezza della mappa per la definzione delle dimensioni
-	       * dell'elemento div che la contiene. */
-	      #map {
-	        height: 60vmin;
-	      }
-	      /* Impostazione delle dimensioni della pagina. */
-	      html, body {
-	        height: 100%;
-	        margin: 0;
-	        padding: 0;
-	      }
-	    </style>
-  	</head>
+		<!-- BackToTop script -->
+		<script src='/smartunibo/src/home/back_to_top.js'></script>
+
+	  <!-- bootstrap CSS override -->
+	  <link rel="stylesheet" type="text/css" href="/smartunibo/src/home/homeStyle.php" media="screen"/>
+
+		<style>
+	    /* Impostazione esplicita dell'altezza della mappa per la definzione delle dimensioni
+	     * dell'elemento div che la contiene. */
+	    #map {
+	      height: 60vmin;
+	    }
+	    /* Impostazione delle dimensioni della pagina. */
+	    html, body {
+	      height: 100%;
+	      margin: 0;
+	      padding: 0;
+	    }
+	  </style>
+	</head>
 
 		<?php
 			//Includo il file esterno relativo le funzioni di login per la gestione della sessione.
@@ -150,32 +155,48 @@
 				</script>
 				<!-- FINE USER MENU POPOVER -->
 
-				<!-- SERVICES LIST style="float: none; margin: 0 auto;" -->
-				<div class="container-fluid jumbotron">
-						<h2 class="display-2  text-center">Servizio Mensa</h2>
+				<!-- MAP FoodService -->
+				<div class="jumbotron container-fluid">
+					<h2 class="display-2 text-center">Servizio Mensa</h2>
+						<strong>Benvenuto nel servizio mensa Smart Unibo!</strong><br />
+						<p>
+							Qui potrai visualizzare tutte le mense Unibo convenzionate e scegliere quella che più ti piace!
+						</p>
+
+					<div class="row">
+						<div class="col-md-6">
+							<form>
+								<p>Seleziona la modalità di localizzazione:</p>
+								<input type="radio" id="geolocation" name="position" value="geolocation" checked> Geolocalizzazione
+							  <input type="radio" id="manual" name="position" value="manual"> Manuale<br />
+								<input type="text" id="address" name="address" placeholder="Es. Via Sacchi 3, Cesena" size="35" style="visibility:hidden;">
+								<input type="button" id="calculatePos" value="Calcola posizione" style="visibility:hidden;">
+							</form>
+						</div>
+
+						<div class="col-md-6">
+							<!-- SELEZIONE RAGGIO -->
+									Range di ricerca:
+									<select id="rangeSelector" class="range selectpicker">
+										<option value="0.2">200 m</option>
+										<option value="0.5">500 m</option>
+										<option value="1">1 Km</option>
+										<option value="2" selected="selected">2 Km</option>
+										<option value="3">3 Km</option>
+										<option value="4">4 Km</option>
+										<option value="5">5 Km</option>
+									</select>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="container-fluid">
+
 						<br />
 						<div class="row">
 
 							<div class="container-fluid col-md-5">
-								<!-- SELEZIONE RAGGIO -->
-					      <form>
-					        Seleziona la modalità di localizzazione:<br>
-					        <input type="radio" id="geolocation" name="position" value="geolocation" checked> Geolocalizzazione
-					        <input type="radio" id="manual" name="position" value="manual"> Manuale<br>
-					        <input type="text" id="address" name="address" placeholder="Es. Via Sacchi 3, Cesena" size="50" style="visibility:hidden;">
-					        <input type="button" id="calculatePos" value="Calcola posizione" style="visibility:hidden;"><br><br>
-					        Seleziona il range per la ricerca delle mense:<br>
-					        <select id="rangeSelector" class="range">
-					          <option value="0.2">200 m</option>
-					          <option value="0.5">500 m</option>
-					          <option value="1">1 Km</option>
-					          <option value="2" selected="selected">2 Km</option>
-					          <option value="3">3 Km</option>
-					          <option value="4">4 Km</option>
-					          <option value="5">5 Km</option>
-					        </select>
-					      </form>
-
 								<!-- ELENCO MENSE -->
 
 					      <div class="pre-scrollable container-fluid" id="foodservices"></div>
@@ -195,7 +216,7 @@
 					        }
 					      </script>
 							</div>
-							
+
 							<!-- MAPPA -->
 							<div class="container-fluid col-md-7" id="map"></div>
 								<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbS22mHEoCvuhOAtmH2dGIJj1UmLGiJE0&callback=initMap"></script>

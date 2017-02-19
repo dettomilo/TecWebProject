@@ -291,7 +291,9 @@ li.notifica:hover {
 	color: #666;
 }
 
-
+#ex1Slider .slider-selection {
+	background: #BABABA;
+}
 
 
 
