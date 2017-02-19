@@ -100,31 +100,33 @@
 
 				<!-- NOTIFICHE POPOVER -->
 				<div style="display:none" class="lista_notifiche">
-			  	<ul class="unstyled">
-			  		<!--<script>
-					$(document).ready(function(){
-						var newHTML = [];
-						var notif = new Array( getNotifications($mysqli) );
-						var countries = ['United States', 'Canada', 'Argentina', 'Armenia'];
-						for (var i = 0; i < 4; i++) {
-							newHTML.push('<li class="notifica"><a href="#">'+countries[i]+'</a> <br /><div class="clearfix"></div></li>');
-						}
-						$(".lista_notifiche").html(newHTML.join(""));
-					});
-					</script>-->
-					<?php
-						$not = getNotifications($mysqli);
-						$currentNewsId = 0;
-						echo '<span class=notifica>';
-						for ($i = 1; $i <= 4; $i++) {
-							if(array_key_exists($i, $not)) {
-				        		$n = $not[$i];
-								echo '<li class="glyphicon '.$n["Icona"].'"><a href="#">'.$n["Titolo"].'</a> <br /><div class="clearfix"></div></li>';
+			  	<ul>
+				  		<!--<script>
+						$(document).ready(function(){
+							var newHTML = [];
+							var notif = new Array( getNotifications($mysqli) );
+							var countries = ['United States', 'Canada', 'Argentina', 'Armenia'];
+							for (var i = 0; i < 4; i++) {
+								newHTML.push('<li class="notifica"><a href="#">'+countries[i]+'</a> <br /><div class="clearfix"></div></li>');
 							}
-						}
-						echo '</span>';
-					?>
-				</ul>
+							$(".lista_notifiche").html(newHTML.join(""));
+						});
+						</script>-->
+						<?php
+							$not = getNotifications($mysqli);
+							$currentNewsId = 0;
+							for ($i = 1; $i <= 4; $i++) {
+								if(array_key_exists($i, $not)) {
+					        		$n = $not[$i];
+									echo '
+										<li class="notifica" style="cursor:pointer">
+											<i class="glyphicon '.$n["Icona"].'"></i><a href"#> '.$n["Titolo"].'</a><div class="clearfix"></div>
+										</li>
+									';
+								}
+							}
+						?>
+					</ul>
 				</div>
 
 				<script>

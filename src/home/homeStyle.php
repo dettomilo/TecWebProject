@@ -7,6 +7,7 @@
 	$imageSize = "100%";
 	$modalBodyFontSize = "100%";
 	$nomeCorsoColor = "#bb2e29";
+
 ?>
 
 #map {
@@ -33,10 +34,9 @@
 }
 
 li.notifica {
-  font-size: 16px;
-  color:grey;
-  padding:10px 0px 2px 0px;
-  border-bottom: thin solid #c0c0c0;
+	font-size: 16px;
+	color:grey;
+	padding:10px 0px 2px 0px;
 }
 
 li.notifica:hover {
