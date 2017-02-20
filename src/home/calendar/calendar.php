@@ -23,6 +23,9 @@
       <script src='/smartunibo/lib/fullcalendar-3.1.0/fullcalendar.min.js'></script>
       <script src='/smartunibo/lib/fullcalendar-3.1.0/locale/it.js'></script>
 
+			<!-- FONT AWESOME CDN -->
+			<script src="https://use.fontawesome.com/7bd167f128.js"></script>
+
       <script>
 
       	$(document).ready(function() {
@@ -70,6 +73,7 @@
 			//Includo il file esterno relativo le funzioni per l'ottenimento dei dati dello studente.
 			require("../student_functions.php");
 
+			require("calendar_functions.php");
 			//Avvio la sessione.
 			sec_session_start();
 
@@ -183,15 +187,32 @@
 				<!-- FINE USER MENU POPOVER -->
 
         <div class="jumbotron">
-        <?php
-        //Stampo il nome del corso frequentato dallo studente.
+					<div class="row">
+						<div class="col-md-9 col-sm-9 pull-left">
+							<?php
+			        //Stampo il nome del corso frequentato dallo studente.
 
-        $nomeCorso = getCorso($_SESSION['matricola'], $mysqli);
-        echo '
-            <h2 class="display-2">Calendario</h2>
-            <h3 class="nomeCorsoNews">'.$nomeCorso.'</h3>
-						<br />';
-         ?>
+			        $nomeCorso = getCorso($_SESSION['matricola'], $mysqli);
+			        echo '
+			            <h2 class="display-2">Calendario</h2>
+			            <h3 class="nomeCorsoNews">'.$nomeCorso.'</h3>
+									<br />';
+			         ?>
+						</div>
+						<div class="col-md-3 col-sm-3">
+							<ul>
+							<?php
+									$legendaItem = getEventColors($mysqli);
+									foreach ($legendaItem as $item) {
+										echo '
+											<li><i class="fa fa-dot-circle-o" style="color:#'.$item["Colore"].'"></i> '.$item["Tipo"].'<div class="clearfix"></div></li>
+										';
+									}
+							 ?>
+							 </ul>
+						</div>
+					</div>
+
         <div class="row">
           <div class="col-md-12">
             <div id='calendar'></div>

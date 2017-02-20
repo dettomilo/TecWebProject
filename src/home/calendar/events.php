@@ -49,7 +49,7 @@ while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 	$event['start'] = $combined_date_and_time = $row['Data'] . ' ' . $row['OraInizio'];
 	$event['end'] = $combined_date_and_time = $row['Data'] . ' ' . $row['OraFine'];
 	$event['allDay'] = false;
-	$event['color'] = "#008633";
+	$event['color'] = "#AAA";
 
 	// Merge the event array into the return array
 	array_push($json, $event);

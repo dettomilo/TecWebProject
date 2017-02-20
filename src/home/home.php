@@ -168,7 +168,6 @@
 								echo '<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12" role="button" data-toggle="modal" data-target="#'.$currentNewsId.'">
 												<div class="newsAteneoBox">
 										    <div class="thumbnail">
-
 												';
 
 								if (!is_null($n["Immagine"])) {

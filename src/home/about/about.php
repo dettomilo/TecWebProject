@@ -152,8 +152,62 @@
 
 			<div class="jumbotron" style="background-color: #111">
 				<div class="row">
-						<canvas id="canvas" class="col-md-12" style="height: 35vmin"></canvas>
+
+
+						<div class='console-container'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
+						<canvas id="canvas" class="col-md-12" style="height: 55vmin"></canvas>
 						<script src="fireworks.js"></script>
+						<script>
+							consoleText(['Smart Unibo', 'Made with love by', 'Alberto Serluca', 'Giacomo Frisoni', 'Emilio Dettori', "So cool isn't it?"], 'text',['#95f442','#ff5900','#4080ff','#d12323']);
+
+							function consoleText(words, id, colors) {
+								if (colors === undefined) colors = ['#fff'];
+								var visible = true;
+								var con = document.getElementById('console');
+								var letterCount = 1;
+								var x = 1;
+								var waiting = false;
+								var target = document.getElementById(id)
+								target.setAttribute('style', 'color:' + colors[0])
+								window.setInterval(function() {
+
+									if (letterCount === 0 && waiting === false) {
+										waiting = true;
+										target.innerHTML = words[0].substring(0, letterCount)
+										window.setTimeout(function() {
+											var usedColor = colors.shift();
+											colors.push(usedColor);
+											var usedWord = words.shift();
+											words.push(usedWord);
+											x = 1;
+											target.setAttribute('style', 'color:' + colors[0])
+											letterCount += x;
+											waiting = false;
+										}, 1000)
+									} else if (letterCount === words[0].length + 1 && waiting === false) {
+										waiting = true;
+										window.setTimeout(function() {
+											x = -1;
+											letterCount += x;
+											waiting = false;
+										}, 1000)
+									} else if (waiting === false) {
+										target.innerHTML = words[0].substring(0, letterCount)
+										letterCount += x;
+									}
+								}, 90)
+								window.setInterval(function() {
+									if (visible === true) {
+										con.className = 'console-underscore hidden'
+										visible = false;
+
+									} else {
+										con.className = 'console-underscore'
+										visible = true;
+									}
+								}, 400)
+							}
+						</script>
 				</div>
 
 				<audio id="musicBack" controls autoplay hidden loop>
@@ -163,60 +217,6 @@
 					document.getElementById("musicBack").volume = 0.5;
 				</script>
 
-				<div class="row">
-				<div class='console-container col-md-12'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
-				<script>
-				consoleText(['Smart Unibo', 'Made with love by', 'Alberto Serluca', 'Giacomo Frisoni', 'Emilio Dettori', "So cool isn't it?"], 'text',['#95f442','#ff5900','#4080ff','#d12323']);
-
-				function consoleText(words, id, colors) {
-					if (colors === undefined) colors = ['#fff'];
-					var visible = true;
-					var con = document.getElementById('console');
-					var letterCount = 1;
-					var x = 1;
-					var waiting = false;
-					var target = document.getElementById(id)
-					target.setAttribute('style', 'color:' + colors[0])
-					window.setInterval(function() {
-
-						if (letterCount === 0 && waiting === false) {
-							waiting = true;
-							target.innerHTML = words[0].substring(0, letterCount)
-							window.setTimeout(function() {
-								var usedColor = colors.shift();
-								colors.push(usedColor);
-								var usedWord = words.shift();
-								words.push(usedWord);
-								x = 1;
-								target.setAttribute('style', 'color:' + colors[0])
-								letterCount += x;
-								waiting = false;
-							}, 1000)
-						} else if (letterCount === words[0].length + 1 && waiting === false) {
-							waiting = true;
-							window.setTimeout(function() {
-								x = -1;
-								letterCount += x;
-								waiting = false;
-							}, 1000)
-						} else if (waiting === false) {
-							target.innerHTML = words[0].substring(0, letterCount)
-							letterCount += x;
-						}
-					}, 90)
-					window.setInterval(function() {
-						if (visible === true) {
-							con.className = 'console-underscore hidden'
-							visible = false;
-
-						} else {
-							con.className = 'console-underscore'
-							visible = true;
-						}
-					}, 400)
-				}
-				</script>
-			</div>
 			</div>
 
 			<!-- spacing line to footer -->
