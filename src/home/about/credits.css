@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Consola:700);
-
+/*
 .hidden {
   opacity:0;
 }
@@ -9,14 +9,9 @@
   font-size: 3vw;
   text-align:center;
   position:relative;
-  height: 250px;
   width:100%;
   display:block;
   color:white;
-  top:px;
-  bottom:0;
-  left:0;
-  right:0;
 }
 
 .console-underscore {
@@ -24,4 +19,4 @@
   position:relative;
   top:-0.14em;
   left:10px;
-}
+}*/

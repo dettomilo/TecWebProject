@@ -104,12 +104,12 @@ li.notifica:hover {
 .go-top {
 		position: fixed;
 		bottom: 2em;
-		right: 2em;
+		right: 5em;
 		text-decoratioN: none;
 		color: white;
 		background-color: rgba(0, 0, 0, 0.3);
-		font-size: 12px;
-		padding: 2em;
+		font-size: 16px;
+		padding: 1em;
 		display: none;
 }
 
