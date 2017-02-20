@@ -14,7 +14,7 @@ var canvas = document.getElementById( 'canvas' ),
 		ctx = canvas.getContext( '2d' ),
 		// full screen dimensions
 		cw = document.getElementById("canvas").offsetWidth,
-		ch = document.getElementById("canvas").innerHeight,
+		ch = document.getElementById("canvas").innerHeight - 50,
 		// firework collection
 		fireworks = [],
 		// particle collection
@@ -40,9 +40,9 @@ canvas.height = ch;
 // resize handler
 window.addEventListener('resize', new function() {
 	canvas.width = document.getElementById("canvas").offsetWidth;
-	canvas.height = document.getElementById("canvas").offsetHeight;
+	canvas.height = document.getElementById("canvas").offsetHeight - 50;
 	cw = document.getElementById("canvas").offsetWidth;
-	ch = document.getElementById("canvas").offsetHeight;
+	ch = document.getElementById("canvas").offsetHeight - 50;
 }, false);
 
 // now we are going to setup our function placeholders for the entire demo

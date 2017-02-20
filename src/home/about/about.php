@@ -150,12 +150,12 @@
 			</script>
 			<!-- FINE USER MENU POPOVER -->
 
-			<div class="jumbotron" style="background-color: #111">
+			<div class="jumbotron container-fluid" style="background-color: #111">
 				<div class="row">
-						<canvas id="canvas" class="col-md-12" style="height: 40vh"></canvas>
-						<script src="fireworks.js"></script>
+					<canvas id="canvas" class="col-md-12" style="height: 35vmin;"></canvas>
+					<script src="fireworks.js"></script>
 
-				</div>
+					<div class="col-md-12">
 						<div class='console-container'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
 						<script>
 							consoleText(['Smart Unibo', 'Made with love by', 'Alberto Serluca', 'Giacomo Frisoni', 'Emilio Dettori', "So cool isn't it?"], 'text',['#95f442','#ff5900','#4080ff','#d12323']);
@@ -208,7 +208,11 @@
 								}, 400)
 							}
 						</script>
+					</div>
 				</div>
+			</div>
+
+
 
 				<audio id="musicBack" controls autoplay hidden loop>
 				  <source src="unreal_superhero_3.mp3" type="audio/mpeg">
@@ -216,8 +220,6 @@
 				<script>
 					document.getElementById("musicBack").volume = 0.5;
 				</script>
-
-			</div>
 
 			<!-- spacing line to footer -->
 			<hr />
