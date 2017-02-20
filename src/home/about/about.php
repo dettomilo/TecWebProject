@@ -212,15 +212,14 @@
 				</div>
 			</div>
 
-
-
-				<audio id="musicBack" controls autoplay hidden loop>
-				  <source src="unreal_superhero_3.mp3" type="audio/mpeg">
+			<div class="row">
+				<audio class="col-md-12 col-sm-12 col-sx-12 pull-left" id="musicBack" controls autoplay loop>
+					<source src="unreal_superhero_3.mp3" type="audio/mpeg">
 				</audio>
 				<script>
 					document.getElementById("musicBack").volume = 0.5;
-					document.getElementById("musicBack").play();
 				</script>
+			</div>
 
 			<!-- spacing line to footer -->
 			<hr />
