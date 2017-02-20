@@ -70,13 +70,15 @@
             <form action="login.php" method="post" name="login_form">
             <div class="modal-body">
 
-              <div class="form-group">
-                <label for="email">Email</label>
+              <div class="form-group input-group">
+                <label class="sr-only" for="email">Email</label>
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                 <input type="email" name="email" id="email" autocomplete="on" placeholder="email istituzionale" class="form-control input-lg"/><br/>
               </div>
 
-              <div class="form-group">
-                  <label for="password">Password</label>
+              <div class="form-group input-group">
+                <label class="sr-only" for="password">Password</label>
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                 <input type="password" name="password" id="password" autocomplete="off" placeholder="password" class="form-control input-lg"/><br/>
               </div>
 

@@ -204,7 +204,7 @@
 					<div class="row">
 						<div class="col-md-12">
 							<br />
-							<h3>Legenda Calendario:</h3>
+							<h3>Legenda Orario:</h3>
 							<?php
 									$legendaItem = getEventColors($mysqli);
 									foreach ($legendaItem as $item) {
