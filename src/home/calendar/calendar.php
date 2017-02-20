@@ -187,8 +187,6 @@
 				<!-- FINE USER MENU POPOVER -->
 
         <div class="jumbotron">
-					<div class="row">
-						<div class="col-md-9 col-sm-9 pull-left">
 							<?php
 			        //Stampo il nome del corso frequentato dallo studente.
 
@@ -198,26 +196,25 @@
 			            <h3 class="nomeCorsoNews">'.$nomeCorso.'</h3>
 									<br />';
 			         ?>
-						</div>
-						<div class="col-md-3 col-sm-3">
-							<ul>
+	        <div class="row">
+	          <div class="col-md-12">
+	            <div id='calendar'></div>
+	          </div>
+	        </div>
+					<div class="row">
+						<div class="col-md-12">
+							<br />
+							<h3>Legenda Orario:</h3>
 							<?php
 									$legendaItem = getEventColors($mysqli);
 									foreach ($legendaItem as $item) {
 										echo '
-											<li><i class="fa fa-dot-circle-o" style="color:#'.$item["Colore"].'"></i> '.$item["Tipo"].'<div class="clearfix"></div></li>
+											<span><i class="fa fa-dot-circle-o" style="color:#'.$item["Colore"].';"></i> '.$item["Tipo"].'</span>
 										';
 									}
 							 ?>
-							 </ul>
-						</div>
+						 </div>
 					</div>
-
-        <div class="row">
-          <div class="col-md-12">
-            <div id='calendar'></div>
-          </div>
-        </div>
         </div>
 
 				<!-- spacing line to footer -->

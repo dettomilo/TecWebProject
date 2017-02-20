@@ -5,7 +5,7 @@
 }
 
 .console-container {
-  font-family:Consolas,monaco,monospace; 
+  font-family:Consolas,monaco,monospace;
   font-size: 3vw;
   text-align:center;
   position:relative;
@@ -13,11 +13,10 @@
   width:100%;
   display:block;
   color:white;
-  top:0;
+  top:px;
   bottom:0;
   left:0;
   right:0;
-  margin:auto;
 }
 
 .console-underscore {

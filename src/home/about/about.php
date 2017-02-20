@@ -152,11 +152,11 @@
 
 			<div class="jumbotron" style="background-color: #111">
 				<div class="row">
-
-
-						<div class='console-container'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
-						<canvas id="canvas" class="col-md-12" style="height: 55vmin"></canvas>
+						<canvas id="canvas" class="col-md-12" style="height: 40vh"></canvas>
 						<script src="fireworks.js"></script>
+
+				</div>
+						<div class='console-container'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
 						<script>
 							consoleText(['Smart Unibo', 'Made with love by', 'Alberto Serluca', 'Giacomo Frisoni', 'Emilio Dettori', "So cool isn't it?"], 'text',['#95f442','#ff5900','#4080ff','#d12323']);
 
