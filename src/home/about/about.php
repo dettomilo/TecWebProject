@@ -163,7 +163,7 @@
 					<script src="fireworks.js"></script>
 				</div>
 
-				<div class='console-container' style="max-height: 10vh"><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
+				<div class='console-container' style="max-height: 5vh; min-height: 5vh"><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
 				<script>
 					consoleText(['Smart Unibo', 'Made with love by', 'Alberto Serluca', 'Giacomo Frisoni', 'Emilio Dettori', "So cool isn't it?"], 'text',['#95f442','#ff5900','#4080ff','#d12323']);
 
