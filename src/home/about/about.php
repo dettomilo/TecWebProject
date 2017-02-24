@@ -78,7 +78,7 @@
 
 								<li><a href="#" id="notifiche" title="Notifiche" class="glyphicon glyphicon-bell" aria-haspopup="true" data-toggle="notifichePopover" data-trigger="hover touch focus"></a></li>
 
-								<li><a href="#" id="user" title="Profilo" class="glyphicon glyphicon-user" aria-haspopup="true" data-toggle="userMenuPopover" data-trigger="hover touch focus"></a></li>
+								<li><a href="#" id="user" class="glyphicon glyphicon-user" aria-haspopup="true" data-toggle="userMenuPopover" data-trigger="hover touch focus"></a></li>
 							</ul>
 						</div>
 
